@@ -1,0 +1,57 @@
+/* Ceci est un commentaire css */
+/* 
+Le CSS nous permet d'appliquer de la mise en forme : on appelle l'élément concerné et on donne un ensemble de propriété de design avec leur valeur correspondante
+*/
+
+body {
+    /* La propriété background-color correspond à la couleur de fond */
+    background-color: lightgray; 
+    background-color: #cfa24f;
+    background-color: rgb(35, 218, 18);
+    background-color: rgba(233, 16, 16, 0.2);
+    /* 
+    Valeurs possibles pour les couleurs : 
+        - Par leur nom (red, green, blue, lightgray, etc)
+        - Par son code hexadécimal : 6caractères précédés d'un #, tous les carac de 0 à 9 et les lettres de a-f 
+        - Par son code RGB : 3 chiffres entre 0 et 255 (représentant les valeurs de red, green, blue)
+        - Par son code RGBA (le "a" pour gérer l'opacité, 1 étant une couleur pleine, 0 étant un transparent total (0.5 étant donc un moitié transparent)
+    */
+}
+
+header {
+    background-color: blueviolet;
+    color: white; /* couleur du texte */
+    height: 140px; /* hauteur de l'élément */
+    text-align: center; /* alignement du texte sur la largeur */
+    padding-top: 30px; /* padding, ce sont les marges intérieures, on s'en sert pour décaler du contenu à l'intérieur d'un élément de taille fixe et/ou pour donner plus de volume à un élément */
+}
+
+nav {
+    background-color: blue;
+    color: white;
+    height: 30px; 
+    text-align: center;
+    line-height: 30px; /* hauteur de ligne, le texte se décale de haut en bas en fonction de la valeur */
+}
+
+section {
+    background-color: white;
+    min-height: 500px; /* avec le min- : hauteur minimum, donc la taille de cette section s'adapte au besoin, si je ne mets pas le min, la taille est fixe et le contenu peut dépasser et déborder sur les autres éléments !!! */
+    padding: 30px;
+}
+
+footer {
+    background-color:rgb(99, 41, 41);
+    color: white; 
+    height: 100px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+/* Dans ce fichier .css, on stylise les éléments présents dans notre fichier structure.html 
+Pour ces premiers pas, on applique du design directement en appelant les balises, nous verrons plus tard que nous pouvons sélectionner des éléments de façon un peu plus précise grâce aux id et aux classes 
+
+Cela peut nous paraitre étrange et simpliste de juste insérer des couleurs de fonds, mais c'est la base de toute construction de site web, on commence par ce qu'on appelle le "zoning" pour définir les différentes zones de notre site web
+
+Une fois que les textes images et autres informations sont intégrés on retire evidemment les couleurs 
+*/
