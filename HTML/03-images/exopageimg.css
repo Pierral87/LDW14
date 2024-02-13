@@ -62,3 +62,10 @@ details {
     border: 2px dashed lightseagreen;
     padding: 10px;
 }
+
+img {
+    /* On donne la même taille à toutes nos images, ou en tout cas à nos balises img */
+    width: 455px;
+    height: 300px;
+    border-radius: 10px;
+}

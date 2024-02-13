@@ -5,29 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercice Modèle de Page</title>
 
-    <link rel="stylesheet" href="exopage.css">
+    <link rel="stylesheet" href="exopageimg.css">
 </head>
 <body>
 
-    <!-- Réalisation d'une première page personnelle selon le modèle de l'image exopage.jpg 
-            Etapes : 
-                - Division header 
-                    - 1 h1 
-                    - 1 nav 
-                        - 3 span 
-                - Division section 
-                    - 1 h2 
-                    - 3 p avec du texte en gras, en italique, en couleur, en barré 
-                    - Division fieldset 
-                        - 1 legende 
-                        - 1 p de contenu 
-                    - Division details 
-                        - 1 summary
-                        - 1 p de contenu 
-                - Division footer 
-                    - 1 p
-    -->
-    
+    <!-- On reprends l'exo page du chapitre 02-texte et on insère une image dans le fieldset, et une autre image dans le details, on oublie pas d'appliquer un peu de style pour definir la taille de nos images (ou autre) -->
+  
     <header>
         <h1>Bienvenue</h1>
         <nav>
@@ -45,11 +28,19 @@
 
         <fieldset>
             <legend>Titre du fieldset</legend>
+            
             <p>Contenu du fieldset</p>
+            <figure>
+                <img src="image2.jpg" alt="">
+                <figcaption>
+                    <h3>Belle image</h3>
+                </figcaption>
+            </figure>
         </fieldset>
 
         <details>
             <summary>Titre du détails</summary>
+            <img src="image3.jpg" alt="">
             <p>Contenu du détails</p>
         </details>
         

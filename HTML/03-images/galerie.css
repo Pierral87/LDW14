@@ -1,0 +1,41 @@
+body {
+    /* On enlève les marges du body et on mets une couleur de fond */
+    margin: 0;
+    background-color: gray;
+}
+
+#container {
+    /* On défini la taille de notre container de contenu de page à 1000px, couleur de fond blanche, padding(marge intérieure) 20px, et marge y 30px et marge x auto pour centrer l'élément */
+    width: 1000px;
+    background-color: white;
+    padding: 20px;
+    margin: 30px auto;
+  
+}
+
+h1 {
+    /* On centre le titre à l'intérieur du container */
+    text-align : center;
+    border-bottom: 2px solid;
+    padding-bottom: 20px;
+}
+
+img {
+    /* On donne la même taille à toutes nos images, ou en tout cas à nos balises img */
+    width: 455px;
+    height: 300px;
+    margin: 20px;
+    border-radius: 10px;
+    /* border-radius est une propriété qui me permet d'arrondir les angles de mes éléments, que ce soit un img, ou une simple div, elle prends une valeur en pixel pour déterminer la courbure */
+    transition: all 0.5s ease;
+}
+
+img:hover {
+    /* hover est un paramètre qui implique le survol d'un élément, lorsqu'une balise img sera survolée par le curseur de la souris, le style ci dessous va s'appliquer */
+    transform: rotate(-10deg);
+    border-radius: 100px;
+}
+
+#rotation360:hover{
+    transform: rotate(360deg);
+}
