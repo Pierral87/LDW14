@@ -6,9 +6,9 @@ Le CSS nous permet d'appliquer de la mise en forme : on appelle l'élément conc
 body {
     /* La propriété background-color correspond à la couleur de fond */
     background-color: lightgray; 
-    background-color: #cfa24f;
+    background-color: #d8ac5b;
     background-color: rgb(35, 218, 18);
-    background-color: rgba(233, 16, 16, 0.2);
+    background-color: rgba(233, 16, 16, 0.4);
     /* 
     Valeurs possibles pour les couleurs : 
         - Par leur nom (red, green, blue, lightgray, etc)

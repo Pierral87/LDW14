@@ -1,0 +1,53 @@
+body
+{
+    background-color: gray;
+    margin: 0;
+}
+
+#container {
+    background-color: white;
+    width: 1000px;
+    padding: 30px;
+    /* margin: 50px;  50px de marge sur tous les côtés */
+    /* margin: 50px 100px; 50px pour les marges haut et bas et 100px pour les marges gauche et droite */
+    /* margin: 50px 60px 70px 80px; on applique une valeur de marge différente à chaque côté, la première étant la marge haute, puis droite, bas, gauche (sens des aiguilles d'une montre*/
+    margin: 30px auto;
+}
+
+span { /* span : balise neutre pour impacter une partie du texte avec du style */
+    color: red; /* la couleur du texte  */
+    font-weight: 900; /* le "poids" du texte, gras ou normal, ou différente variation, peut prendre la valeur "normal", "bold" ou un chiffre en centaine entre 100 et 900, le 100 étant une écriture fine, le 900 étant une écriture en gras (toutes les polices ne le permettent pas forcement) */
+    font-style: italic; /* applique un style de design directement sur le texte, par exemple italic */
+    text-decoration:underline; /* applique un style de design en plus du texte, par exemple rayé, ou souligné*/
+    font-size: 25px; /* la taille de la police */
+}
+
+* { /* Ici le sélecteur CSS "*" symbolise la selection de toutes les balises sans exception !*/
+    /* J'appelle ici une des polices que j'ai importé dans les link de la page html */
+    font-family: "Roboto", sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 70px;
+    letter-spacing: 5px; /* l'espacement entre les lettres */
+    font-family: "Protest Revolution", sans-serif;
+}
+
+/* On peut ajouter des polices spécifiques à nos sites wbe, par exemple on peut récupérer une police sur dafont : dafont.com 
+Par contre les polices récupérées là sont des polices adaptées pour des éditeurs de texte (comme word etc), j'ai besoin de les convertir pour le web.
+Pour ça, on peut utiliser divers outils, tels que le site fontsquirrel.com  
+Il nous permettra de convertir une police classique, en web 
+Les lignes ci-dessous font-face etc, sont des lignes générées dans le package de fontsquirrel, ce qui me permet d'importer la police à mon projet et ensuite de l'appeler dans mes styles css par son nom, ici "horyzen_digitalregular" */
+@font-face {
+    font-family: 'horyzen_digitalregular';
+    src: url('horyzen_headline-webfont.woff2') format('woff2'),
+         url('horyzen_headline-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h2 {
+    font-family: "horyzen_digitalregular";
+    font-size: 50px;
+}

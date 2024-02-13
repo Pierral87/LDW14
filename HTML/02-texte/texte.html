@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texte</title>
+
+    <link rel="stylesheet" href="texte.css">
+
+    <!-- On peut ajouter ici de nouvelles polices via des liens vers des sites tels que google fonts : Ici on a rajouté les polices Roboto et Protest Revolution depuis le site : https://fonts.google.com/ 
+    Le site nous donne directement le lien <link> à insérer ici et nous permet d'importer les polices que l'on a choisi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="container">
+        <!-- div, c'est une balise de division, en general en html on appelle un container, ce qui contiendra le contenu de notre page, souvent moins large que la page entière ! (souvent à 75% de largeur), également ici, j'ai rajouté un "id" c'est en quelque sorte un identifiant unique pour spécifiquement ce div là  -->
+        <h1>Titre principal H1</h1>
+        <h2>TITRE SECONDAIRE H2</h2>
+        <h3>Titre secondaire H3</h3>
+        <h4>Titre secondaire H4</h4>
+        <h5>Titre secondaire H5</h5>
+        <h6>Titre secondaire H6</h6>
+        <!-- Balises titre : de h1 à h6 -->
+        <!-- Toute page html doit être ordonnée avec des titres - ATTENTION toujours un seul H1 par page, c'est le titre qui identifiera notre page -->
+
+        <!-- <br> balise pour sauter une ligne -->
+        <br>
+        <!-- <p> balise paragraphe pour accueillir du texte -->
+        <p>
+            <!-- strong pour la mise en importance d'un contenu, mets par défaut le texte en gras -->
+            <!-- b mets aussi en gras mais n'apporte pas de valeur sémantique contrairement à strong -->
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. <strong>Assumenda voluptatibus</strong> ad nostrum
+            sunt at, doloribus quo veritatis cumque, <b>nobis nisi numquam</b> aut quis ut perspiciatis neque impedit,
+            eius dicta laborum?
+            <!-- cite, mise en importance d'un contenu considéré comme une citation, mets par defaut le style en italique, <em> permets aussi de mettr en italique mais sans valeurs semantiques -->
+            Exercitationem suscipit sequi aut dicta delectus ratione sit in odio eligendi, molestias quas, <cite>harum
+                ipsa facere tempore est doloribus incidunt porro voluptatem</cite> illo <em>recusandae</em> minus iusto
+            voluptate! Odit, optio amet.
+            <!-- <u> permet de souligner sans valeur sémantique, <del> permet de ne pas considérer un contenu sur une page, par defaut appliquer un texte rayé -->
+            <!-- span est une balise neutre, le but étant de la manipuler avec le css -->
+            <u>Soluta minima dolore</u> eligendi exercitationem cum? A, <del>odit fugit perferendis</del> at deserunt
+            nemo quidem odio dolor excepturi rerum quo, <span>tempore laboriosam</span> unde commodi animi quibusdam nam
+            qui, sunt sint natus?
+        </p>
+
+        <!-- Un fieldset englobe du contenu dans un cadre et la légendre apparaitra en en tête de ce cadre -->
+        <fieldset>
+            <legend>La légende</legend>
+            <p>
+                Je suis le fieldset : Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, quam impedit,
+                fugit esse neque expedita maiores, quisquam iure sed </p>
+        </fieldset>
+        <hr>
+        <details>
+            <summary>Voir les détails</summary>
+            <p>
+                Je suis dans le détails : Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, unde
+                dolor adipisci et quia totam facere nesciunt voluptate nisi.</p>
+        </details>
+
+
+    </div>
+
+</body>
+
+</html>
