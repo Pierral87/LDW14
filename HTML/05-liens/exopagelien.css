@@ -1,0 +1,67 @@
+/* 
+
+
+*/
+
+body {
+    background-color: lightgray;
+    padding: 20px;
+}
+
+header {
+    background-color: steelblue;
+    color:white;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+nav a{
+    margin-right: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color:white;
+}
+
+section {
+    background-color: white;
+    min-height: 500px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: rgb(59, 174, 228);
+}
+
+section span {
+    color: red;
+}
+
+footer {
+    background-color: steelblue;
+    color:white;
+    padding: 10px;
+    text-align: center;
+}
+
+legend, summary {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+fieldset {
+    margin-bottom: 20px;
+    border: 2px solid rgb(194, 191, 191);
+}
+
+details {
+    border: 2px dashed lightseagreen;
+    padding: 10px;
+}
+
+img {
+    /* On donne la même taille à toutes nos images, ou en tout cas à nos balises img */
+    width: 455px;
+    height: 300px;
+    border-radius: 10px;
+}

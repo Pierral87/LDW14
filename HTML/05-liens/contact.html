@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice Modèle de Page</title>
+
+    <link rel="stylesheet" href="exopagelien.css">
+</head>
+<body>
+
+    <!-- On reprends l'exo du chapitre 2 et 3, "exopage" et on va le modifier ici 
+        Le but étant de transformer les 3 span de la nav, en vrais liens ! 
+        Il faut donc remplacer les balises span, par des balises <a>, donc changer le css pour que le même style qu'à l'origine s'applique.
+            Et créer 2 nouvelles pages apropos.html et contact.html pour créer les liens vers ces pages là.
+            Pas besoin de s'embêter avec le contenu des pages, changez simplement le titre H2
+    -->
+  
+    <header>
+        <h1>Bienvenue</h1>
+        <nav>
+            <!-- On change ici  -->
+            <a href="exopagelien.html">Accueil</a>
+            <a href="apropos.html">A propos</a>
+            <a href="contact.html">Contact</a>
+            <!-- là         -->
+        </nav>
+    </header>
+
+    <section>
+        <h2>PAGE CONTACT</h2>
+        <p>Ceci est un paragraphe de texte. <strong>Texte en gras</strong> <cite>Citation</cite> </p>
+        <p>Un autre paragraphe avec un <span>span</span> dedans</p>
+        <p><del>Ce texte est barré</del></p>
+
+        <fieldset>
+            <legend>Titre du fieldset</legend>
+            
+            <p>Contenu du fieldset</p>
+            <figure>
+                <img src="image2.jpg" alt="">
+                <figcaption>
+                    <h3>Belle image</h3>
+                </figcaption>
+            </figure>
+        </fieldset>
+
+        <details>
+            <summary>Titre du détails</summary>
+            <img src="image3.jpg" alt="">
+            <p>Contenu du détails</p>
+        </details>
+        
+    </section>
+
+    <footer>
+        <p> © 2024 - Mon site web</p>
+    </footer>
+
+</body>
+</html>

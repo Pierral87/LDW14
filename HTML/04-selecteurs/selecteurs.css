@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    background-color: gray;
+}
+
+#container {
+    width: 1000px;
+    margin: 20px auto;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: white;
+}
+
+p {
+    font-weight: bold;
+    color: red;
+}
+
+p:nth-child(1){
+    /* tous les éléments <p> impair (odd) */
+    color : green;
+}
+
+p:nth-child(even){
+    /* tous les éléments <p> pair (even) */
+    color : blueviolet;
+}
+
+p:first-child{
+/* Le ou les éléments p à condition qu'ils soient le premier enfant d'un autre élément (ici le premier p du div container et le premier p du div mon_id */
+/* Il existe egalement last-child */
+    color:blue;
+}
+
+.ma_classe{
+    /* Il est possible d'appliquer du css sur plusieurs éléments via une classe, même si ce sont des balises différentes */
+    /* le !important nous permet de donner la priorité à ce style là et qu'il écrase bien la couleur précédente */
+    margin: 20px;
+    background-color: tomato;
+    color: white !important;
+    padding: 20px;
+}
+
+#mon_id span {
+    /* un span qui se trouve dans un élément ayant l'id "mon_id" */
+    font-size: 35px;
+    font-weight: bold;
+    color: red;
+}
+
+div div span {
+    /* un span qui se trouve dans un div, lui même se trouvant dans un autre div  */
+    color: blueviolet !important;
+}
+
+/* 
+POUR SELECTIONNER DES ELEMENTS HTML VIA CSS (IMPORTANT!!! c'est pour appliquer du style à nos éléments de façon indépendante des autres MAIS AUSSI, lorsque l'on commencera à manipuler notre HTML grâce au Javascript !!!
+
+
+* {} : caractère universel : toutes les balises dans exception 
+par nom de balise : p {}  div {} etc.
+par son id : #container {}  #mon_id {}
+par sa classe : .ma_classe{}, autreClasse {}
+Par la relation parent enfant : div:first-child{} p:last-child {}, span:nth-child{2}
+par son chemin : div span {}, #container div p {}
+
+-------------------------------
+
+Différence entre les id et les class : 
+- Un id est fait pour être unique dans une page, ce serait une erreur de développement de donner le même id à deux éléments !
+- Une classe par contre est faite pour être répétée et utilisée autant de fois que nécessaire, on peut d'ailleurs se préparer des classes pour des style basique, par exemple margin: 20px,  color: red;  on pourrait inclure ces styles dans des classes, l'une qui s'appelerait margin-20, l'autre couleur-rouge
+
+Caractères autorisés pour les class et les id : les lettres, les chiffres, le tiret, le tiret-bas 
+ATTENTION, on ne peut pas commencer un nom de classe par un chiffre ! 
+Egalement les noms sont sensibles à la casse, c'est à dire qu'une minuscule n'a pas la meme valeur qu'une majuscule, un id  "MonID" est différent de "monID"
+
+*/

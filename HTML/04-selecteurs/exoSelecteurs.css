@@ -1,0 +1,50 @@
+/* 
+1 - Sélectionnez et stylisez tous les paragraphes dans la section principale (<main>) avec la classe "box". Ajoutez une bordure et une marge à ces paragraphes.
+*/
+main .box p {
+    border: 2px solid blue;
+    padding: 10px;
+    margin: 10px;
+    color: red;
+}
+
+/* 
+2 - Sélectionnez et stylisez le paragraphe avec la classe "blue-text" dans une boîte imbriquée (<div> avec la classe "nested-box"). Changez la couleur du texte.
+*/
+.nested-box .blue-text {
+    color: blue;
+}
+
+/* 
+3 - Sélectionnez et stylisez toutes les images dans les boîtes imbriquées (<div> avec la classe "nested-box"). Ajoutez une bordure arrondie et une ombre à ces images.
+*/
+.nested-box img {
+    border-radius: 20px;
+    /* margin: 20px; */
+    margin-left: 50px;
+    box-shadow: 2px 2px 50px 10px rgba(0,0,0,4)
+}
+
+/* 
+4 - Sélectionnez et stylisez le paragraphe dans une boîte imbriquée (<div> avec l'id "nestedBox3") uniquement s'il est situé à l'intérieur d'un article. Ajoutez une couleur de fond. 
+*/
+article #nestedBox3 p {
+    background-color: aquamarine;
+}
+
+/* 
+5 - Sélectionnez et stylisez le premier paragraphe dans la section 1 (<section> avec l'id "section1") avec la classe "box". Ajoutez une bordure et une marge à ce paragraphe. 
+*/
+#section1 > p:nth-child(2) {
+    border: 50px solid;
+    margin: 20px;
+}
+
+/* 
+6 - Sélectionnez et stylisez le dernier paragraphe dans la section 2 (<div> avec l'id "section2") avec la classe "box". Changez la couleur du texte et ajoutez une ombre. 
+*/
+
+#section2 #nestedBox2 > p {
+    color: green !important;
+    box-shadow: 3px 3px 5px black;
+}
