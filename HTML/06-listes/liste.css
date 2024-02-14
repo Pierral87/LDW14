@@ -1,0 +1,55 @@
+#deuxieme_liste {
+    padding: 5px;
+    list-style: none;
+    border: 2px solid black;
+    border-radius: 15px;
+    width: 250px;
+}
+
+#deuxieme_liste li {
+    padding: 5px;
+    border-bottom: 1px solid gray;
+}
+
+#deuxieme_liste li:last-child {
+    border-bottom: none;
+}
+
+#deuxieme_liste li:hover {
+    color: white;
+    background-color: darkslateblue;
+}
+
+#troisieme_liste {
+    list-style: katakana;
+    list-style-image: url("flag.svg");
+}
+
+#menu {
+    list-style: none;
+    width: 500px;
+}
+
+#menu > li {
+    background-color: darkslateblue;
+}
+
+#menu a {
+    color: white;
+    padding: 10px 25px;
+    display: block;
+    text-decoration:none;
+}
+
+#menu a:hover {
+    background-color:deeppink;
+}
+
+#menu .sous-menu {
+    list-style: none; 
+    display: none;
+}
+
+#menu li:hover .sous-menu {
+    display: block;
+}

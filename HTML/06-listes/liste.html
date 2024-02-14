@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listes HTML</title>
+    <link rel="stylesheet" href="liste.css">
+    
+</head>
+<body>
+    <!-- 
+        Il existe différentes types de listes, les listes non ordonnées et les listes ordonnées
+
+        Les listes non ordonnées se déclare avec la balise "ul", et a contrario "ol" pour les listes ordonnées
+        A l'intérieur de ces deux types de liste, on aura des balises "li" pour un élément de liste 
+     -->
+     <ul id="premiere_liste">
+        <li>Pommes</li>
+        <li>Poires</li>
+        <li>Abricots</li>
+        <li>Kiwis</li>
+        <li>Bananes</li>
+     </ul>
+
+     <ul id="deuxieme_liste">
+        <li>Pommes</li>
+        <li>Poires</li>
+        <li>Abricots</li>
+        <li>Kiwis</li>
+        <li>Bananes</li>
+     </ul>
+
+     <!-- On peut imbriquer une liste dans une autre liste -->
+     <ul id="troisieme_liste">
+        <li>Voyage
+            <ul>
+                <li>Europe
+                    <ul>
+                        <li>France</li>
+                        <li>Espagne</li>
+                    </ul>
+                </li>
+                <li>Asie</li>
+                <li>Afrique</li>
+            </ul>
+        </li>
+        <li>Musique</li>
+        <li>Cinéma</li>
+        <li>Autres</li>
+     </ul>
+
+
+     <!-- Ci-dessous les listes ordonnées -->
+
+     <ol>
+        <li>Lundi</li>
+        <li>Mardi</li>
+        <li>Mercredi</li>
+        <li>Jeudi</li>
+        <li>Vendredi</li>
+        <li>Samedi</li>
+        <li>Dimanche</li>
+     </ol>
+
+
+     <!-- On fait un test d'un menu  -->
+
+     <ul id="menu">
+        <li><a href="">Accueil</a></li>
+        <li><a href="">Boutique</a>
+            <ul class="sous-menu">
+                <li><a href="">Pantalon</a></li>
+                <li><a href="">Tshirt</a></li>
+                <li><a href="">Pull</a></li>
+                <li><a href="">Bonnet</a></li>
+            </ul>
+        </li>
+        <li><a href="">Panier</a></li>
+        <li><a href="">Contact</a></li>
+        <li><a href="">Profil</a></li>
+     </ul>
+     
+
+</body>
+</html>
