@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+    <link rel="stylesheet" href="formulaire.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Mon formulaire</h1>
+        <!-- 
+            Attributs de la balise form :
+            --------------------------------
+            method="" : quelle methode sera utilisée pour transmettre les données du form au serveur (PHP), valeur acceptée GET ou POST (GET par défaut, mais on utilise généralement POST)
+            action="" : l'url cible lors de la validation du form (et celle sur laquelle on pourra récupérer les valeurs)
+            enctype="multipart/form-data" : obligatoire pour récupérer les fichiers envoyés par les input type file 
+
+            Attributs des champs du form : 
+            --------------------------------
+            for="" : Pour la balise label, sert à lier le label et l'input entre eux (le for doit correspondre à l'id du label)
+            type="" : pour les balises input, sert à dire à quoi sert ce champ 
+                - text : champ de saisie texte
+                - email : vérifie le format de l'email
+                - password : cache la saisie 
+                - file : chargement de fichier
+                - radio : case à cocher : un seul choix possible
+                - select : un choix parmis un ensemble de possibilité en liste déroulante 
+                - submit : bouton de validation du form
+                - reset : bouton de réinitialisation du form
+                - date : pour manipuler un calendrier
+                - range : pour manipuler une jauge de 0 à 100 
+                - color : pour une choisir une couleur dans le nuancier, transmet une valeur hexadécimale
+            textarea: ce n'est pas un input, et il lui faut une balise fermante, défini un "large" champ de saisie texte 
+
+            required : rend un champ obligatoire 
+            disabled : désactive un champ (grisé et pas de saisie possible)
+            readonly : style normal mais pas de saisie possible 
+            multiple : pour un input file pour envoyer plusieurs fichiers 
+            name : OBLIGATOIRE sinon le serveur ne récupère pas les saisies de ce champ 
+            value : pour insérer une valeur dans le champ 
+            placeholder : un texte indicatif dans le champs 
+         -->
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            <label for="pseudo">Pseudo</label><br>
+            <input type="text" id="pseudo" name="pseudo" required><br>
+            <label for="disabled">disabled</label><br>
+            <input type="text" id="disabled" name="disabled" disabled value="valeur bloque"><br>
+            <label for="readonly">readonly</label><br>
+            <input type="text" id="readonly" name="readonly" readonly value="valeur bloque"><br>
+
+           <label for="password">Mot de Passe</label><br>
+           <input type="password" id="password" name="password" placeholder="Veuillez saisir un password"><br>
+
+           <label for="email">Email</label><br>
+           <input type="email" id="email" name="email" value="votre@email.com"><br>
+
+           <label for="cv">CV</label><br>
+           <input type="file" id="cv" name="cv" multiple><br>
+
+           <label for="civilite">Civilite</label><br>
+           <input type="radio" name="civilite" id="civiliteM">Homme
+           <input type="radio" name="civilite" id="civiliteF">Femme
+           <input type="radio" name="civilite" id="civiliteA">Autre<br>
+
+           <label for="datenaissance">Date de Naissance</label><br>
+           <input type="date" id="datenaissance" name="datenaissance"><br>
+
+           <label for="jauge">Jauge</label><br>
+           <input type="range" id="jauge" name="jauge">
+
+           <label for="couleur">Couleur</label><br>
+           <input type="color" id="couleur" name="couleur"><br>
+
+           <input type="hidden" name="cache" id="cache" value="123">
+
+           <label for="adresse">Adresse</label>
+           <textarea name="adresse" id="adresse" cols="30" rows="10"></textarea>
+
+           <label for="pays">Pays</label>
+           <select name="pays" id="pays">
+                <option value="France">France</option>
+                <option value="Italie">Italie</option>
+                <option value="Japon">Japon</option>
+                <option value="Mexique">Mexique</option>
+                <option value="Espagne">Espagne</option>
+           </select>
+
+            <hr>
+            <input type="reset" value="Annuler"><br>
+            <input type="submit" value="Valider">
+        </form>
+
+
+
+    </div>
+</body>
+</html>

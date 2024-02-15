@@ -1,0 +1,39 @@
+.container {
+    width: 80%;
+    margin: 30px auto;
+    border: 1px solid;
+    padding: 20px;
+    display: flex;
+    /* display: flex, permet de mettre les éléments direct enfant sur la même ligne */
+
+    /* flex-direction permet de définir la direction des éléments, de gauche à droite, de droite à gauche, de haut en bas, de bas en haut  */
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* flex-wrap: wrap 
+    Permet de dire à la valeur flex de respecter la taille des éléments et s'ils sont plus long, ils passent à la ligne en dessous. */
+    justify-content: space-evenly;
+    /* justify-content (l'alignement des blocs) 
+    flex-start : depuis la gauche 
+    flex-end : depuis la droite 
+    space.... around/between/evenly : règle les espacements autour des blocs, ou entre les blocs, ou de meme taille partout 
+    Voir détails sur illustration de : 
+    https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+}
+
+.largeur-25 {
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+}
+
+.largeur-25:first-child{
+    background-color: tomato;
+}
+
+.largeur-25:nth-child(2){
+    background-color: royalblue;
+}
+
+.largeur-25:last-child{
+    background-color: indigo;
+}

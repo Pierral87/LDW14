@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid;
+    min-height: 500px;
+}
+
+.A {
+    background-color: red;
+}
+
+.B {
+    background-color: green;
+}
+
+.C {
+    background-color: blue;
+}
+
+.D {
+    background-color: yellow;
+}
+
+.A, .B, .C{
+    border: 1px solid;
+    width: 140px;
+    height: 140px;
+    text-align: center;
+    line-height: 140px;
+    float: left;
+    /* margin-right: 20px; */
+}
+
+.D {
+    border: 1px solid;
+    width: 140px;
+    height: 140px;
+    text-align: center;
+    line-height: 140px;
+    float:right;
+}
+
+/* .clear {
+    clear: both;
+} */
+
+/* 
+
+    La propriété float permet de mettre des éléments bloc sur une même ligne. (pas possible normalement, un élément bloc prenant toute la largeur possible, l'élément suivant est forcément à la ligne)
+
+    Pour fonctionner correctement, tous les éléments de la ligne doivent avoir la propriété float.
+
+    Le float sort les éléments du flux html et peut créer des incohérences dans la structure.
+    Pour ne pas avoir d'incohérence, il faut toujours casser le float juste après les éléments concernés.
+    Pour cela on utilisera la propriété css "clear" que l'on appliquera sur un élément vide (ici mon div class clear)
+
+    Attention l'élément qui clear, doit être au même niveau que les éléments float
+
+    Le box-sizing en border-box nous permet de faire comprendre au système sur quelle taille d'élément il doit se baser, c'est à dire qu'on parle de la taille du contenu ou de la taille incluant les marge/padding/bordure ou sans les inclure.
+    Le fait de le mettre à cette valeur border-box, permet de dire que si mon élément fait 150px de large, alors, ce sera TOUJOURS 150px de large en incluant les marges, les paddings, la bordure pour respecter cette taille de 150px.
+    Cela nous permet de supprimer les décalages.
+
+*/

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo Formulaire d'Inscription</title>
+    <link rel="stylesheet" href="formulaire.css">
+</head>
+<body>
+    <!-- Réalisez un formulaire d'inscription
+        Ne pas oublier method POST dans les attributs de la balise form 
+
+        On souhaite ensuite les champs suivants : 
+
+        Pseudo          type text
+        Mot de passe    type password
+        Email           type email 
+        Nom             type text
+        Prenom          type text
+        Nationalité     type select (insérez 4 ou 5 choix possible de nationalité)
+    -->
+
+    <div id="container">
+        <h2>Formulaire d'inscription</h2>
+
+        <form action="" method="POST">
+            <label for="pseudo">Pseudo</label><br>
+            <input type="text" id="pseudo" name="pseudo" placeholder="Saisissez votre pseudo"><br>
+
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" placeholder="Saisissez votre mot de passe"><br>
+
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="Saisissez votre email"><br>
+
+            <label for="nom">Nom</label><br>
+            <input type="text" id="nom" name="nom" placeholder="Saisissez votre nom"><br>
+
+            <label for="prenom">Prenom</label><br>
+            <input type="text" id="prenom" name="prenom" placeholder="Saisissez votre prenom"><br>
+
+            <label for="nationalite">Nationalité</label>
+            <select name="nationalite" id="nationalite">
+                <option value="">---</option>
+                <option value="France">France</option>
+                <option value="Japon">Japon</option>
+                <option value="Espagne">Espagne</option>
+                <option value="Chine">Chine</option>
+                <option value="Argentine">Argentine</option>
+            </select>
+
+            <input type="reset" value="Reinitialiser">
+            <input type="submit" value="Inscription">
+        </form>
+
+    </div>
+
+
+
+</body>
+</html>
