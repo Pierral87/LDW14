@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableaux HTML</title>
+    <style>
+        table {
+            border: 5px solid; 
+            /* La propriété border-collapse nous permet de fusionner les bordures voisines, pour éviter les doubles bordures entre les éléments */
+            border-collapse : collapse; 
+            width: 70%; margin: 0 auto;
+        }
+        th, td {
+            border: 1px solid; padding: 15px; text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- <table> c'est la balise qui déclare l'ouverture d'un tableau -->
+    <table>
+        <!-- <thead> c'est pour indiquer la zone d'en tête du tableau -->
+        <thead>
+            <tr>
+                <!-- colspan permet de fusionner des cellules -->
+                <th colspan="4">Statistiques de Population par pays</th>
+            </tr>
+            <!-- <tr> pour table row, on commence une ligne de tableau grâce au <tr> -->
+            <tr>
+                <!-- <th> table heading, le th crée une "cellule" de tableau, mais en la considérant comme un titre, on l'utilise en général dans l'en tête -->
+                <th>Pays</th>
+                <th>Capitale</th>
+                <th>Continent</th>
+                <th>Population</th>
+            </tr>
+        </thead>
+        <!-- <tbody> pour indiquer la zone du corps du tableau -->
+        <tbody>
+            <tr>
+                <!-- <td> pour "table division" permet de créer une cellule/case de tableau -->
+                <td>France</td>
+                <td>Paris</td>
+                <td>Europe</td>
+                <td>67 000 000</td>
+            </tr>
+            <tr>
+                <td>Japon</td>
+                <td>Tokyo</td>
+                <td>Asie</td>
+                <td>127 000 000</td>
+            </tr>
+            <tr>
+                <td>Espagne</td>
+                <td>Madrid</td>
+                <td>Europe</td>
+                <td>50 000 000</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

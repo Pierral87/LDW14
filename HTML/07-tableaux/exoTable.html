@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo Table</title>
+    <style>
+        table {
+            border: 5px solid; 
+            /* La propriété border-collapse nous permet de fusionner les bordures voisines, pour éviter les doubles bordures entre les éléments */
+            border-collapse : collapse; 
+            width: 70%; margin: 0 auto;
+        }
+        th, td {
+            border: 1px solid; padding: 15px; text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Exercice sur les tableaux : 
+
+        Créer un tableau de type "Base de Données d'employés"
+
+        Créez un tableau dans lequel nous aurons les en-têtes suivants :
+        <thead>   6 <th>
+        ID - Nom - Prénom - Service - Salaire - Date d'embauche 
+
+        <tbody> 5<tr>   6 <td>
+        Ajoutez ensuite des lignes de données fictives pour représenter 5 employés 
+
+        Y appliquer le style de votre choix
+     -->
+
+     <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Service</th>
+                <th>Salaire</th>
+                <th>Date d'embauche</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Lacaze</td>
+                <td>Pierra</td>
+                <td>Informatique</td>
+                <td>10000</td>
+                <td>15/02/2024</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Khalil</td>
+                <td>Ridowane</td>
+                <td>Commercial</td>
+                <td>100000</td>
+                <td>01/02/2023</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Extreme</td>
+                <td>Jean</td>
+                <td>Informatique</td>
+                <td>200000</td>
+                <td>01/02/2021</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Escarabajal</td>
+                <td>Alan</td>
+                <td>Design</td>
+                <td>5000</td>
+                <td>01/02/2019</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Elamari</td>
+                <td>Anisse</td>
+                <td>Formation</td>
+                <td>500000</td>
+                <td>01/02/2019</td>
+            </tr>
+        </tbody>
+
+     </table>
+</body>
+</html>
