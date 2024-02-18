@@ -1,0 +1,55 @@
+
+.container{
+	width: 1000px;
+	background-color: #40A497;
+	margin: 0 auto;
+	color: #fff;
+}
+header{
+	min-height: 80px;
+	background-color: #A4409A;
+}
+nav{
+	min-height: 30px;
+	background-color: yellow;	
+}
+.a, .b{
+	min-height: 500px;
+	color: gray;
+	font-size: 50px;
+	float: left;
+}
+.a{
+	background-color: red;
+	width: 75%;
+}
+.b{
+	background-color: blue;
+	width: 25%;
+}
+footer{
+	min-height: 60px;
+	background-color: #E80B28;
+} 
+.ghost{
+	clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
