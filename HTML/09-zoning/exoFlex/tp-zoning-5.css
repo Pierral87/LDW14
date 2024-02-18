@@ -1,0 +1,35 @@
+  .conteneur {
+    display: flex;
+	margin: 0 auto;
+	width : 80%; 
+  }
+  .colonne-1 {
+    background: #ff670f;
+    width: 15%;
+  }
+  .colonne-2 {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+  }
+  .milieu {
+    display: flex;
+  }
+  .contenu {
+	  width: 80%;
+  }
+  .milieu article {
+	background: #336677;
+    min-height: 60vh;
+  }
+  .milieu aside {
+    background: #dedede;
+    width: 20%;
+  }
+  header, footer {
+    background: #56ff8f;
+    height: 10vh;
+  }
+  header, footer, article, nav, aside {
+    padding: 1em;
+  }

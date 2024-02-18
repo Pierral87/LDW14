@@ -1,0 +1,29 @@
+
+  .conteneur {
+	width: 80%;
+	margin: 0 auto;
+  }
+  section{display: flex;}
+  .colonne-1, .colonne-3 {
+    background: #ff670f;
+    width: 10%;
+  }
+  .colonne-2 {
+    width: 80%;
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+  }
+  .content > article {
+	background: #336677;
+	width: 100%;
+    min-height: 60vh;
+  }
+  header, footer {
+    background: #56ff8f;
+    height: 10vh;
+  }
+  header, footer, article, nav {
+    padding: 1em;
+  }

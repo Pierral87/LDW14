@@ -1,0 +1,42 @@
+.container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+#main {
+  display: flex;
+}
+
+#main>article {
+  flex-grow: 1;
+  background: #336677;
+}
+
+#main>nav,
+#main>aside {
+  /* width: 20vw; */
+  width: 25%;
+  min-height: 50vh;
+}
+
+#main>aside {
+  background: #ff8799;
+}
+
+#main>nav {
+  background: #ff670f;
+}
+
+header,
+footer {
+  background: #56ff8f;
+  min-height: 10vh;
+}
+
+header,
+footer,
+article,
+nav,
+aside {
+  padding: 1em;
+}
