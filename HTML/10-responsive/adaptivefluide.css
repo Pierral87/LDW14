@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+.zone1 {
+    background-color: brown;
+    color: white;
+    border: 3px solid black;
+    padding: 5px;
+}
+
+.zone2 {
+    background-color: aqua;
+    padding: 5px;
+    width: 100%;
+    color: darkblue;
+}
+
+.zone3 {
+    background-color: blueviolet;
+    padding: 5px;
+    width: 100%;
+    color: aqua;
+}
+
+.clear{
+    clear:both;
+}
+
+@media(min-width: 768px){
+    .zone1 {
+        width: 750px;
+    }
+}
+
+
+@media(min-width: 992px){
+    .zone1 {
+        width: 970px;
+    }
+    .zone2, .zone3 {
+        float: left;
+        width: 50%; 
+    }
+}
+
+@media(min-width: 1200px){
+    .zone1 {
+        width: 1170px;
+    }
+    .zone2, .zone3 {
+        float: left;
+        width: 50%; 
+    }
+}
