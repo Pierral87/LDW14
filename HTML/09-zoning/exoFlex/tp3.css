@@ -1,0 +1,28 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    /* height: 800px; */
+}
+
+.colonne-1, .colonne-3 {
+    background: orange;
+    width: 10%;
+}
+
+.colonne-2 {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    background-color: greenyellow;
+    min-height: 10vh;
+}
+
+article {
+    background-color: royalblue;
+    min-height: 60vh;
+}
+
