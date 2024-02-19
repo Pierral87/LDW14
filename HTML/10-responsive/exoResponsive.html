@@ -1,0 +1,70 @@
+<!-- 
+
+Créez une page HTML simple avec une div ayant une classe .responsiveDiv 
+
+Initialement, la div doit avoir une largeur de 80% de la largeur de l'écran et un fond de couleur bleue
+
+Utilisez les médias queries pour rendre la div responsive à différentes tailles d'écran : 
+
+    Lorsque la largeur est entre 1200 et 901 pixels, réduisez la largeur à 70% et changez la couleur de fond en vert 
+    Lorsque la largeur est entre 900 pixels et 601 pixels, réduisez la largeur à 60% et changez la couleur en orange 
+    Lorsque la largeur de l'écran est de moins de 600 pixels, réduisez la largeur à 50% et couleur de fond rouge 
+
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo Responsive</title>
+
+    <style>
+        body{
+            background-color: lightyellow;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .responsiveDiv {
+            background-color: steelblue;
+            width: 80%;
+            height: 100px;
+            margin: 10px auto;
+            transition: all 0.5s;
+        }
+
+        /* Style jusqu'à 1200px */
+        @media (max-width: 1200px) {
+            .responsiveDiv {
+            width: 70%;
+            background-color: greenyellow;
+        }
+        }
+
+        /* Style jusqu'à 900px */
+        @media (max-width: 900px) {
+            .responsiveDiv {
+            width: 60%;
+            background-color: orange;
+        }
+        }
+
+        /* Style jusqu'à 600px */
+        @media (max-width: 600px) {
+            .responsiveDiv {
+            width: 50%;
+            background-color: red;
+        }
+        }
+
+
+    </style>
+ </head>
+ <body>
+    <div class="responsiveDiv">
+        <p>Contenu de la Div</p>
+    </div>
+ </body>
+ </html>
