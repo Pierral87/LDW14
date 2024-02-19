@@ -1,0 +1,106 @@
+/* CSS Classique */
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    border: 2px solid black;
+    /* width: 960px; */
+    /* Ici on passe notre container en %, on va tenter de mettre en place un responsive fluide */
+    width: 80vw;
+    max-width: 1200px;
+    margin: 10px auto;
+}
+
+header {
+    /* height: 100px; */
+    /* Ici la valeur vh (pour view height) se base sur la taille de ma FENETRE de navigateur, donc ici elle va prendre 15% de la hauteur de ma fenetre */
+    height: 15vh;
+    background-color: indianred;
+}
+
+p {
+    margin: 0;
+}
+
+nav {
+    /* height: 30px; */
+    height: 5vh;
+    background-color: brown;
+}
+
+main {
+    margin: 20px;
+    font-size: 30px;
+}
+
+section {
+    margin: 0;
+}
+
+footer {
+    /* height: 60px; */
+    height: 10vh;
+    background-color: green;
+}
+
+.a {
+    float: left;
+    background-color: blue;
+    /* width : 455px;
+    height: 250px; */
+    width: 100%;
+    height: 28vh;
+}
+
+.b {
+    float: left;   
+    background-color: darkgray;
+    /* width : 455px;
+    height: 250px; */
+    width: 100%;
+    height: 28vh;
+}
+
+.c {
+    float: left;
+    background-color: yellow;
+    /* width : 455px;
+    height: 250px; */
+    width: 100%;
+    height: 28vh;
+}
+
+.d {
+    float: left;
+    background-color: purple;
+    /* width : 455px;
+    height: 250px; */
+    width: 100%;
+    height: 28vh;
+}
+
+.clear {
+    clear: both;
+}
+
+/* CSS Responsive Fluide */
+
+/* Dès que l'on passe au dessus de 768px, c'est le style "ecran plus grand" qui s'applique et donc nos div sont à 50% et peuvent être affichés côte à côté, sinon, on reste en Mobile First et les éléments s'affichent l'un au dessus de l'autre */
+@media (min-width: 768px) {
+   
+    .a,.b,.c,.d {
+        /* em est une nouvelle unité de "taille", en gros, elle se base sur la taille de l'élément parent, par exemple, si sur mon main j'ai mis un font-size à 20px, lorsque j'appelle ici le font-size à 0.5em c'est à dire 50% de la valeur du parent, donc seulement 10px */
+        font-size: 0.8em;
+        width: 50%;
+    }
+}
+
+/* @media (max-width: 992px) {
+    #conteneur {
+        width: 970px;
+    }
+    .a,.b,.c,.d {
+        width: 50%;
+    }
+} */

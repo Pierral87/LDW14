@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoning Responsive</title>
 
     <link rel="stylesheet" href="zoningresponsive.css">
+    <!-- <link rel="stylesheet" href="zoningresponsivefluid.css"> -->
 </head>
+
 <body>
-    
+    <!-- Ici on crée un zoning pour ensuite le développer en responsive -->
+    <div class="container">
+
+        <header>
+            <p>Haut de page</p>
+        </header>
+
+        <nav>
+            <p>Menu de navigation</p>
+        </nav>
+
+        <main>
+           
+                <div class="a">
+                    <p>Zone A</p>
+                </div>
+                <div class="b">
+                    <p>Zone B</p>
+                </div>
+                <!-- On pense bien à clear ici après les div pour retourner sur un flux html normal (car on a mis a et b en float) -->
+                <div class="clear"></div>
+           
+                <div class="c">
+                    <p>Zone C</p>
+                </div>
+                <div class="d">
+                    <p>Zone D</p>
+                </div>
+                <!-- Idem ici, si on ne clear pas le float, le design est incorrect et les div débordent sur le footer -->
+                <div class="clear"></div>
+            
+        </main>
+
+        <footer>
+            <p>Pied de page</p>
+        </footer>
+    </div>
 </body>
+
 </html>

@@ -1,0 +1,107 @@
+/* CSS Classique */
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    border: 2px solid black;
+    width: 960px;
+    margin: 10px auto;
+}
+
+header {
+    height: 100px;
+    background-color: indianred;
+}
+
+p {
+    margin: 0;
+}
+
+nav {
+    height: 30px;
+    background-color: brown;
+}
+
+main {
+    margin: 20px;
+}
+
+section {
+    margin: 0;
+}
+
+footer {
+    height: 60px;
+    background-color: green;
+}
+
+.a {
+    float: left;
+    background-color: blue;
+    width : 455px;
+    height: 250px;
+}
+
+.b {
+    float: left;   
+    background-color: darkgray;
+    width : 455px;
+    height: 250px;
+}
+
+.c {
+    float: left;
+    background-color: yellow;
+    width : 455px;
+    height: 250px;
+}
+
+.d {
+    float: left;
+    background-color: purple;
+    width : 455px;
+    height: 250px;
+}
+
+.clear {
+    clear: both;
+}
+
+/* CSS Responsive Adaptive */
+/* Là lorsque la taille d'écran est en dessous de 1050px, le style suivant s'applique */
+@media(max-width: 1050px) {
+    .container {
+        /* le container devient plus petit */
+        width: 750px;
+    }
+    .a, .b, .c, .d {
+        /* les divs aussi */
+        width: 350px;
+    }
+}
+
+/* Lorsque la taille d'écran est en dessous de 780px, le style suivant s'applique */
+@media(max-width: 780px) {
+    .container {
+         /* le container devient plus petit */
+        width: 550px;
+    }
+    .a, .b, .c, .d {
+        /* les divs aussi */
+        width: 250px;
+    }
+}
+
+/* Lorsque la taille d'écran est en dessous de 580px, le style suivant s'applique */
+@media screen and (max-width: 580px) {
+    .container {
+        /* le container prends maintenant 100% de la largeur de la page */
+        width: 100%;
+    }
+    .a, .b, .c, .d {
+        /* Les div également prennent 100% de la largeur de la page, donc, ne s'affichent plus en float côte à côte, mais, les uns en dessous des autres, pour plus de lisibilité sur mobile */
+        width: 100%;
+        height: 125px;
+    }
+}
