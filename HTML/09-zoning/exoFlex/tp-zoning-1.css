@@ -3,27 +3,27 @@
   width: 80%;
 }
 
-#main {
+main {
   display: flex;
 }
 
-#main>article {
+main>article {
   flex-grow: 1;
   background: #336677;
 }
 
-#main>nav,
-#main>aside {
+main>nav,
+main>aside {
   /* width: 20vw; */
   width: 25%;
   min-height: 50vh;
 }
 
-#main>aside {
+main>aside {
   background: #ff8799;
 }
 
-#main>nav {
+main>nav {
   background: #ff670f;
 }
 
