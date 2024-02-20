@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier Test de Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstraptest.css">
+</head>
+
+<body>
+
+    <!-- Ici on ouvre un div container, c'est ce qui va nous permettre de démarrer le grid de bootstrap 
+    Le grid de bootstrap c'est le fait de pouvoir positionner mes éléments en rapport avec un nombre de colonne 
+    Le grid de bootstrap nous propose 12 colonnes, à moi de décider combien de colonne vont utiliser mes éléments 
+    container par defaut prends environ 75/80% de la largeur de la page, il existe aussi la classe container-fluid qui utilise la totalité de la largeur de la page -->
+    <div class="container zone">
+        <h1>Premiere page avec bootstrap</h1>
+        <!-- Ici lorsque je crée un div avec la classe "row" je crée, une ligne de grid de bootstrap 
+        Cet élément n'affiche rien de particulier, mais il est nécessaire pour notre syntaxe et mettre en place nos éléments -->
+        <div class="row">
+            <div class="col-5 mx-auto zone1">
+                Zone 1
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Ici je crée deux éléments en col-6 et plus précisément en col-xl-6, ils vont se partager la place à l'intérieur du container, le grid faisant 12 colonnes, si on est sur 6 et 6, alors ils occupent chacun exactement la moitié de l'espace   
+            Par contre ici avec la notion de "taille" de col, (en fonction des breakpoints de bootstrap, voir :  https://getbootstrap.com/docs/5.3/layout/breakpoints/
+            on gère déjà les notions de responsive ! si je mets xl-6, tant que la tailel de l'écran sera considéré comme "xl" supérieur à 1200px en largeur, alors la disposition sera 6-6, par contre, en dessous, on adaptera un style différent, par exemple ici on a mit md-4 pour dire que jusqu'à une taille d'écran considérée "medium" break point à 768px, on passe en taille de div 4, et en dessous de ça, le système comprend automatiquement qu'il doit passer en largeur 100% nos éléments   ) -->
+            <div class="col-xl-6 col-md-4 zone2">Zone 2</div>
+            <div class="col-xl-6 col-md-4 zone3">Zone 3</div>
+        </div>
+
+        <div class="row">
+            <!-- Ne pas préciser la taille des colonnes, permet une repartition égale entre elles dans la row 
+             Même en utilisant cette syntaxe, je peux gérer la notion de responsive, en mettant sur chaque classe par exemple col-md  tout court ! -->
+            <div class="col-md zone1">Zone 4</div>
+            <div class="col-md zone1">Zone 5</div>
+            <div class="col-md zone1">Zone 6</div>
+            <div class="col-md zone1">Zone 4</div>
+            <div class="col-md zone1">Zone 5</div>
+            <div class="col-md zone1">Zone 6</div>
+            <div class="col-md zone1">Zone 4</div>
+            <div class="col-md zone1">Zone 5</div>
+            <div class="col-md zone1">Zone 6</div>
+            <div class="col-md zone1">Zone 4</div>
+            <div class="col-md zone1">Zone 5</div>
+            <div class="col-md zone1">Zone 6</div>
+            <div class="col-md zone1">Zone 4</div>
+            <div class="col-md zone1">Zone 5</div>
+            <div class="col-md zone1">Zone 6</div>
+            <div class="col-md zone1">Zone 4</div>
+            <div class="col-md zone1">Zone 5</div>
+            <div class="col-md zone1">Zone 6</div>
+            <div class="col-md zone1">Zone 4</div>
+            <div class="col-md zone1">Zone 5</div>
+            <div class="col-md zone1">Zone 6</div>
+            <!-- Egalement, grâce à cette syntaxe, Bootstrap m'autorise à créer plus de 12 colonnes dans une même row ! -->
+        </div>
+
+        <div class="row">
+            <!-- par defaut les éléments là ne prennent pas la totalité de la ligne, ils sont collés à gauche -->
+            <div class="col-3 zone2">Zone 1</div>
+            <div class="col-3 zone2">Zone 2</div>
+        </div>
+
+        <div class="row justify-content-start">
+            <!-- Avec la classe justify-content-start, je m'assure de coller les éléments à gauche (comme le style par défaut...) -->
+            <div class="col-3 zone2">Zone 1</div>
+            <div class="col-3 zone2">Zone 2</div>
+        </div>
+
+        <div class="row justify-content-end">
+            <!-- Avec la classe justify-content-end, on colle les éléments à la fin de la ligne -->
+            <div class="col-3 zone2">Zone 1</div>
+            <div class="col-3 zone2">Zone 2</div>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- justify-content-center nous permet de regrouper les éléments de façon centré -->
+            <div class="col-3 zone2">Zone 1</div>
+            <div class="col-3 zone2">Zone 2</div>
+        </div>
+
+        <div class="row justify-content-around">
+            <!-- around, génère les mêmes marges autour de nos éléments (espacement "harmonieux") -->
+            <div class="col-3 zone2">Zone 1</div>
+            <div class="col-3 zone2">Zone 2</div>
+        </div>
+
+        <div class="row justify-content-evenly">
+            <!-- evenly, un espacement égal entre les éléments et autour d'eux -->
+            <div class="col-3 zone2">Zone 1</div>
+            <div class="col-3 zone2">Zone 2</div>
+        </div>
+
+        <div class="row justify-content-between">
+            <!-- between, un espace maximal entre les éléments -->
+            <div class="col-3 zone2">Zone 1</div>
+            <div class="col-3 zone2">Zone 2</div>
+        </div>
+
+        <div class="row">
+            <!-- le offset nous permet de sauter des colonnes par rapport à la position d'origine de l'élément, si sur le premier élément je fais offset-md-1, lors d'une taille d'écran supérieure à médium, alors je sauterai une colonne avant d'afficher l'élément -->
+            <div class="col-3 offset-md-1 zone2">Zone 1</div>
+            <div class="col-3 offset-md-2 zone2">Zone 2</div>
+        </div>
+
+        <div class="row">
+            <!-- Je défini là, un ordre d'affichage différent de mes éléments, en fonction d'un breakpoint, en "Mobile First" je souhaiterai avoir ma sidebar en premier, et le contenu en dessous, par contre pour une taille d'écran supérieure à medium, je préfèrerai avoir le contenu à gauche (en premier donc order-md-1) et la sidebar à droite (en second donc  order-md-2)  -->
+            <div class="col-md-3 order-md-2 zone2">Sidebar</div>
+            <div class="col-md-9 order-md-1 zone3">Contenu</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 order-md-3 zone1">Sidebar2</div>
+            <div class="col-md-6 order-md-2 zone3">Main</div>
+            <div class="col-md-3 order-md-1 zone2">Sidebar1</div>
+        </div>
+
+        <div class="row">
+            <!-- Sans forcément intéragir avec les "col" j'ai la possibilité de donner des tailles à des éléments grâce à la classe w-XX  (w pour width), on ne peut lui spécifier que les valeurs w-25  50  75  100   -->
+            <div class="zone2 w-50">Zone 1</div>
+            <div class="zone2 w-25">Zone 2</div>
+        </div>
+    </div>
+
+    <div class="container zone4 my-5">
+        <!-- Dans Bootstrap on possède beaucoup de classes pour nous faciliter la vie ! m pour margin, mt pour margin top, my pour margin sur l'axe vertical (haut et bas), suivi d'une valeur entre 1 et 5, p pour padding, px, py, pt etc  -->
+        <div class="row align-items-end zone4">
+            <!-- Ici grâce à la classe align-items, je peux indiquer à mes éléments qu'ils doivent être positionnés en haut, au centre ou en bas de leur zone accessible (pour ça il faut que ma row ai une height plus grande que les éléments, sinon ne fonctionne pas ! 
+                align-items : start pour en haut, center pour au centre, end pour en bas) -->
+            <div class="col zone2">Zone1</div>
+            <div class="col zone2">Zone2</div>
+            <div class="col zone2">Zone3</div>
+        </div>
+    </div>
+
+    <div class="container zone4 my-5">
+        <div class="row zone4">
+            <div class="col zone2 align-self-start p-5">Zone 1</div>
+            <div class="col zone2 align-self-center">Zone 2</div>
+            <div class="col zone2 align-self-end">Zone 3</div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

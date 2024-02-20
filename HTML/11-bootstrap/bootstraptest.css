@@ -1,0 +1,29 @@
+.zone {
+    border : 1px black solid;
+    background-color: aliceblue;
+    min-height: 200px;
+}
+
+.zone1 {
+    border: 1px black solid;
+    background-color: aqua;
+    min-height: 200px;
+}
+
+.zone2 {
+    border: 1px black solid;
+    background-color: bisque;
+    min-height: 200px;
+}
+
+.zone3 {
+    border: 1px black solid;
+    background-color: brown;
+    min-height: 200px;
+}
+
+.zone4 {
+    border: 1px black solid;
+    background-color: aliceblue;
+    min-height: 400px;
+}
