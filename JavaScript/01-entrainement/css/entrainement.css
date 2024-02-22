@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
+}
+/* section {
+    min-height: 400px;
+} */
+h2 {
+    padding: 20px;
+    background-color: MidnightBlue;
+    color: white;
+}
+.couleur_rouge {
+    background-color: red;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+#sommaire { background-color: CadetBlue; }
+#chapitre1 { background-color: SteelBlue; }
+#chapitre2 { background-color: LightSteelBlue; }
+#chapitre3 { background-color: PowderBlue; }
+#chapitre4 { background-color: LightBlue; }
+#chapitre5 { background-color: SkyBlue; }
+#chapitre6 { background-color: LightSkyBlue; }
+#chapitre7 { background-color: DeepSkyBlue; }
+#chapitre8 { background-color: DodgerBlue; }
+#chapitre9 { background-color: CornflowerBlue; }
+#chapitre10 { background-color: MediumSlateBlue; }
+#chapitre11 { background-color: RoyalBlue; }
+#chapitre12 { background-color: Blue; }
+#chapitre13 { background-color: Navy; }
+#chapitre14 { background-color: MidnightBlue; }
