@@ -28,6 +28,7 @@
 */
 
 // ECMAScript est un ensemble de normes concernant le langage de programmation JavaScript (et d'autres), cela va permettre que les navigateurs doivent respecter ces normes et donc que notre JS soit lu de la même façon par les différents navigateurs 
+// Documentation : https://developer.mozilla.org/fr/docs/Web/JavaScript
 
 // Le JavaScript est exécuté par le navigateur lui même
 // Nous avons un ensemble d'outils disponibles car prédéfinis par le langage :
@@ -94,7 +95,7 @@ var maBoite; // Déclaration d'une variable nommée "maBoite"
 // AFFECTATION
 // -------------------
 maBoite = 10; // Affectation de la valeur numérique 10 dans la variable "maBoite"
-console.log(maBoite); 
+console.log(maBoite);
 // Déclaration d'une variable permettant de recueillir un élément HTML afin de pouvoir le manipuler (ici d'y ajouter du contenu texte/html pour modéliser notre page)
 var elementChapitre2 = document.getElementById("contenuChapitre2");
 elementChapitre2.innerHTML = "Une variable est un espace nommé permettant de conserver une valeur."
@@ -156,11 +157,11 @@ let B = 0;
 let C = 0;
 let D = 0;
 
-A=3.5;
-B=1.5;
-C=A+B;
-B=A+C;
-A=B;
+A = 3.5;
+B = 1.5;
+C = A + B;
+B = A + C;
+A = B;
 
 console.log("Voici la valeur de A : " + A);
 console.log("Voici la valeur de B : " + B);
@@ -169,8 +170,8 @@ console.log("Voici la valeur de D : " + D);
 
 // ------------------------------------------------
 // EXERCICE 02 
-let conducteur="Pierra";
-let passager="Jean";
+let conducteur = "Pierra";
+let passager = "Jean";
 // On souhaite échanger les deux valeurs de ces variables
 // On veut que Jean passe conducteur et que Pierra passe passager 
 // On doit trouver un moyen d'intervertir les deux, sans faire directement une réaffectation à la main
@@ -235,9 +236,9 @@ elementChapitre3.innerHTML += "<br>Type de la donnée contenue dans la variable 
 const elementChapitre4 = document.getElementById("contenuChapitre4");
 
 // Simple quote (apostrophe)
-elementChapitre4.innerHTML += 'Hello<br>'; 
+elementChapitre4.innerHTML += 'Hello<br>';
 // Double quote (guillemets) 
-elementChapitre4.innerHTML += "Bonjour<br>"; 
+elementChapitre4.innerHTML += "Bonjour<br>";
 // '' ou "" : aucune différence en JavaScript, juste un choix de préférence 
 
 // Par contre...
@@ -278,3 +279,205 @@ let erreur = "<hr><p>Erreur sur le pseudo</p>";
 erreur += "<p>Erreur sur l'email</p>";
 erreur += "<p>Mot de passe trop court</p>";
 elementChapitre5.innerHTML += erreur;
+
+// -------------------------------------------------
+// Chapitre 6 : Opérateurs arythmétiques
+// -------------------------------------------------
+
+const elementChapitre6 = document.getElementById("contenuChapitre6");
+
+let resultat = 10 + 5; // Addition
+elementChapitre6.innerHTML += resultat + "<br>"; // Affiche 15
+
+resultat = 10 - 5;
+elementChapitre6.innerHTML += resultat + "<br>"; // Soustraction, affiche 5
+
+resultat = 10 * 5;
+elementChapitre6.innerHTML += resultat + "<br>"; // Multiplication, affiche 50
+
+resultat = 10 / 5;
+elementChapitre6.innerHTML += resultat + "<br>"; // Division, affiche 2
+
+resultat = 10 ** 5;
+elementChapitre6.innerHTML += resultat + "<br>"; // Puissance, affiche 100 000
+
+resultat = 10 % 3;
+elementChapitre6.innerHTML += resultat + "<br>"; // Modulo, affiche 1 (le restant de la division en terme d'entier, oui, si je divise 10 par 3, cela fait trois part valant 3, et il reste 1, c'est ça le modulo)
+
+// Attention, si on cumule des opérations et des concaténations, JavaScript n'arrive pas à bien comprendre le sens ! Pour éviter les incohérences, on n'hésite pas à utiliser des parenthèses
+// Si je ne mets pas de parenthèses à l'opération ci-dessous, JS me renvoie "NaN" voulant dire "Not a Number"
+elementChapitre6.innerHTML += "Voici un autre résultat : " + (50 - 5) + "<br>";
+
+let chiffre1 = 10;
+let chiffre2 = 5;
+
+chiffre1 += chiffre2; // équivalent à : chiffre1 = chiffre1 + chiffre2;
+console.log(chiffre1);
+// chiffre1 -= chiffre2;
+// chiffre1 *= chiffre2;
+// chiffre1 /= chiffre2;
+// chiffre1 **= chiffre2;
+// chiffre1 %= chiffre2;
+
+// -------------------------------------------------
+// Chapitre 7 : Conditions et opérateurs de comparaison
+// -------------------------------------------------
+
+const elementChapitre7 = document.getElementById("contenuChapitre7");
+// Une condition permet de prévoir différents cas possibles 
+// Une condition ne peut recevoir qu'une réponse de type true ou
+
+var a = 8, b = 5, c = 2;
+
+if (a > b) { // si "a" est strictement supérieur à "b", ici, c'est ma condition d'entrée dans le bloc if
+    // si la condition ci dessus est vrai, je tombe ici dans ce bloc et le code va s'éxécuter 
+    elementChapitre7.innerHTML += "La valeur de la variable 'a' est bien supérieure à la valeur de la variable 'b' <br>";
+} else {  // JAMAIS de parenthèses de condition dans le else, car il représente toutes les autres possibilités sans exception
+    elementChapitre7.innerHTML += "Non, la valeur de la variable 'a' n'est pas supérieure à la valeur de la variable 'b' <br>";
+}
+// Si on ne rentre pas dans le if, on rentre obligatoirement dans le else s'il y en a un, et le code se poursuit après (sinon le code se poursuit simplement sans rien exécuter)
+
+// Plusieurs conditions obligatoires => AND : && 
+if (a > b && b > c) {
+    elementChapitre7.innerHTML += "Ok pour les deux conditions <br>";
+}
+
+// Au moins une des conditions => OR : ||
+if (a > b || b > c) {
+    elementChapitre7.innerHTML += "Ok pour au moins une des deux conditions <br>";
+}
+
+// if / else if / else
+if (a == 8) { // ici le "==" me permet de faire une comparaison, est ce que "a" a la valeur 8
+    elementChapitre7.innerHTML += "Réponse 1<br>";
+} else if (a != 10) { // ici le "!=" me permet de poser la question, est ce que "a" est différent de 10 
+    // else if ici me permet de tester une autre condition spécifique avant de passer au else, je peux mettre autant de else if que je le souhaite
+    elementChapitre7.innerHTML += "Réponse 2<br>";
+} else {
+    elementChapitre7.innerHTML += "Réponse 3<br>";
+}
+
+// Dans le cas d'un 'a' à valeur 8, les cas réponse 1 et réponse 2 sont tous les deux vrais ! 
+// Par contre, le système nous fait sortir du bloc entier if, dès la première condition respectée, il n'ira pas tester les autres ! 
+// On sort donc à la Réponse 1 
+
+let testbool = false;
+
+if (!testbool) {
+    // lorsque j'écris un "!" devant quelque chose, il signifie généralement "l'inverse de"
+    // Dans le cas d'une variable testée seule, cela peut se retranscrire comme : "est ce que cette variable est false ?" cela équivaut à testbool == false  
+}
+
+let valeurImplicite = "Hello";
+if (valeurImplicite) {
+    elementChapitre7.innerHTML += "Je rentre ici car la variable valeurImplicite existe, elle a donc la valeur implicite : True<hr>";
+}
+
+console.log("Valeur boolean : " + Boolean(valeurImplicite));
+// Une condition ne peut recevoir qu'une réponse de type true ou false, une conversion de valeur est effectuée par le langage pour comprendre si l'on rentre dans le cas ou pas
+// Boolean() permet d'évaluer une valeur à true ou false 
+
+// Dans l'absolu tout est évalué à true sauf certains cas particulier : 
+// 0, -0, null, false, NaN, undefined, un string vide, un array vide 
+
+// Comparaison stricte (en terme de valeur et de type)
+let var1 = "1";  // number
+let var2 = "1"; // string 
+
+// Comparaison uniquement des valeurs (double égal)
+if (var1 == var2) {
+    // Ici JS accepte, la comparaison de deux valeurs typées différemment, et on rentre dans le if
+    elementChapitre7.innerHTML += "var1 et var2 sont égales, c'est la même chose.<hr>";
+}
+
+// Comparaison stricte : comparaison des valeurs et des types (triple égal)
+if (var1 === var2) {
+    elementChapitre7.innerHTML += "Yes, var1 et var2 sont identiques aussi bien en valeur qu'en type<br>";
+} else {
+    elementChapitre7.innerHTML += "Nope, var1 et var2 sont différents, soit en type, soit en valeur, soit les deux !<br>";
+}
+
+/* 
+    OPERATEURS DE COMPARAISON :
+    ----------------------------------
+
+    =                   Affectation (ATTENTION ce n'est pas un opérateur de comparaison)
+    ==                  est égal à (compare uniquement les valeurs)
+    ===                 est strictement égal à (compare les valeurs et les types)
+    !=                  est différent de (en valeur)
+    !==                 est strictement différent de (valeur et ou type)
+    >                   strictement supérieur à 
+    >=                  supérieur ou égal à 
+    <                   strictement inférieur à 
+    <=                  inférieur ou égal à 
+
+*/
+
+// Quelques autres syntaxes de if 
+
+// La même condition qu'au dessus mais dans les accolades {}
+// Syntaxe ne fonctionne QUE s'il n'y a qu'une seule instruction après la condition
+if (var1 === var2) elementChapitre7.innerHTML += "Yes, var1 et var2 sont identiques aussi bien en valeur qu'en type<br>";
+else elementChapitre7.innerHTML += "Nope, var1 et var2 sont différents, soit en type, soit en valeur, soit les deux !<br>";
+
+// Je peux aussi, peu importe la syntaxe, me passer de mettre le else si jamais je n'ai pas d'utilité à le gérer
+if (var1 === var2) elementChapitre7.innerHTML += "Yes, var1 et var2 sont identiques aussi bien en valeur qu'en type<br>";
+
+
+// Ecriture ternaire
+// C'est la syntaxe la plus courte des if, on s'en sert lorsque l'action engendré par le if et le else sont les mêmes, par exemple un affichage ou bien une affectation
+// Dans le if ci dessous, l'action est la même dans les deux cas, 
+// l'action c'est "elementChapitre7.innerHTML +="
+// vient ensuite la condition du if "(var1 === var2) ?"
+// Puis vient ensuite direction le résultat si la condition est vérifiée et après les ":" le resultat du else
+elementChapitre7.innerHTML += (var1 === var2) ? "YES<br>" : "NO<br>";
+
+// let statut = (connecAdmin == true) ? "admin" : "user";
+
+// isNaN (is Not a Number)
+// Cette fonction me permet de faire directement une vérification sur l'élément en demandant est ce que la var1 is NaN (n'est pas un number), auquel cas je rentre dans la condition du if 
+if (isNaN(var1)) {
+    elementChapitre7.innerHTML += "Je rentre ici si la valeur de var n'est PAS numérique (Not a Number)<hr>";
+} else {
+    elementChapitre7.innerHTML += "Je rentre ici si la valeur est bien numérique<hr>";
+}
+
+elementChapitre7.innerHTML += "<b>Les conditions Switch</b><hr>";
+
+
+let couleur = "rouge";
+// let couleur = prompt("Choisissez une couleur entre le bleu, vert, rouge");
+// Ici l'utilisateur choisit une couleur que je saisi dans le prompt
+// Je compare ensuite la valeur de sa saisie ici dans mon switch
+
+// Switch s'utilise dans un seul cas bien précis, lorsque l'on veut tester différentes valeurs d'une même variable !
+// Cette syntaxe ne se prête pas DU TOUT à d'autres types de conditions
+switch (couleur) {
+    case "bleu":
+        elementChapitre7.innerHTML += "Vous avez choisi le bleu<br>";
+        break;
+    case "vert":
+        elementChapitre7.innerHTML += "Vous avez choisi le vert<br>";
+        break;
+    case "rouge":
+        elementChapitre7.innerHTML += "Vous avez choisi le rouge<br>";
+        break;
+    default:
+        elementChapitre7.innerHTML += "Vous n'avez choisi ni le bleu ni le vert ni le rouge !<br>";
+        break;
+}
+
+// EXERCICE 1 : Refaire la condition switch ci dessus, mais, en if / else if / else 
+// Permettez également à l'utilisateur de saisir une couleur 
+
+// EXERCICE 2 : Tester la majorité de l'utilisateur
+// Je veux savoir si un utilisateur est majeur 
+// Demandez l'âge de l'utilisateur (et le stocker dans une variable)
+// Faire une condition qui vient tester si l'âge est supérieur ou égal à 18 
+// Si oui, lui souhaiter la bienvenue, si non, un message lui disant de poursuivre ailleurs 
+
+// EXERCICE 3 : Tester un mot de passe utilisateur 
+// Permettez à l'utilisateur de saisir un mot de passe
+// Ensuite, faite lui ressaisir ce même mot de passe
+// Si les deux se correspondent : Souhaitez luli la bienvenue
+// Si c'est incorrect dites lui, les deux password ne se correspondent pas et faites lui ressaisir le second mot de passe jusqu'à ce qu'il corresponde.
