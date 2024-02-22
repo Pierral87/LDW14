@@ -227,4 +227,54 @@ elementChapitre3.innerHTML += "<br>Type de la donnée contenue dans la variable 
 elementChapitre3.innerHTML += "<br>Type de la donnée contenue dans la variable maBoite : " + typeof existePas;
 
 
+// -------------------------------------------------
+// Chapitre 4 : Quotes
+// -------------------------------------------------
 
+// Les quotes pour les chaines de caractères : 
+const elementChapitre4 = document.getElementById("contenuChapitre4");
+
+// Simple quote (apostrophe)
+elementChapitre4.innerHTML += 'Hello<br>'; 
+// Double quote (guillemets) 
+elementChapitre4.innerHTML += "Bonjour<br>"; 
+// '' ou "" : aucune différence en JavaScript, juste un choix de préférence 
+
+// Par contre...
+
+// Quote Inversée - Back Quote (accent grave)
+let prenom = "Pierra";
+elementChapitre4.innerHTML += "Bonjour ${prenom}<br>"; // Bonjour ${prenom}<br> 
+elementChapitre4.innerHTML += `Bonjour ${prenom}<br>`; // Bonjour Pierra
+
+
+elementChapitre4.innerHTML += "Bonjour " + prenom + " bienvenue sur notre site";
+elementChapitre4.innerHTML += `Bonjour ${prenom} bienvenue sur notre site`;
+
+// A l'intérieur des back quote, pour peu que l'on respecte la syntaxe d'écriture avec le $ et les accolades, alors une variable sera "interprétée" c'est à dire, que c'est le contenu de la variable qui sera affiché dans la phrase 
+
+// -------------------------------------------------
+// Chapitre 5 : Concaténation
+// -------------------------------------------------
+
+const elementChapitre5 = document.getElementById("contenuChapitre5");
+// La concaténation permet d'assembler des chaines de caractères les unes avec les autres (texte ou contenues dans une variable)
+// Le signe de la concaténation en JavaScript c'est le "+", que l'on peut toujours traduire par "suivi de"
+
+let prenom4 = "Pierre";
+let prenom5 = "Alexandre";
+
+elementChapitre5.innerHTML += "<hr>Bonjour " + prenom4 + "-" + prenom5 + ", bienvenue sur notre site<br>";
+
+// On peut rajouter une valeur à une variable ou un element, sans l'écraser en utilisant l'affectation concaténée 
+
+let prenom6 = "Pierre";
+prenom += "-Alexandre"; // Raccourci d'écriture équivalent à : prenom = prenom + "-Alexandre";
+// avec le += on indique que l'on RAJOUTE une valeur à la suite de la valeur d'origine de cet élément (que ce soit une variable ou un element HTML)
+
+// Exemple : Lorsque je génère des messages d'erreurs par exemple sur la saisi des champs d'un formulaire, je peux rajouter les messages d'erreurs les uns à la suite des autres via une affectation concaténée 
+
+let erreur = "<hr><p>Erreur sur le pseudo</p>";
+erreur += "<p>Erreur sur l'email</p>";
+erreur += "<p>Mot de passe trop court</p>";
+elementChapitre5.innerHTML += erreur;
