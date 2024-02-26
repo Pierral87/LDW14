@@ -651,3 +651,216 @@ do {
 // -------------------------------------------------
 // Chapitre 9 : Fonctions prédéfinies (fonctions globales)
 // -------------------------------------------------
+
+const elementChapitre9 = document.getElementById('contenuChapitre9');
+// Deja inscrite au langage, le développeur ne fait que les exécuter, à l'inverse d'une fonction utilisateur qui elle est créée par le développeur
+// On parle en JS de fonctions "globales", elles ne sont pas liées à un élément variable tel qu'un élément string ou un élément number, elles appartiennent directement au langage. Il y en a très peu !
+
+
+// parseInt()
+// https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+// parseInt() attend un ou deux arguments
+// premier argument, un string à "transformer"/"interpreter" sous forme de number (attention, nombre entier) et le deuxième argument pour comprendre la "base numérique" souhaité pour le parseInt.
+// On utilisera toujours 10 comme base numérique, cela représente la base décimale, en gros, les chiffres de 0 à 9
+
+let chaine = "123";
+elementChapitre9.innerHTML += "La variable 'chaine' est de type : " + typeof chaine + "<br>";
+chaine = parseInt(chaine, 10);
+elementChapitre9.innerHTML += "La variable 'chaine', après parseInt est de type : " + typeof chaine + "<br>";
+
+elementChapitre9.innerHTML += "Addition entre 2 + 2 un type number et un type string : " + ('2' + 2) + "<br>"; // Ici cela affiche 22 car JS n'arrive pas à additionner deux éléments s'ils ne sont pas tout deux des number, cela pratiquera plutôt, la concaténation
+elementChapitre9.innerHTML += "Addition entre 2 + 2 un type number et un type string avec parseInt() : " + (parseInt('2', 10) + 2) + "<br>"; // Ici c'est ok, le parseInt permet de transformer le string en number et on peut faire notre addition, cela affichera bien 4
+
+elementChapitre9.innerHTML += "je transmet une décimale ici, 10.5 voyons voir avec parseInt() : " + parseInt("10.5", 10) + "<br>";
+
+// parseFloat()
+// https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/parseFloat
+// parseFloat(), c'est la même chose que parseInt(), il transforme un string en number
+// L'avantage de parseFloat, c'est qu'il est apte à traiter les chiffres décimaux
+
+elementChapitre9.innerHTML += "je transmet une décimale ici, 10.5 voyons voir avec parseFloat() : " + parseFloat("10.5") + "<br>";
+
+
+// -------------------------------------------------
+// Chapitre 10 : Fonctions utilisateurs
+// -------------------------------------------------
+
+// En programmation revient souvent le terme, avoir un code "DRY"
+// "Dont Repeat Yourself" - Philosophie informatique pour éviter la redondance d'actions. A chaque fois que l'on repète une action/un morceau de code, on aurait fort probablement plutôt intérêt à dévleopper une fonction.
+
+const elementChapitre10 = document.getElementById("contenuChapitre10");
+
+// Déclaration et exécution d'une fonction 
+
+// Ici déclaration d'une fonction s'appellant "maFonction", cette façon là est appellée : function statement
+function maFonction() {
+    return "Bonjour à tous <br>";
+}
+
+// Exécution : 
+elementChapitre10.innerHTML += maFonction();
+elementChapitre10.innerHTML += maFonction();
+elementChapitre10.innerHTML += maFonction();
+elementChapitre10.innerHTML += maFonction();
+
+// deuxième façon : function operator
+// on déclare une fonction à l'intérieur d'une variable 
+let maFonction2 = function() {
+    return "Hello there! <br>";
+}
+
+// Exécution 
+elementChapitre10.innerHTML += maFonction2();
+
+
+// Fonction avec argument 
+function direBonjour(qui) {
+    return "Bonjour " + qui + ", bienvenue sur notre site<hr>";
+}
+// "qui" est un param/paramètre/argument, c'est une variable qui va réceptionner la valeur fourni à la fonction lors de son exécution
+elementChapitre10.innerHTML += direBonjour("Pierra");
+elementChapitre10.innerHTML += direBonjour("Anisse");
+
+let prenomUser = "Laetitia";
+elementChapitre10.innerHTML += direBonjour(prenomUser);
+// A chaque appel de cette fonction, l'argument fourni à l'exécution (Pierra, puis Anisse, puis prenomUser (contenant Laetitia)) se repercute dans la variable "qui" et ainsi me retourne à chaque fois une phrase différente 
+
+// fonction separateur toute simple permettant d'afficher 3<hr> dans la page 
+function separateur() {
+    return "<hr><hr><hr>";
+}
+
+elementChapitre10.innerHTML += separateur();
+
+// Il est possible d'appeler une fonction avant sa declaration ! Le systeme fait une premiere lecture du document et "mémorise" les fonctions
+addition(100,500);
+
+// Plusieurs param dans la fonction sont possible, par exemple une fonction d'addition entre deux number 
+function addition(nb1, nb2) {
+    console.log(`${nb1} + ${nb2} = ` + (nb1+nb2));
+}
+
+addition(20,500);
+
+// On va réaliser une fonction nous permettant de calculer un prix avec TVA
+// Le but étant de fournir un prix HT (hors taxe) et de le transformer en prix TTC (Toutes Taxes Comprises)
+function calculTva(prix) {
+    elementChapitre10.innerHTML += (prix * 1.2);
+}
+
+calculTva(1000);
+
+elementChapitre10.innerHTML += separateur();
+
+// EXERCICE, en se basant sur la fonction calculTVA, on aimerait apporter une amélioration et permettre en plus de la saisie du prix à modifier, de choisir aussi le taux de TVA à appliquer
+
+// calculTva(1000, 25); // On aimerait pouvoir faire des exécutions comme ceci, en choisissant nous même le nouveau taux
+
+function calculTva2(prixHT, tauxTVA = 20) {
+    let prixTTC = prixHT * (1 + tauxTVA / 100);
+    return prixTTC;
+}
+
+let prixTTC = calculTva2(1000);
+console.log("Le prix TTC est de " + prixTTC + "€");
+let prixTTC2 = calculTva2(1000, 5.5);
+console.log("Le prix TTC est de " + prixTTC2 + "€");
+
+// Dans un second temps, on aimerait pouvoir faire en sorte que si l'utilisateur ne saisi pas le taux de TVA, que cela applique par défaut le taux de 20%.  Par contre si un taux est bien saisi, c'est bien celui ci qui sera pris en compte
+// Pour ce faire, très simple, il suffit dans la déclaration de la fonction, de donner directement une valeur à un des params, ce sera cette valeur qui sera utilisée par défaut si le param n'est pas fourni à l'exécution
+// ATTENTION à l'ordre de vos params lors de la déclaration de vos fonctions, les params facultatifs doivent toujours être fournis en dernier ! 
+
+
+// On développe une nouvelle fonction, la fonction météo 
+// Cette fonction va prendre en paramètre une saison et une température et afficher une phrase 
+
+function meteo(saison, temperature) {
+    let debut = "Nous sommes en " + saison;
+    let suite = " et il fait " + temperature + " degré(s)<br>";
+    return debut + suite;
+}
+
+elementChapitre10.innerHTML += meteo("été", 42);
+elementChapitre10.innerHTML += meteo("automne", 10);
+elementChapitre10.innerHTML += meteo("hiver", 1);
+elementChapitre10.innerHTML += meteo("printemps", 20);
+
+// Nous sommes en été et il fait 42 degré(s)
+// Nous sommes en automne et il fait 10 degré(s)
+// Nous sommes en hiver et il fait 1 degré(s)
+// Nous sommes en printemps et il fait 20 degré(s)
+
+// Par rapport au résultat ci dessus, on voit que la préposition "en" ne convient pas pour la saison printemps...
+// Egalement, on devrait être apte à pouvoir mettre le mot degré au singulier ou au pluriel en fonction de la température ! 
+
+// EXERCICE : Réglez cette fonction pour la faire correspondre aux améliorations indiquées ci dessus
+function meteo2(saison, temperature) {
+    let debut = '';
+    let suite = '';
+    if (saison == "printemps") {
+        debut = "Nous sommes au " + saison;
+    } else {
+        debut = "Nous sommes en " + saison;
+    }
+
+    if (temperature <= 1 && temperature >= -1) {
+        suite = " et il fait " + temperature + " degré<br>";
+    } else {
+        suite = " et il fait " + temperature + " degrés<br>";
+    }
+
+    return debut + suite;
+}
+
+elementChapitre10.innerHTML += meteo2("été", 42);
+elementChapitre10.innerHTML += meteo2("automne", 10);
+elementChapitre10.innerHTML += meteo2("hiver", 1);
+elementChapitre10.innerHTML += meteo2("printemps", 20);
+
+function meteo3(saison, temperature) {
+    let debut = "Nous sommes en " + saison;
+    let suite = " et il fait " + temperature + " degrés<br>";
+
+    if (saison == "printemps") {
+        debut = "Nous sommes au " + saison;
+    } 
+
+    if (temperature <= 1 && temperature >= -1) {
+        suite = " et il fait " + temperature + " degré<br>";
+    } 
+
+    return debut + suite;
+}
+
+// En plus court
+function meteo4(saison, temperature) {
+    let prep = "en "
+    let s = "s";
+
+    if (saison == "printemps") {
+       prep = "au ";
+    } 
+
+    if (temperature <= 1 && temperature >= -1) {
+      s = "";
+    } 
+
+    return "Nous sommes " + prep + saison + " et il fait " + temperature + " degré" + s + "<br>";
+}
+
+elementChapitre10.innerHTML += meteo4("été", 42);
+elementChapitre10.innerHTML += meteo4("automne", 10);
+elementChapitre10.innerHTML += meteo4("hiver", 1);
+elementChapitre10.innerHTML += meteo4("printemps", 20);
+
+// Le plus court du plus court grâce au if ternaire !!!
+function meteo5(saison, temperature) {
+    let prep = (saison == "printemps") ? "au" : "en";
+    let s = (temperature <= 1 && temperature >= -1) ? "" : "s";
+    return `Nous sommes ${prep} ${saison} et il fait ${temperature} degré${s}<br>`;
+}
+
+elementChapitre10.innerHTML += meteo5("été", 42);
+elementChapitre10.innerHTML += meteo5("automne", 10);
+elementChapitre10.innerHTML += meteo5("hiver", 1);
+elementChapitre10.innerHTML += meteo5("printemps", 20);
