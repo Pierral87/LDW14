@@ -499,8 +499,8 @@ if (couleur == "bleu") {
 // Si les deux se correspondent : Souhaitez lui la bienvenue
 // Si c'est incorrect dites lui, les deux password ne se correspondent pas et faites lui ressaisir le second mot de passe jusqu'à ce qu'il corresponde.
 
-let password = prompt("Tapez votre mot de passe");
-let confirmPassword = prompt("Retapez le même mot de passe");
+// let password = prompt("Tapez votre mot de passe");
+// let confirmPassword = prompt("Retapez le même mot de passe");
 
 // if (password == confirmPassword) {
 //     alert("C'est bon ! Les passwords sont les mêmes")
@@ -509,13 +509,145 @@ let confirmPassword = prompt("Retapez le même mot de passe");
 //     confirmPassword = prompt("Retapez le mot de passe");
 // }
 
-while (password != confirmPassword) {
-    alert("Mauvais mot de passe...");
-    confirmPassword = prompt("Retentez de saisir la confirmation du password");
+// while (password != confirmPassword) {
+//     alert("Mauvais mot de passe...");
+//     confirmPassword = prompt("Retentez de saisir la confirmation du password");
+// }
+
+// if (password == confirmPassword) {
+//     alert("Mdp OK !");
+// }
+
+
+
+// -------------------------------------------------
+// Chapitre 8 : Structure itérative : Boucles
+// -------------------------------------------------
+
+const elementChapitre8 = document.getElementById("contenuChapitre8");
+
+// Une boucle permet de répéter un ensemble d'instructions selon une condition d'entrée 
+// 3 informations nécessaires : 
+// 1 - Valeur de départ (un compteur, pour les boucles numériques en tout cas)
+// 2 - Condition d'entrée (basée sur notre compteur ou pas)
+// 3 - Incrémentation ou décrémentation du compteur (pour les boucles numériques)
+
+// BOUCLE WHILE() {}
+// On utilise pas tant while pour des conditions avec compteur numérique, mais c'est quand même possible
+// On préfèra l'utiliser sur des conditions non numérique, par exemple le test du password de l'exercice ci dessus chapitre 7
+// En gros cela veut dire "tant que la condition est vraie, on poursuit, si la condition renvoie false, on arrête"
+let compteur = 0; // valeur de départ 
+
+while (compteur < 10) { // condition d'entrée
+    elementChapitre8.innerHTML += compteur;
+    compteur++; // Equivaut à ecrire : compteur = compteur +1 // incrémentation
 }
 
-if (password == confirmPassword) {
-    alert("Mdp OK !");
+// BOUCLE FOR() {}
+// for ne peut être utilisé QUE pour des boucles à compteur numérique car sa syntaxe est prévue exactement pour ça 
+// for(compteur; condition; incrementation) {}
+for (let i = 0; i < 10; i++) {
+    elementChapitre8.innerHTML += i;
 }
+elementChapitre8.innerHTML += "<hr>";
+
+// EXERCICE 1 : Refaire la boucle ci dessus, mais en ayant une valeur par ligne
+elementChapitre8.innerHTML += "<h2>Exercice 1</h2>";
+
+let compteur1 = 0;
+while (compteur1 < 10) {
+    elementChapitre8.innerHTML += compteur1 + "<br>";
+    compteur1++;
+}
+// EXERCICE 2 : Faire une boucle qui affiche de 0 à 99 avec le chiffre 50 de couleur rouge
+for (let i = 0; i < 100; i++) {
+    if (i === 50) {
+        elementChapitre8.innerHTML += "<br><span style='color:red;'>" + i + '</span><br>';
+    } else {
+        elementChapitre8.innerHTML += i + "";
+    }
+}
+elementChapitre8.innerHTML += "<hr>";
+
+// EXERCICE 3 : Afficher la chaine de caractère suivante à l'aide d'une boucle 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9
+let compteur2 = 0;
+while (compteur2 <= 9) {
+    if (compteur2 == 9) {
+        elementChapitre8.innerHTML += compteur2;
+    } else {
+        elementChapitre8.innerHTML += compteur2 + " - ";
+    }
+    compteur2++;
+}
+elementChapitre8.innerHTML += "<hr>";
+
+// EXERCICE 4 : Afficher des nombres allant de 2000 à 1930
+for (let i = 2000; i >= 1930; i--) {
+    elementChapitre8.innerHTML += i + " ";
+}
+// EXERCICE 5 : Afficher le titre suivant 10 fois : "<h2>Je m'affiche 10 fois</h2>";
+for (let i = 0; i < 10; i++) {
+    elementChapitre8.innerHTML += "<h3>Je m'affiche 10 fois</h3>";
+}
+// EXERCICE 6 : Afficher le titre suivant 10 fois mais en changeant le numéro à l'intérieur du titre "<h2>Je m'affiche pour la Nème fois</h2>" (gérer l'exception pour 1 qui doit s'écrire 1ère)
+for (let i = 1; i <= 10; i++) {
+    if (i == 1) {
+        elementChapitre8.innerHTML += "<h3>Je m'affiche pour la " + i + "ère fois</h3>";
+    } else {
+        elementChapitre8.innerHTML += "<h3>Je m'affiche pour la " + i + "ème fois</h3>";
+    }
+}
+// EXERCICE 7 : Déclarer une variable sum avec la valeur 0, utilisez une boucle pour parcourir les chiffres de 1 à 10, à chaque tour de boucle, on ajoute la valeur du tour de boucle à sum, à la fin de la boucle on affiche la somme dans la console
+let sum = 0;
+for(let i = 1; i <= 10; i++) {
+    sum += i;
+    // sum = sum + i;
+}
+console.log(sum);
+// EXERCICE 8 : Afficher dans un tableau HTML une seule ligne avec un chiffre dans chaque cellule 0 jusqu'à 9
+let tableau = "";
+// elementChapitre8.innerHTML += "<table border='1' style='width: 50%; margin: 0 auto;'><tr>";
+tableau += "<table border='1' style='width: 50%; margin: 0 auto;'><tr>"
+// boucle des td
+for(let i = 0; i < 10 ; i++){
+    // elementChapitre8.innerHTML += "<td>" + i + "</td>";
+    tableau += "<td>" + i + "</td>";
+}
+// elementChapitre8.innerHTML += "</tr></table>";
+tableau += "</tr></table>";
+
+elementChapitre8.innerHTML += tableau;
+// Pour l'exercice 8 on fait face à une problématique du JS face au navigateur. Le navigateur referme automatiquement les balises ouvrantes de notre tableau, il n'est donc pas possible pourl e javascript d'insérer les éléments un à un, on va donc devoir tout insérer dans une variable et ensuite envoyer cette variable à l'innerHTML
+
+// EXERCICE 9 : Définir aléatoirement un nombre entre 1 et 50, demandez ensuite à l'utilisateur de retrouver ce nombre et l'informer si celui saisi est plus grand ou plus petit que celui défini. Le jeu s'arrète une fois que l'utilisateur a trouvé le nombre en lui affichant un message.
+
+// let nbrMystere = Math.round(1+49*Math.random());
+// console.log(nbrMystere);
+
+// let nbUser = prompt("Trouvez le numéro mystère entre 1 et 50");
+
+// while(nbrMystere != nbUser) {
+//     if (nbUser > nbrMystere) {
+//         alert("Non ! Le nombre est plus petit !");
+//     } else {
+//         alert("Non ! Le nombre est plus grand !");
+//     }
+    
+//     nbUser = prompt("Trouvez le numéro mystère entre 1 et 50");
+// }
+
+// alert("Bravo ! Vous avez trouvé le bon nombre !");
+
+// BOUCLE DO{} WHILE()
+// La boucle do while va faire un tour avant de tester la condition d'entrée
+// C'est à dire qu'elle s'executera au moins une fois même si la condition n'est pas respectée (car elle est vérifiée à la fin)
+let i = 5;
+do {
+    elementChapitre8.innerHTML += "<hr>La boucle do while va exécuter ce code au moins une fois !<hr>";
+    i--;
+} while (i > 10);
 
 
+// -------------------------------------------------
+// Chapitre 9 : Fonctions prédéfinies (fonctions globales)
+// -------------------------------------------------
