@@ -381,7 +381,7 @@ console.log("Valeur boolean : " + Boolean(valeurImplicite));
 // 0, -0, null, false, NaN, undefined, un string vide, un array vide 
 
 // Comparaison stricte (en terme de valeur et de type)
-let var1 = "1";  // number
+let var1 = 1;  // number
 let var2 = "1"; // string 
 
 // Comparaison uniquement des valeurs (double égal)
@@ -470,14 +470,52 @@ switch (couleur) {
 // EXERCICE 1 : Refaire la condition switch ci dessus, mais, en if / else if / else 
 // Permettez également à l'utilisateur de saisir une couleur 
 
+if (couleur == "bleu") {
+    elementChapitre7.innerHTML += "Vous avez choisi le bleu<br>";
+} else if (couleur == "vert") {
+    elementChapitre7.innerHTML += "Vous avez choisi le vert<br>";
+} else if (couleur == "rouge") {
+    elementChapitre7.innerHTML += "Vous avez choisi le rouge<br>";
+} else {
+    elementChapitre7.innerHTML += "Vous n'avez choisi ni le bleu ni le vert ni le rouge !<br>";
+}
+
 // EXERCICE 2 : Tester la majorité de l'utilisateur
 // Je veux savoir si un utilisateur est majeur 
 // Demandez l'âge de l'utilisateur (et le stocker dans une variable)
 // Faire une condition qui vient tester si l'âge est supérieur ou égal à 18 
 // Si oui, lui souhaiter la bienvenue, si non, un message lui disant de poursuivre ailleurs 
+// let ageUser = prompt("Quel est votre âge ?");
+// let ageLegal = 18;
+// if (ageUser >= ageLegal) {
+//     elementChapitre7.innerHTML += "Bienvenue";
+// } else {
+//     elementChapitre7.innerHTML += "Seulement pour les majeurs";
+// }
 
 // EXERCICE 3 : Tester un mot de passe utilisateur 
 // Permettez à l'utilisateur de saisir un mot de passe
 // Ensuite, faite lui ressaisir ce même mot de passe
-// Si les deux se correspondent : Souhaitez luli la bienvenue
+// Si les deux se correspondent : Souhaitez lui la bienvenue
 // Si c'est incorrect dites lui, les deux password ne se correspondent pas et faites lui ressaisir le second mot de passe jusqu'à ce qu'il corresponde.
+
+let password = prompt("Tapez votre mot de passe");
+let confirmPassword = prompt("Retapez le même mot de passe");
+
+// if (password == confirmPassword) {
+//     alert("C'est bon ! Les passwords sont les mêmes")
+// } else {
+//     alert("Les deux passwords ne se correspondent pas...");
+//     confirmPassword = prompt("Retapez le mot de passe");
+// }
+
+while (password != confirmPassword) {
+    alert("Mauvais mot de passe...");
+    confirmPassword = prompt("Retentez de saisir la confirmation du password");
+}
+
+if (password == confirmPassword) {
+    alert("Mdp OK !");
+}
+
+
