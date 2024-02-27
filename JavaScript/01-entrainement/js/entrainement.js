@@ -599,7 +599,7 @@ for (let i = 1; i <= 10; i++) {
 }
 // EXERCICE 7 : Déclarer une variable sum avec la valeur 0, utilisez une boucle pour parcourir les chiffres de 1 à 10, à chaque tour de boucle, on ajoute la valeur du tour de boucle à sum, à la fin de la boucle on affiche la somme dans la console
 let sum = 0;
-for(let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 10; i++) {
     sum += i;
     // sum = sum + i;
 }
@@ -609,7 +609,7 @@ let tableau = "";
 // elementChapitre8.innerHTML += "<table border='1' style='width: 50%; margin: 0 auto;'><tr>";
 tableau += "<table border='1' style='width: 50%; margin: 0 auto;'><tr>"
 // boucle des td
-for(let i = 0; i < 10 ; i++){
+for (let i = 0; i < 10; i++) {
     // elementChapitre8.innerHTML += "<td>" + i + "</td>";
     tableau += "<td>" + i + "</td>";
 }
@@ -632,7 +632,7 @@ elementChapitre8.innerHTML += tableau;
 //     } else {
 //         alert("Non ! Le nombre est plus grand !");
 //     }
-    
+
 //     nbUser = prompt("Trouvez le numéro mystère entre 1 et 50");
 // }
 
@@ -705,7 +705,7 @@ elementChapitre10.innerHTML += maFonction();
 
 // deuxième façon : function operator
 // on déclare une fonction à l'intérieur d'une variable 
-let maFonction2 = function() {
+let maFonction2 = function () {
     return "Hello there! <br>";
 }
 
@@ -733,14 +733,14 @@ function separateur() {
 elementChapitre10.innerHTML += separateur();
 
 // Il est possible d'appeler une fonction avant sa declaration ! Le systeme fait une premiere lecture du document et "mémorise" les fonctions
-addition(100,500);
+addition(100, 500);
 
 // Plusieurs param dans la fonction sont possible, par exemple une fonction d'addition entre deux number 
 function addition(nb1, nb2) {
-    console.log(`${nb1} + ${nb2} = ` + (nb1+nb2));
+    console.log(`${nb1} + ${nb2} = ` + (nb1 + nb2));
 }
 
-addition(20,500);
+addition(20, 500);
 
 // On va réaliser une fonction nous permettant de calculer un prix avec TVA
 // Le but étant de fournir un prix HT (hors taxe) et de le transformer en prix TTC (Toutes Taxes Comprises)
@@ -823,11 +823,11 @@ function meteo3(saison, temperature) {
 
     if (saison == "printemps") {
         debut = "Nous sommes au " + saison;
-    } 
+    }
 
     if (temperature <= 1 && temperature >= -1) {
         suite = " et il fait " + temperature + " degré<br>";
-    } 
+    }
 
     return debut + suite;
 }
@@ -838,12 +838,12 @@ function meteo4(saison, temperature) {
     let s = "s";
 
     if (saison == "printemps") {
-       prep = "au ";
-    } 
+        prep = "au ";
+    }
 
     if (temperature <= 1 && temperature >= -1) {
-      s = "";
-    } 
+        s = "";
+    }
 
     return "Nous sommes " + prep + saison + " et il fait " + temperature + " degré" + s + "<br>";
 }
@@ -864,3 +864,167 @@ elementChapitre10.innerHTML += meteo5("été", 42);
 elementChapitre10.innerHTML += meteo5("automne", 10);
 elementChapitre10.innerHTML += meteo5("hiver", 1);
 elementChapitre10.innerHTML += meteo5("printemps", 20);
+
+elementChapitre10.innerHTML += separateur();
+
+elementChapitre10.innerHTML += "<h3>Les Immediately Invoked Functions Expressions (IIFE) - Fonctions anonymes</h3>";
+// En JS nous avons la possibilité de créer des fonctions anonymes et de les exécuter immédiatement sans passer par l'étape de la déclaration
+// Le but de ces fonctions est en fait "d'englober" une portion de code dans un bloc, pour éviter des problèmes de conflits avec par exemple des noms de variables qui pourraient se dédoubler
+
+(function () {
+    elementChapitre10.innerHTML += "Cette ligne de code, intégrée dans une fonction anonyme est directement exécutée !<hr>";
+}());   // syntaxe crockford
+
+(function () {
+    elementChapitre10.innerHTML += "Cette ligne de code, intégrée dans une fonction anonyme est directement exécutée aussi !<hr>";
+})();
+
+// En gros, on déclare le corps de notre fonction à l'intérieur des accolades, et la paire de parenthèses ouvrante/fermante () permet de l'exécuter immédiatement et de mettre fin à cette portion de code.
+
+elementChapitre10.innerHTML += "<h3>Les fonctions fléchées</h3>";
+// On peut déclarer une fonction classique via le système de fonctions fléchées, généralement utilisé pour des fonctions très simple 
+// let nomDeFonction = (....argument...) => return 
+let ajouteTva = (prixHT, taux = 20) => "La valeur TTC de " + prixHT + " au taux de " + taux + "% est de : " + (prixHT * (1 + (taux / 100))) + "<br>";
+
+elementChapitre10.innerHTML += ajouteTva(1000);
+elementChapitre10.innerHTML += ajouteTva(10000, 25);
+
+elementChapitre10.innerHTML += "<h3>Environnement Global et Local (scope)</h3>";
+
+// Selon l'endroit où est déclarée une variable, celle ci pourra être accessible dans tout le script ou uniquement dans une partie.
+// On parle de portée, d'environnement, de scope, d'espace
+
+// Scope Local et le scope Global
+// Le scope Global c'est ce qui défini l'intégralité de votre code
+// Le scope Local est généralement, du code englobé dans des accolades (dans un if, dans une boucle, dans une fonction)
+
+let animal = "loup"; // variable déclarée dans l'espace global 
+
+function foret() {
+    let animal = "lapin"; // variable déclarée dans l'espace local car dans une fonction, on se trouve ici dans le script local de la fonction foret()
+    return animal;
+}
+
+elementChapitre10.innerHTML += animal + "<hr>"; // Affiche loup
+foret(); // là rien ne se passe, je n'ai pas demandé d'afficher le return de foret()
+elementChapitre10.innerHTML += animal + "<hr>"; // Affiche loup
+elementChapitre10.innerHTML += foret() + "<hr>"; // Affiche lapin (car on affiche le string que nous renvoie la fonction foret())
+elementChapitre10.innerHTML += animal + "<hr>"; // Affiche loup
+animal = foret(); // Ici on réaffecte la variable animal avec une nouvelle valeur, celle qui nous est renvoyée par la fonction foret(), animal vaut maintenant "lapin" à partir de cette ligne
+elementChapitre10.innerHTML += animal + "<hr>"; // Affiche lapin (la nouvelle valeur de animal)
+
+
+// -------------------------------------------------
+// Chapitre 11 : Tableaux de données - Array
+// -------------------------------------------------
+
+const elementChapitre11 = document.getElementById("contenuChapitre11");
+// Un tableau array est un peu comme une variable, sauf qu'au lieu de conserver une seule valeur, le tableau peut contenir un ensemble de plusieurs valeurs 
+// C'est un nouveau type ! Après les number, string, boolean, voilà maintenant les "array"
+
+// Déclaration
+let tabFruits = ["fraises", "bananes", "poires", "pommes", "kiwis", "mangues"];
+
+console.log(tabFruits); // grâce au console log je peux récupérer des informations concernant ce array. Information très importante, je peux voir les INDICES/CLES/KEYS de chacun de mes éléments, ici ce sont des indices numériques
+// 0: "fraises"  -- Ici à l'indice 0 est stocké le string "fraises"
+// 1: "bananes" -- Ici à l'indice 1 est stocké le string "bananes"
+// 2: "poires" -- etc
+// 3: "pommes"
+// 4: "kiwis"
+// 5: "mangues"
+// Dans ce console log on remarque aussi une propriété "length" qui m'indique la taille du tableau 
+// Aussi on remarque une liste deroulante Prototype - Array, sur laquelle nous reviendrons plus tard, on peut malgré tout comprendre que ce sont des fonctions rattachées aux éléments de type Array 
+
+elementChapitre11.innerHTML += tabFruits + "<hr>"; // Affiche la totalité du tableau array avec des valeurs séparées par des virgules
+
+elementChapitre11.innerHTML += tabFruits[4] + "<hr>"; // Affiche kiwis - Pour un tableau array lorsque l'on souhaite piocher un indice spécifique, on doit lui spécifier le numéro entre crochets !!! On note bien que les crochets [] c'est vraiment ce qui représente la syntaxe des tableaux array ! 
+elementChapitre11.innerHTML += tabFruits[0] + "<hr>"; // fraises
+elementChapitre11.innerHTML += tabFruits[1] + "<hr>"; // bananes
+elementChapitre11.innerHTML += tabFruits[2] + "<hr>"; // poires
+tabFruits[2] = "coco"; // On change la valeur présente dans le tableau au niveau de l'indice 2 
+elementChapitre11.innerHTML += tabFruits[2] + "<hr>"; // coco 
+console.log(tabFruits);
+
+// Pour connaitre la taille d'un tableau, je peux appeler sa propriété "length" - (on l'avait vu dans le console log, c'est une propriété commune à tous les éléments de type tableau array)
+elementChapitre11.innerHTML += "Nombre d'éléments dans le array tabFruits : " + tabFruits.length + "<hr>";
+
+// Il est possible d'ajouter des éléments au tableau 
+tabFruits[6] = "kakis"; // On peut ajouter en spécifiant un nouvel indice entre les crochets et lui donner une valeur 
+console.log(tabFruits);
+
+// Si je ne sais pas à quel numéro en sont les indices, je vais utiliser une fonction (c'est d'ailleurs toujours de cette manière que l'on procèdera par défaut)
+// En utilisant la fonction array.push() 
+// array.push() va ajouter un élément en fin de tableau
+tabFruits.push("cerises");
+console.log(tabFruits);
+// array.unshift() va ajouter un élément en fin de tableau 
+tabFruits.unshift("abricots");
+console.log(tabFruits);
+elementChapitre11.innerHTML += tabFruits + "<hr>";
+elementChapitre11.innerHTML += "Nombre d'éléments dans le array tabFruits : " + tabFruits.length + "<hr>";
+// Attention, on évitera de faire unshift, car cela décale les indices de tous nos éléments, cela pourrait peut être nous causer des problèmes 
+// On préfèrera donc toujours utiliser push 
+
+// fonction pour réordonner un array en ordre alphabétique : 
+// array.sort()
+tabFruits.sort();
+console.log(tabFruits);
+
+// EXERCICE : Affichez l'intégralité du tableau array tabFruits sous forme de liste html non ordonnée
+// ul li 
+// <ul> 
+// <li></li>
+// <li></li>
+
+// compteur de boucle doit être appelé dans les crochets du array
+// tabFruits[i]
+
+// condition de boucle à trouver
+// le nombre d'élément dans le array est compris grâce à length 
+
+let liste = "<ul>"; // j'ouvre le ul, c'est lui qui contient tous les li 
+
+for (let i = 0; i < tabFruits.length; i++) { // je me sers du compteur pour piocher les éléménets un à un dans l'array, j'utilise aussi length pour comprendre la condition de fin de boucle
+    liste += "<li>" + tabFruits[i] + "</li>"; // création de chaque li 
+}
+liste += "</ul>"; // fin de liste
+
+elementChapitre11.innerHTML += liste; // affichage de la liste contenant dans la variable liste
+// Tout comme pour les table, le flux html est perturbé car corrigé par le navigateur, on a donc l'absolu nécessité de construire notre liste ul li dans une variable avant de l'appeller pour l'affichage 
+
+// Il est possible de réduire le tableau avec la propriété length 
+elementChapitre11.innerHTML += tabFruits + "<hr>";
+elementChapitre11.innerHTML += tabFruits.length + "<hr>";
+tabFruits.length = 3; // On dit maintenant au tableau d'avoir une taille de 3 éléments, donc il sera coupé à 3 éléments ! 
+elementChapitre11.innerHTML += tabFruits + "<hr>";
+elementChapitre11.innerHTML += tabFruits.length + "<hr>";
+
+elementChapitre11.innerHTML += separateur();
+
+// Il existe d'autres syntaxes pour créer des array 
+let tabPrenom = Array("Pierra", "Jean", "Anisse");
+let tabNumero = new Array(10, 11, 12);
+
+// En javascript, pas de possibilité d'avoir des array avec des indices en toutes lettres... (ce que l'on appelle un tableau associatif, généralement c'est pourtant ce qu'on préfère utiliser !)
+// Par contre, on verra dans un chapitre suivant que pour avoir des "indices" nommés, on pourra plutôt créer un objet 
+
+// ---------------------------
+// ---- Boucle for in
+// ---------------------------
+// Boucle for in spécifique aux tableaux array (et aux objets)
+for (let indice in tabFruits) {
+    elementChapitre11.innerHTML += "- " + tabFruits[indice] + "<br>";
+}
+// let indice représente l'indice en cours à chaque tour de boucle
+// En fait, la boucle comprend d'elle même qu'elle doit boucler sur chaque élément du tableau array, et à chaque tour, la variable que je défini (au nom que je souhaite, mais ici je l'ai appelé logiquement "indice"), va recevoir, l'indice en question de ce tour, donc au premier tour de boucle, indice récupère la valeur 0, puis après la valeur 1 puis 2 etc 
+
+// ---------------------------
+// ---- Boucle for of
+// ---------------------------
+// boucle for of spécifique aux tableaux (et aux objets)
+for (let valeur of tabFruits) {
+    elementChapitre11.innerHTML += "- " + valeur + "<br>";
+}
+// Ici à chaque tour de boucle la variable valeur récupère la valeur de chaque indice du tableau array !
+// la boucle est capable de tourner autant de fois qu'il y a d'élément dans notre tableau, elle le comprends d'elle même.
+// C'est la boucle que l'on préfèrera utiliser pour les array (alors que pour les objets, il sera intéressant d'utiliser for in)
