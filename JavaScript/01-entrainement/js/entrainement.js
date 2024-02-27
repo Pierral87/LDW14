@@ -1028,3 +1028,259 @@ for (let valeur of tabFruits) {
 // Ici à chaque tour de boucle la variable valeur récupère la valeur de chaque indice du tableau array !
 // la boucle est capable de tourner autant de fois qu'il y a d'élément dans notre tableau, elle le comprends d'elle même.
 // C'est la boucle que l'on préfèrera utiliser pour les array (alors que pour les objets, il sera intéressant d'utiliser for in)
+
+// -------------------------------------
+// -- Les tableaux array à plusieurs niveaux - Array Multidimensionnel 
+// ---------------------------------------
+elementChapitre11.innerHTML += "<h3>Les Array multidimensionnels</h3>";
+
+let personnes = [
+    ["Marie", "Dupont", "marie@gmail.com", "0102030405"],  // à l'indice 0 j'ai l'array qui concerne Marie
+    ["Bernard", "Durand", "beber@gmail.com", "0908070605"], // ici indice 1 pour Bernard
+    ["Julie", "André", "juju@hotmail.fr", "0405060302"] // et le 2 pour Julie 
+]
+
+console.log(personnes);
+
+// Si je veux afficher "Bernard" ?
+elementChapitre11.innerHTML += personnes[1][0];
+// Pour piocher dans un tableau à plusieurs niveaux, on fait une succession de crochets ! dans le array personne, on pioche l'indice 1 qui concerne Bernard, puis l'indice 0 qui concerne le prénom 
+for (let i = 0; i < personnes.length; i++) {
+    elementChapitre11.innerHTML += " - " + personnes[i][2] + "<br>";
+}
+
+// EXERCICE : Utilisez vos connaissances de boucles et array pour arriver à afficher chaque élément du tableau array personnes 
+// Ici on aura besoin de deux boucles ! (peu importe lesquelles), une qui va parcourir les personnes donc d'abord marie, bernard puis julie, et une deuxieme à l'intérieur de la première, qui va parcourir chacune des informations marie, dupont, marie@gmail, 0102030405, etc 
+
+for (let i = 0; i < personnes.length; i++) {
+
+    elementChapitre11.innerHTML += "<hr>";
+    for (let j = 0; j < personnes[i].length; j++) {
+        elementChapitre11.innerHTML += personnes[i][j] + " - ";
+    }
+    // Retrait du dernier séparateur inutile
+    elementChapitre11.innerHTML = elementChapitre11.innerHTML.slice(0, -3); // slice avec l'argument 0 permet de dire qu'on commence à la fin de l'élément, et -3 pour indiquer que l'on coupe 3 caractères pour supprimer le " - " 
+    elementChapitre11.innerHTML += "<br>";
+}
+
+
+elementChapitre11.innerHTML += separateur();
+
+for (let i = 0; i < personnes.length; i++) {  // i représente le passage sur chaque "sous tableau" (marie, bernard, julie)
+    for (j = 0; j < personnes[i].length; j++) { // j représente le passage sur chaque "info" (prenom, nom, email, telephone)
+        elementChapitre11.innerHTML += personnes[i][j] + " ";
+    }
+    elementChapitre11.innerHTML += "<br>";
+}
+
+elementChapitre11.innerHTML += separateur();
+
+
+// avec la boucle for of, on ne se soucis plus des indices car on peut piocher directement les valeurs
+for (let personne of personnes) { // cette première boucle me permet de récupérer les "personnes" une à une (les sous tableaux en fait), cette appelation de ma variable, veut plus ou moins dire, je récupère UNE personne parmis LES personnes
+    for (let information of personne) {
+        elementChapitre11.innerHTML += information + " "
+    }
+    elementChapitre11.innerHTML += "<br>";
+}
+
+
+
+for (let i = 0; i < personnes.length; i++) {
+    for (j = 0; j < personnes[i].length; j++) {
+        if (j === personnes[i].length - 1) {
+            elementChapitre11.innerHTML += personnes[i][j];
+        } else
+            elementChapitre11.innerHTML += personnes[i][j] + " - ";
+    }
+    elementChapitre11.innerHTML += "<br>";
+}
+
+
+// -------------------------------------------------
+// Chapitre 12 : Les Objets Globaux
+// -------------------------------------------------
+
+const elementChapitre12 = document.getElementById("contenuChapitre12");
+// https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects
+
+// Un objet c'est un conteneur virtuel possédant des informations (propriétés ou attributs, ce sont des "valeurs") mais EN PLUS, peut contenir du fonctionnel (méthodes)
+
+// Une variable = une information
+// un tableau array = un ensemble d'informations
+// un objet = un ensemble d'informations ainsi qu'un ensemble de méthodes(fonctions)
+
+// En JS, c'est un peu particulier, car tous les éléments héritent d'un type d'objet, par exemple, si je défini une variable let prenom = "pierra" alors cette variable prenom, est de type string, et donc de type OBJET string (on a accès à des tas d'informations en plus que sa simple valeur stockée).
+// On dit, qu'en JavaScript, TOUT est objet 
+
+// -----------------------------------------------------------
+// ----- STRING 
+// -----------------------------------------------------------
+
+// https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String
+elementChapitre12.innerHTML += "<h3>Objet string</h3>";
+let phrase = "Bonjour je m'appelle Pierra, nous sommes mardi";
+elementChapitre12.innerHTML += phrase + "<hr>";
+// Cette variable contient du texte. mais en réalité, c'est un objet JavaScript, un objet de type String, il possède des méthodes et des propriétés
+
+// Un objet string possède la propriété length (comme un tableau array, cela m'indiquera la taille de la chaine de caractère)
+elementChapitre12.innerHTML += "Taille de la chaine contenue dans phrase : " + phrase.length + "<br>";
+
+// indexOf()
+// indexOf() nous permet de connaitre la position d'une chaine de caractères dans une autre chaine 
+elementChapitre12.innerHTML += "Position du mot Pierra dans la phrase : " + phrase.indexOf("Pierra") + "<br>"; // affiche 21 (attention le premier caractère de la phrase est celui numéro 0, donc 21 m'indique que le mot Pierra débute au 22eme caractère)
+
+// substring()
+// permet de découper une chaine en fournissant une position de départ et une position de fin 
+let positionDepart = phrase.indexOf("Pierra");
+let positionFin = phrase.indexOf("Pierra") + "Pierra".length;
+console.log(positionFin);
+elementChapitre12.innerHTML += phrase.substring(positionDepart, positionFin) + "<hr>";
+
+// toUpperCase() pour transformer en maj
+// toLowerCase() pour transformer en min 
+let maj = "BONJOUR";
+let min = "mardi";
+elementChapitre12.innerHTML += maj.toLowerCase() + "<hr>";
+elementChapitre12.innerHTML += min.toUpperCase() + "<hr>";
+
+// EXERCICE 
+// déclarer une variable contenant votre prenom en minuscule
+// faire en sorte en utilisant substring et toUpperCase, de mettre en majuscule UNIQUEMENT la première lettre et ensuite afficher votre prénom entier sur la page
+// Il faut d'abord découper la première lettre grâce à substring et la passer en upperCase et ensuite concaténer la suite de la chaine en commençant au second caractère
+
+let prenomMin = "pierra";
+
+let prenomMaj = prenomMin.substring(0, 1).toUpperCase() + prenomMin.substring(1);
+
+// Je le mets dans une fonction comme ça je pourrais le réutiliser une prochaine fois ! 
+function ucFirst(chaine) {
+    return chaine.substring(0, 1).toUpperCase() + chaine.substring(1);
+}
+
+elementChapitre12.innerHTML += prenomMaj;
+elementChapitre12.innerHTML += ucFirst("ridowane");
+elementChapitre12.innerHTML += ucFirst("tokyo");
+
+
+// -----------------------------------------------------------
+// ----- MATH
+// -----------------------------------------------------------
+// https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math
+elementChapitre12.innerHTML += "<h3>Objet Math</h3>";
+// Math est un objet regroupant des tas de fonctions en lien avec la manipulation de chiffre 
+// Par exemple :
+
+// Math.floor(chiffre) arrondi à l'entier inférieur
+elementChapitre12.innerHTML += Math.floor(7.9) + "<br>";
+
+// Math.ceil(chiffre) arrondi à l'entier supérieur
+elementChapitre12.innerHTML += Math.ceil(6.1) + "<br>";
+
+// Math.round() arrondi à l'entier le plus proche
+elementChapitre12.innerHTML += Math.round(7.9) + "<br>";
+elementChapitre12.innerHTML += Math.round(6.1) + "<br>";
+
+// -----------------------------------------------------------
+// ----- DATE
+// -----------------------------------------------------------
+elementChapitre12.innerHTML += "<h3>Objet Date</h3>";
+// https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date
+// L'objet Date, est un type d'objet appelé "constructeur", on a besoin de créer un objet Date avec l'opérateur "new"
+// L'opérateur new, concept universel dans l'orienté objet, permet de créer un nouvel objet d'une classe spécifique
+let today = new Date();
+console.log(today);
+// console.log(Date.now()); // ici je peux appeler le timestamp en millisecondes, ce sont le nombre de millisecondes écoulées depuis le 1er janvier 1970, c'est le temps UNIX, en gros "l'an 0 de l'informatique"
+
+// Pour avoir l'année en 4 chiffre :
+elementChapitre12.innerHTML += today.getFullYear() + "<hr>";
+// Pour avoir le numéro du jour dans le mois :
+elementChapitre12.innerHTML += today.getDate() + "<hr>";
+// Pour avoir le numéro du jour dans la semaine (dimanche étant le 0)
+elementChapitre12.innerHTML += today.getDay() + "<hr>";
+// Pour avoir le numéro du mois de l'année (janvier étant le 0)
+elementChapitre12.innerHTML += today.getMonth() + "<hr>";
+
+// Si on souhaite écrire la date en français, on formaterait de la sorte : 
+elementChapitre12.innerHTML += today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() + "<hr>";
+
+// EXERCICE 
+// Refaire la fonction direBonjour pour rajouter une condition afin de dire Bonjour ou Bonsoir en fonction de l'heure de la journée 
+// On considèrera dire Bonjour entre 5h du matin et 18h et Bonsoir le reste du temps 
+// On doit recréer un objet Date à l'intérieur de la fonction (espace local oblige...) et ensuite récupérer uniquement les heures de cet élément date pour comprendre si c'est Bonjour ou Bonsoir
+
+function direBonsoir(qui) {
+    // Création objet date dans l'espace local
+    let date = new Date();
+
+    let heure = date.getHours(); // on récup l'heure
+    console.log(heure);
+
+    let salutation; 
+    if (heure > 5 && heure < 18) {
+        // if (heure < 5 || heure > 18) {
+        salutation = "Bonjour"
+    } else {
+        salutation = "Bonsoir"
+    }
+
+    let message = salutation + " " + qui + ", bienvenue sur le site !";
+
+    return message;
+}
+
+elementChapitre12.innerHTML += direBonsoir("Pierro") +  "<hr>";
+
+
+// -------------------------------------------------
+// Chapitre 13 : Les Objets
+// -------------------------------------------------
+
+const elementChapitre13 = document.getElementById("contenuChapitre13");
+
+// Création d'un objet, en utilisant les accolades (création littérale)
+
+let monObjet = {}; // création d'un objet vide 
+console.log(typeof (monObjet));
+
+// Remplissage de l'objet
+// Par exemple je lui rajoute une propriété "pseudo"
+monObjet.pseudo = "Pierro"; // syntaxe propre aux objets
+monObjet["mail"] = "pierro@gmail.com"; // syntaxe ressemblante aux array... on évite de tout mélanger ! A eviter 
+
+elementChapitre13.innerHTML += monObjet.pseudo;
+elementChapitre13.innerHTML += monObjet.mail;
+
+// Je peux également définir dès l'initialisation de l'objet, des propriétés et des fonctions 
+
+// Par exemple, un objet "étudiant"
+
+let etudiant = 
+{
+    nom: "Dupond",
+    prenom: "Arthur",
+    age: 25,
+    competences: { // un objet dans l'objet
+        // array dans l'objet 
+        web: ["html", "css", "js", "php"],
+        design: ["photoshop", "illustrator"]
+    },
+    contact: {
+        mail: "dupont@arthur.com",
+        tel: "0608070908"
+    },
+    ajouterCompetenceWeb: function (nouvelleComp) {
+        this.competences.web.push(nouvelleComp);
+    },
+    ajouterCompetenceDesign: function (nouvelleComp) {
+        this.competences.design.push(nouvelleComp);
+    }
+}
+
+console.log(etudiant);
+
+elementChapitre13.innerHTML += "Prenom de l'étudiant " + etudiant.prenom;
+
+etudiant.ajouterCompetenceWeb("mysql");
+
+console.log(etudiant);
