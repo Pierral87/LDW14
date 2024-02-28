@@ -957,7 +957,7 @@ console.log(tabFruits);
 // array.push() va ajouter un élément en fin de tableau
 tabFruits.push("cerises");
 console.log(tabFruits);
-// array.unshift() va ajouter un élément en fin de tableau 
+// array.unshift() va ajouter un élément en début de tableau 
 tabFruits.unshift("abricots");
 console.log(tabFruits);
 elementChapitre11.innerHTML += tabFruits + "<hr>";

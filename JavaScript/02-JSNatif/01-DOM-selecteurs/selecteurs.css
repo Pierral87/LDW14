@@ -1,0 +1,16 @@
+* {
+    transition: all 1s ease;
+}
+.conteneur {
+    width: 1000px;
+    margin: 0 auto;
+    border: 1px solid #dedede;
+    padding: 20px;
+}
+h3 {
+    color: white;
+}
+
+p span {
+    color: red;
+}
