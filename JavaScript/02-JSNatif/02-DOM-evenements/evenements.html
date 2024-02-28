@@ -18,6 +18,47 @@
 
         <div class="blocdiv" id="div2" style="background-color: indigo; top: 0; left: 0"></div>
 
+        <div id="blocImage1">
+            <img src="img/image1.jpg" alt="">
+            <img src="img/image2.jpg" alt="">
+        </div>
+
+        <hr>
+
+        <div id="blocImage2" data-image="image1">
+            <img src="img/image1.jpg" id="image1" alt="une image de paysage" style="opacity: 1;">
+            <img src="img/image2.jpg" id="image2" alt="une image de paysage">
+            <img src="img/image3.jpg" id="image3" alt="une image de paysage">
+            <img src="img/image4.jpg" id="image4" alt="une image de paysage">
+            <img src="img/image5.jpg" id="image5" alt="une image de paysage">
+        </div>
+        <a href="http://www.google.fr" id="changerImage">Changer d'image</a>
+
+
+        <hr>
+        <div id="message"></div>
+        <form method="" action="" id="monForm">
+            <input type="text" name="pseudo" id="pseudo" placeholder="Pseudo..." value="">
+            <br>
+            <br>
+            <input type="text" name="email" id="email" placeholder="Email...">
+            <br>
+            <br>
+            <label>Ville</label><br>
+            <select id="choix" name="choix">
+                <option></option>
+                <option>Paris</option>
+                <option>Lille</option>
+                <option>Montpellier</option>
+                <option>Lyon</option>
+                <option>Marseille</option>
+                <option>Orleans</option>
+                <option>Nice</option>
+            </select>
+            <hr>
+            <button type="submit" id="boutonFrom" class="bouton">Valider</button>
+        </form>
+
     </div>
     <script src="evenements.js"></script>
 </body>

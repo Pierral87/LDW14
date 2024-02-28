@@ -18,3 +18,48 @@
     height: 100px;
     margin: 50px;
 }
+
+img {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#blocImage1 {
+    width : 640px;
+    height: 360px;
+    overflow: hidden;
+}
+
+#blocImage1 img {
+    width: 640px;
+    height: 360px;
+    display: block;
+}
+
+#blocImage2 {
+    position: relative;
+    width: 640px;
+    height: 360px;
+    overflow: hidden;
+}
+
+
+#blocImage2 img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 640px;
+    height: 360px;
+    opacity: 0;
+}
+
+
+input,
+select,
+button {
+    width: 350px;
+    height: 30px;
+    border: 1px solid lightslategray;
+    padding-left: 5px;
+}
