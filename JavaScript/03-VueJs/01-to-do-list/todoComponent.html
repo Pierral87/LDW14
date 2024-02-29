@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Ci dessous l'appel du cdn de Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+</head>
+<body>
+    <!-- Ici div id app, c'est le point d'entrée de notre Vue, en gros je vais connecter une instance de Vue.js à ce div, elle sera donc capable de le controler -->
+    <div id="app">
+
+
+        <div class="container p-3 bg-light">
+            <!-- Ici plusieurs choses, entre les doubles accolades, c'est ce qu'on appelle le rendu déclaratif, on est apte à appeler une propriété de notre objet Vue, directement dans le HTML en le nommant entre doubles accolades, très simple ! -->
+            <!-- A côté de ça, on ne peut par contre pas utiliser les doubles accolades pour lier la valeur de titre à un attribut html, on utilisera donc la DIRECTIVE v-bind pour "lier" la prop de Vue à l'attribut HTML -->
+            <h1 v-bind:title="titre"> {{titre}} </h1>
+            <!-- Ici avec la directive v-model je crée une liaison appelée "Two ways binding", c'est à dire que mon interface intervient sur l'instance de vue, aussi bien que l'instance de vue intervient sur mon interface ! En gros, le contenu de ce champ input, sera retranscrit dans la prop "message" de ma Vue -->
+            <!-- <input v-model="message" type="text" class="w-50"> -->
+            <!-- Sur le button je crée un event click qui va lancer la méthode "ajouterToDo" qui permet d'ajouter la saisi de l'input (en fait, le contenu de la prop message) à l'intérieur du array todos -->
+            <!-- Ici nouvelle directive v-if, nous permet de conditionner l'apparition de l'élément (du button), là en l'ocurence j'affiche le bouton seulement si le message n'est pas vide ! Donc tant qu'il n'y a rien dans l'input, le bouton n'apparaît pas -->
+            <!-- <button class="btn btn-info ms-2" @click="ajouterToDo" v-if="message != ''">Enregistrer</button> -->
+            <!-- <h2> {{message}} </h2> -->
+
+            <!-- Remplacement du html de l'input, button et h2, par le composant nouvellement créé add -->
+            <!-- Ici lorsque je reçois l'évènement newLine ATTENTION je dois l'écrire en "kebab case" new-line   alors je lance la fonction ajouterToDo de ma Vue, le contenu de addmsg est directement transmit par l'évènement new-line et est récupérable dans ajouterToDo -->
+            <add @new-line="ajouterToDo"></add>
+
+    
+            <!-- Nouvelle directive, v-for ! Elle me permet de mettre très facilement en place une boucle ! -->
+            <!-- Ici, je spécifie que je veux boucler une balise p pour chaque element du array "todos", chaque element recevra la valeur dans la variable "todo" que j'interprête en rendu déclaratif entre mes doubles accolades -->
+            <!-- Ainsi en une ligne j'ai réussi à boucler sur tous les éléments d'un tableau array et d'y apporter l'affiche que je souhaite -->
+            <!-- Pour mettre un evenement click sur tous mes p j'ai simplement besoin de mettre @click   et ensuite = "inverser" pour lui dire de lancer ma méthode inverser de ma Vue -->
+            <!-- On peut également écrire ça de cette manière :   v-on:click -->
+            <!-- <p v-for="todo in todos" @click="inverser"> {{todo}} </p> -->
+
+            <!-- Plutôt que d'appeller l'affichage avec un p, je vais l'appeler avec mon composant todoline -->
+            <todoline v-for="todo in todos" v-bind:content="todo" @click="inverser"></todoline>
+
+            
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+        // Lorsque je développe comme ceci avec Vue.js, donc, simplement avec l'ajout de Vue.js en cdn (façon d'utilisation comme une librairie)
+        // Je vais coder le js directement dans ma page html dans une balise script 
+
+        // Ci-dessous, la déclaration d'une instance de vue
+        // je stocke dans la constante nommée "vm" une "instance" un "objet" de Vue, ainsi j'ai accès à toutes les fonctionnalités du framework par cet élément
+        // vm convention de nommage pour "ViewModel" (une instance de vue)
+        const vm = Vue.createApp({
+            // la fonction createApp permet de créer l'instance, elle prends en paramètre un objet (que l'on déclare entre des accolades), cet objet me permet de définir diverses options
+
+            // première option ici, les données (data()), les données ce sont par exemple des informations qui pourraient venir d'une base de données, ici on les défini à la main dans un premier temps
+            // Dans les données j'ai ici une propriété nommée "titre" qui a pour valeur un string "Ma To-Do List"
+            data() {
+                return {
+                    titre: "Ma To-Do List", // Titre dynamique, si cette prop change, le titre sur ma page change aussi
+                    todos: ["Lancer une lessive", "Faire le ménage", "Boire un café", "Etendre le linge"], // Ici un array de mes taches à accomplir aujourd'hui
+                    // message: "",
+                //    todos: [
+                //     {id : 0, description: "lancer une lessive"},
+                //     {id : 1, description: "faire le menage"},
+                //     {id : 2, description: "etendre le linge"},
+                //    ]
+                }
+            },
+            methods: {
+                inverser(){ // Ici méthode inverser qui permet de retourner le contenu de l'array todos (elle inverse tous les éléments, grâce à la fonction reverse)
+                    this.todos.reverse();
+                },
+                // Je récupère ici dans message (le param de la methode), le contenu de addmsg, transmit par l'évènement new-line du composant
+                ajouterToDo(message){ // Ici méthode ajouterToDo, qui nous permet d'ajouter le contenu de la prop message, à l'array todos
+                    this.todos.push(message); // On est obligé ici de spécifier this, car on manipule la vue, on lui dit, à ta propriété todos, tu ajoutes le message reçu dans tes params
+                }
+            }
+        });
+        
+        // Ici je crée un composant, que je décide d'appeler todoline, je vais l'utiliser pour afficher le contenu de ma todolist (plutot que de mettre un <p> directement dans mon html)
+            // Par la props content, je représente ce qui est censé s'afficher à l'intérieur du <p> (c'est le todo au singulier de tout à l'heure)
+                // la propriété template indique quant à elle, quel est le code html de ce component
+        vm.component("todoline", {
+            props: ["content"],
+            template: "<p> {{content}} </p>"
+        })
+        
+        // Ici je crée un composant "add", il va représenter tout le système d'ajout de ligne de ma todo list, il va inclure le input, le button, le h2 de l'affichage du message
+        vm.component("add", {
+            emits: ["newLine"],  // ici je défini la prop emits qui représente quels sont les évènements autorisés à sortir de ce composant
+            data(){
+                return{
+                    addmsg: '' // Ici je crée une prop qui sert à récupérer la saisie de l'input
+                }
+            },
+            methods:{  // Ici ma méthode qui va permettre de transmettre la saisie à l'interface et donc que ma Vue principale puisse la récupérer
+                addLine(){
+                    this.$emit("newLine", this.addmsg); // $emit permet de créer un evenement personnalisé, en gros ici je crée l'evenement newLine qui transmettra la valeur du addmsg
+                                                    // Cet évènement est ensuite récupéré par l'interface (et dans l'interface si cet evenement intervient, on lancera la methode ajouterToDo de la Vue principale)
+                    this.addmsg = ""; // on vide l'input
+                }
+            },
+            // Ci dessous le code html du composant 
+            template: `<input v-model="addmsg" type="text" class="w-50"> 
+            <button class="btn btn-info ms-2" @click="addLine" v-if="addmsg != ''">Enregistrer</button>
+            <h2> {{addmsg}} </h2>
+            `
+        })
+        
+        
+        vm.mount("#app");  // L'instruction .mount("#app") permet de spécifier que cette Vue est rattaché au div id=app
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
