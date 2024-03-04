@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Drag and Drop JQ</title>
+<script type="text/javascript" src="jquery-1.11.0.min.js"></script>		
+<script type="text/javascript" src="jquery-ui-1.10.4.custom.min.js"></script>		
+		
+		<style type="text/css">
+			.drag {
+				background-color: #F0F0F0;
+				border: 1px solid #000000;
+				cursor: move;
+				margin: 0 0 0.5em 1.5em;
+				padding: 0.5em;
+				position: relative;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			
+				function start(){					
+					$( ".drag" ).draggable();							
+				}
+				window.onload = start;
+			
+		</script>
+	</head>
+	<body>
+
+<div class="drag" style="left: -4px; top: -4px;">Barre 1</div>
+<div class="drag">Barre 2</div>
+<img class="drag" alt="drag image" src="drag_image.png" style="left: 121px; top: 13px;">
+
+
+	</body>
+</html>
