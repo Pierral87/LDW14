@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-container {
+    display: flex;
+    width: 480px;
+    flex-wrap: wrap;
+}
+
+.inner-container div {
+    margin: 20px;
+}
+
+form div {
+    margin : 20px 0;
+}
+
+p{
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
