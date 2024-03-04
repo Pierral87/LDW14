@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Animations jQuery</title>
+        <style>
+            div { position: relative; margin: 30px; width: 140px; height: 140px; background-color: darkslateblue; }
+            h2 { background-color:indigo; color: white; padding: 20px; }
+
+            #slideOpen, #slideClose, #slideToggle, .accordionTitre {
+                padding: 20px;
+                background-color: #333333;
+                color: white;
+                text-align: center;
+                cursor: pointer;
+                border: 1px solid dimgrey;
+            }
+            #slideOpenContenu, #slideCloseContenu, #slideToggleContenu, .accordionContenu {
+                padding: 20px;
+                border: 1px solid #333333;
+                text-align: justify;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h2>Les animations fade</h2>
+        <a href="" id="fadeDisparition">Disparition</a>
+        <br>
+        <div id="rouge" style="background-color: red;"></div>
+
+        <hr>
+        <a href="" id="fadeApparition">Apparition</a><br>
+        <div id="darkslateblue" style="display: none;" ></div>
+
+        <hr>
+        <a href="" id="fadeToggle">Toggle</a><br>
+        <div id="navy" style="background-color: navy;"></div>
+
+        <hr>
+        <a href="" id="fadeTo">Fade to</a><br>
+        <div id="darkorchid" style="background-color: darkorchid;"></div>
+
+
+        <hr>
+
+        <h2>Animation slide (accordion)</h2>
+        <section id="slideOpen">Cliquez pour ouvrir le bloc suivant</section>
+        <section id="slideOpenContenu" style="display: none;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+        </section>
+
+        <hr>
+
+        <section id="slideClose">Cliquez pour ouvrir le bloc suivant</section>
+        <section id="slideCloseContenu">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+        </section>
+
+        <hr>
+
+        <section id="slideToggle">Cliquez pour ouvrir le bloc suivant</section>
+        <section id="slideToggleContenu">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+        </section>
+
+        <h2>Accordion</h2>
+        <section class="accordionTitre">Cliquez pour ouvrir le bloc suivant</section>
+        <section class="accordionContenu" style="display: block;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+        </section>
+
+        <section class="accordionTitre">Cliquez pour ouvrir le bloc suivant</section>
+        <section class="accordionContenu" style="display: none;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+        </section>
+
+        <section class="accordionTitre">Cliquez pour ouvrir le bloc suivant</section>
+        <section class="accordionContenu" style="display: none;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio optio soluta, iste expedita consequuntur accusantium eaque ex voluptatibus doloremque nam harum fuga tempora voluptatem reprehenderit saepe quaerat commodi obcaecati nemo ipsum temporibus exercitationem velit similique autem. Natus molestiae nostrum unde labore, cupiditate vel est eum deserunt repellat! Cupiditate, obcaecati deserunt.
+        </section>
+
+
+        <h2>Animate</h2>
+
+        <div id="simple"></div>
+        <div id="double" style="background-color: plum"></div>
+        <div id="toggle" style="background-color:royalblue"></div>
+        <div id="animation" style="background-color:rebeccapurple"></div>
+
+
+        <h2>Copieur</h2>
+        <article id="monBloc">
+            <input type="text" id="modele">
+            <input type="text" id="copie">
+        </article>
+
+
+
+
+
+
+
+<br><br><br><br><br><br>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.0.js"  integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="  crossorigin="anonymous"></script>
+        <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>

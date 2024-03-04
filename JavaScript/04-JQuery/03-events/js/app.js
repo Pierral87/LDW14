@@ -42,7 +42,6 @@ $(document).ready(function() {
         //Ici meme concept, je recupère dans la variable event, l'évènement précis que je viens de déclencher et j'annule son comportement par defaut grâce à la ligne en dessous .preventDefault()
         event.preventDefault(); 
 
-
         // Pour le valider après des vérifs : this.submit()
     })
 
