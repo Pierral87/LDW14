@@ -1,0 +1,49 @@
+Vous devez réaliser un projet à présenter en fin de formation 
+
+Ce projet doit représenter les connaissances que vous avez acquises lors de cette formation.
+
+A fournir : 
+-----------------------
+
+    1 -  Une documentation (Cahier des charges(fonctionnel))
+                - Dans le cahier des charges on attend une introduction sur le client/le projet, une spécification de toutes les fonctionnalités du site web, ainsi que les choix techniques (pas le choix, HTML/CSS (Bootstrap si vous voulez), JavaScript (JQuery ou Vue si vous voulez), PHP (Pas de symfony, on va faire ça à la main))
+                - Modelisation de Base de données (structure de la base de données)
+                - Maquette (zoning du site)
+    2 -  Le site web lui même, on s'attend à un site "complet" avec un design convenable, un peu de JavaScript pour des animations/interaction/confort d'interface utilisateur puis plusieurs fonctionnalités PHP (généralement on a toujours inscription puis connexion, on s'intéressera aux fonctionnalités qui viennent après ! Un CRUD en back office (page admin de gestion produits, puis interpretation en front))
+    3 - Un powerpoint pour appuyer votre présentation orale 
+
+
+L'oral : 
+--------------------------
+    Plusieurs étapes pendant l'oral : 
+            - Vous présentez votre projet - 30minutes (monologue) 
+                    Structure présentation : 
+                        - Courte présentation de vous même, contexte d'entrée dans la formation, vos objectifs
+                        - Introduction du projet (c'est quoi, comment, pourquoi)
+                        - Manipulation du projet lui même sur localhost (présentation du site, vous passez à la manipulation du projet, on présente le fonctionnement)
+                        - Présentation plus détaillée d'une fonctionnalité front ainsi que son code (une interaction JavaScript que vous êtes content d'avoir réalisé)
+                        - Présentation plus détaillée d'une fonctionnalité back ainsi que son code (la fonctionnalité PHP la plus complexe de votre projet)
+                        - Les difficultés rencontrées (Une difficulté surmontée ! Dont vous pouvez parler et expliquer la façon dont vous l'avez résolu)
+                        - Les améliorations possibles 
+                        - Conclusion 
+            - Entretien technique - 30 minutes (le jury vous pose des questions)
+            - Echanges Questions/Reponses - 15 minutes
+
+
+
+
+Attendus des deux journées Projet Front : 
+
+- Bien définir son projet (je fais quoi ? un blog ? un site ecommerce ? Un forum d'échange ?)
+- Faire une maquette - Un zoning (définir l'agencement potentiel du site)
+- Réfléchir aux "entités"  (c'est ce qui va représenter plus tard les tables dans notre base de données - par exemple un site ecommerce on aura toujours une entité Utilisateur une entité Produit)
+- Débuter le cahier des charges 
+- Faire une première structure de votre site web (une page principale avec le design)
+
+
+Attendus de la journée Projet Back : 
+
+- Découpe du site avec les fonctions include/require 
+- Définition des fonctionnalités
+- Connexion avec la BDD 
+- Développement des premières fonctionnalités 
