@@ -1,0 +1,190 @@
+-----------------------------------
+------------ GIT & GITHub
+-----------------------------------
+
+
+C'est quoi Git ? 
+Git c'est un système de contrôle de version, il nous permet de garder trace et sauvegarde de toutes les modifications sur nos projets et éventuellement d'y revenir (à ces étapes).
+A l'époque, on faisait des copies totales de nos projets, en les nommant différemment, Git va gérer ça à notre place de façon "discrète".
+Git c'est un outil offline, c'est à dire il est installé sur notre ordinateur, pas besoin d'être en ligne pour s'en servir et versionner nos applications
+
+Et GitHub ? 
+GitHub est une plateforme d'hebergement des systèmes de versionning gérés par Git.
+Les avantages de GitHub : 
+    - Interface graphique pour visualiser les fichiers, les dossiers
+    - Des fonctionnalités intégrés qui nous évitent de passer toujours par les lignes de code  (suivi des conflits et des demandes de fusion)
+    - Facilite la collaboration au sein d'une équipe 
+
+
+------------------ Importance de la gestion de version dans le developpement ----------------------
+
+    - Historique des modifications : Elle permet de suivre toutes les modifications apportées aux fichiers d'un projet, ce qui facilite la compréhension de l'évolution du code et la recherche d'erreur 
+    - Collaboration efficace : Permet à plusieurs développeurs de travailler simultanément sur un même projet (chacun sur une sorte de copie), sans risque de conflits
+    - Reproductibilité : Elle permet de restaurer des versions antérieures 
+    - Expérimentation en toute sécurité : Elle permet aux développeurs d'expérimenter tout et n'importe quoi.
+    - Plateforme centralisée : GitHub nous permet d'héberger/centraliser nos projets et toutes leurs versions 
+    - Facilité de contribution externe : Par exemple pour des projets OpenSource, vous pouvez suggérer vos propres améliorations pour aider à développer certains outils (vos propositions seront vérifiées par les propriétaires du dossier)
+
+
+----------- Première étape : Installation de Git -------------------------
+Télécharger ici Git : https://git-scm.com/downloads
+Et l'installer 
+
+Après ça, créer son compte sur GitHub : https://github.com/ 
+
+
+---------------- Mise en place de Git -------------------------------------
+Ouvrir un terminal (celui de VS Code ou un autre)
+On doit connecter notre Git local à notre GitHub 
+
+-- D'abord, choisir notre nom d'utilisateur Git et notre email
+C'est ce qui nous identifiera lorsque nous enverrons des "versions", des "modifications" de code
+git config --global user.name "Pierral87"
+git config --global user.email "pa.lacaze1@gmail.com"
+
+
+-- On va nommer la branche principale main (anciennement c'était master)
+La branche principale c'est celle qui contient le projet, (on créera par la suite des "sous" branches pour travailler sur des copies du projet sans impacter le projet principal)
+git config --global init.defaultBranch main 
+
+-- On active le mode couleur de git 
+git config --global color.ui auto
+
+
+-- On désactive le merging automatique en mettant le rebase à false
+git config --global pull.rebase false 
+
+
+-- Vérification de la config du user name et email 
+git config --get user.name
+git config --get user.email
+
+
+---------------- Mise en place de la connexion avec GitHub -------------------------------------
+
+-- Création d'une clé SSH (c'est une clé encodée pour nous connecter à notre GitHub)
+ssh-keygen -t ed25519 -C "pa.lacaze1@gmail.com"
+
+-- Liaison de cette clé SSH à GitHub pour nous identifier (pour créer le lien entre Git et GitHub)
+    Etapes : 
+                - On se connecte à GitHub 
+                - Clic sur profil -> Settings 
+                - Partie gauche on clique SSH and GPG keys 
+                - On clique sur le bouton "New Key"
+                - On saisi un nom pour cette clé et on va ensuite transmettre la clé SSH
+
+-- Récupération de la clé SSH 
+cat ~/.ssh/id_ed25519.pub  
+ -- Cette commande nous permet de récupérer une longue chaine de caractères (elle commence par ssh-ed25519 et termine par votre email), c'est notre clé ! 
+ -- On copie cette clé et on la colle dans GitHub dans la saisie de "New Key" -> On valide -> C'est bon ! 
+
+-- Pour vérifier si c'est bon 
+        ssh -T git@github.com
+Puis on tape "yes" au message d'avertissement 
+
+Après il vous dit : Hi Pierral87! You've successfully authenticated, but GitHub does not provide shell access.   
+A partir de là on est correctement configuré ! 
+
+
+
+------------------------------------------------- UTILISATION DE GIT et GITHUB -------------------------------------------------------
+
+-- Création d'un repository
+-- Comment envoyer des fichiers et en récupérer de GitHub 
+-- Comment créer des "versions"/"snapshots" de notre code  
+
+
+-- Création d'un repository (dossier de travail)
+    Lorsque je me lance dans un nouveau projet, première étape, créer un repository GitHub, pour ça, j'utilise l'interface de GitHub qui me propose simplement de choisir un nom de repository et je clique sur "create"  (on peut mettre sur public ou private pour la visibilité des autres utilisateurs et on peut cocher l'ajout du README, c'est un document qui sera ouvert dès la page de présentation du repository dans lequel on peut insérer des informations)
+
+    Maintenant que mon repository est créé, j'ai besoin de le transporter en local (c'est à dire sur mon ordinateur), pour cela je dois en créer un "clone" 
+    - Pour cela je clique sur le bouton "code" et je sélectionne l'onglet "SSH" et je copie le lien indiqué en dessous : git@github.com:Pierral87/GitProjetTest.git
+    -- Avant de cloner mon repository GitHub, pour éviter les incohérences avec le dossier de cours, on va créer un dossier EXTERIEUR à notre dossier actuel contenant tous les cours 
+    -- Je crée donc un dossier "GitRepo" à la racine de mon dossier www de "Wamp"
+
+    Je dois maintenant manipuler mon terminal pour me rendre dans ce dossier 
+    J'utilise la commande du terminal "cd" (change directory) pour me déplacer dans mes dossiers, sachant que cd ..  me permet de remonter dans le dossier parent, ensuite sinon je tape cd NomDuDossier 
+
+    Une fois que j'ai le terminal sur le bon dossier je lance la commande : git clone git@github.com:Pierral87/GitProjetTest.git
+
+    Grâce à cette commande, cela va me créer un dossier local au même que mon repository GitHub ainsi que de "rapatrier" l'entièreté de son contenu 
+    Je me rends ensuite à l'intérieur de ce dossier via le terminal "cd GitProjetTest" et je peux lancer la commande git remote -v 
+    Cela me permet de visualiser le dossier "online" de GitHub actuellement connecté à ce dossier local 
+
+-- Utiliser le "Git Workflow" 
+    Le Workflow de Git c'est en gros, comment procéder pour amener des modifications à son projet proprement pour le versionner 
+    On va créer un fichier HTML basique à l'intérieur de notre dossier ici en local, on met un simple h1 à l'intérieur  
+
+    Grâce à la commande "git status" on va voir quel est actuellement le status de notre dossier par rapport au dossier en ligne 
+
+    J'ai besoin d'envoyer ce fichier page1.html en ligne, pour cela nous avons plusieurs étapes à respecter.
+    D'abord, je dois ajouter ce fichier à ce qu'on appelle la zone de "staging", c'est une sorte de zone d'attente pour tous les fichiers que je vais vouloir valider dans mon "étape"
+    Pour cela j'utilise la commande git add nomDeFichier  ou bien git add . pour ajouter tous les fichiers présents dans le dossier 
+    git add .
+
+    Si je refais un git status il me montre bien le fichier page1.html comme en attente d'être "validé" en attente d'être "commit"
+
+    Ce qui vient ensuite est la validation de cette modification par ce qu'on appelle un "commit" c'est en gros une étape que l'on va créer et sur laquelle on pourra revenir en arrière si on le souhaite 
+    On a la possibilité d'ajouter un message à un commit 
+    git commit -m "Structure de page1.html"
+
+    Après cette ligne j'ai crée une étape de mon code, une première version, un premier "snapshot" que j'ai appelé "Structure de page1.html" 
+    Avec un git status il m'indique qu'il n'y a rien de nouveau à commit mais que je peux transmettre ces modifications en ligne via un git push 
+    si je fais un git log j'ai un historique des derniers commits 
+
+    Si je fais un git push alors tout mon dossier local sera mis à jour en ligne directement dans le projet principal, cela va fusionner tout le contenu, enlever/ajouter/modifier les lignes nécessaires.
+
+    Le gros avantage de tout ce système, c'est que l'on garde un historique de TOUTES les modifications et qu'on sera capable de revenir dessus si nécessaire en cas de problèmes ou bien simplement d'être apte à "revivre" "resuivre" les étapes de développement de notre projet.
+
+
+    Le concept du GitWorkflow :
+
+    Je modifie/ajoute des fichiers, une fois terminé, je lance les commandes suivantes : 
+    git add .  -- pour ajouter tous les fichiers modifiés/ajoutés/supprimés à la zone d'attente 
+    git commit -m "Message de commit" -- pour valider ces modifications de façon définitive en incluant un message explicatif du travail accomplis 
+    git push  -- pour transmettre ces modifications locales à GitHub Online 
+
+
+    Autres commandes pour nous aider en cours de Workflow : 
+    git status    (pour voir les fichiers actuellement track ou untrack, add ou pas add etc)
+    git log       (pour voir l'historique des derniers commits)
+
+    Les commandes sont toujours de cette forme là  : 
+
+    program | action | destination/option  
+    git         add       .     
+    git        commit     -m "Message"
+
+
+---------------------------------------------------
+Pour ignorer certains fichier que l'on ne souhaiterait pas envoyer dans nos commit et push (des images, des fichiers des logs, les librairies entieres ou autre) je peux utiliser le fichier ".gitignore" 
+Il me suffit d'inscrire à l'intérieur le nom des fichiers/dossiers que je souhaite ignorer, le système ne les prendra pas en compte.
+Il existe tout une syntaxe pour faire des sélections d'éléments précis, par exemple tous les éléments qui finissent par .jpg    *.jpg    et autres 
+
+
+------------------- Les branches -------------------------------
+Une branche c'est une copie d'un projet, sur laquelle on peut travailler (faire des commit et push) sans se soucier de modifier le projet initial.
+Par exemple, lorsque l'on part d'une application et que l'on souhaite ajouter une fonctionnalité, pour ne pas impacter le code de l'application tant que je suis en train de développer ma nouvelle fonctionnalité.
+Je ferai un "regroupement" de mon code, uniquement lorsque la nouvelle fonctionnalité sera entièrement développée et fonctionnelle, c'est ce qu'on appelle un "merge"
+
+Première étape : S'assurer que le projet local soit bien commit et push pour correspondre au projet online sur github 
+Deuxième étape : Sur GitHub créer une branche au nom de votre choix 
+Troisième étape : En local, faire un git pull pour pouvoir récupérer la totalité du repository GitHub en local, ce qui va nous permettre de récupérer la création de la branche.
+
+Pour changer de branche il me suffit de lancer la commande git checkout nomDeBranche
+Ensuite une fois sur cette branche je peux manipuler le git workflow comme à l'habitude, cela impactera par contre seulement les fichiers de la branche sur laquelle je me suis positionné.
+Je peux faire autant de commit et push que je le souhaite, cela n'impactera pas le projet principal contenu dans la branche "main" 
+Une fois que la tache qui correspond à cette branche est terminée, il me reste à faire une "pull request" c'est à dire, je fais une demande de fusion du code de ma branche, avec la branche principale.
+GitHub me propose une interface me permettant d'eventuellement resoudre les conflits s'il y en a, sinon simplement cela fusionne les deux codes.
+----------------------------------------------------------------
+
+----------------------------- Récupération du dossier LDW14 de Pierra ---------------------------
+Première étape : Dans wamp/www créer un dossier "coursPierra" 
+Deuxième étape : Aller sur le profil de Pierra, dans le repository LDW14 https://github.com/Pierral87/LDW14 et cliquer sur le bouton code et récupérer le lien de clone SSH 
+Troisième étape : Avec le terminal se rendre dans le dossier coursPierra et lancer la commande git clone git@github.com:Pierral87/LDW14.git  
+
+Après ça, vous avez récupéré une copie TOTALE du dossier de cours de Pierra 
+
+
+    Mettre en place Git dans un dossier existant 
+    Pull le dossier ldw14 du prof séparément du votre  
