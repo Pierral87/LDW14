@@ -1,15 +1,15 @@
 -----------------------------------
------------- GIT & GITHub
+------------ GIT & GITHub ---------
 -----------------------------------
 
 
 C'est quoi Git ? 
-Git c'est un système de contrôle de version, il nous permet de garder trace et sauvegarde de toutes les modifications sur nos projets et éventuellement d'y revenir (à ces étapes).
-A l'époque, on faisait des copies totales de nos projets, en les nommant différemment, Git va gérer ça à notre place de façon "discrète".
-Git c'est un outil offline, c'est à dire il est installé sur notre ordinateur, pas besoin d'être en ligne pour s'en servir et versionner nos applications.
+Git c'est un système de contrôle de version, il nous permet de garder trace et sauvegarde de toutes les modifications sur nos projets et éventuellement de revenir à des étapes antérieures si nécessaire.
+A l'époque, on faisait des copies totales de nos projets (dossiers entier), en les nommant différemment, Git va gérer ça à notre place de façon "discrète".
+Git c'est un outil offline, c'est à dire il est installé sur notre ordinateur, pas besoin d'être en ligne pour s'en servir, créer des snapshots et versionner nos applications.
 
 Et GitHub ? 
-GitHub est une plateforme d'hebergement des systèmes de versionning gérés par Git.
+GitHub est une plateforme d'hebergement des dépots gérés par Git.
 Les avantages de GitHub : 
     - Interface graphique pour visualiser les fichiers, les dossiers
     - Des fonctionnalités intégrés qui nous évitent de passer toujours par les lignes de code  (suivi des conflits et des demandes de fusion)
@@ -94,15 +94,16 @@ A partir de là on est correctement configuré !
 -- Comment créer des "versions"/"snapshots" de notre code  
 
 
--- Création d'un repository (dossier de travail)
+------------------------- Création d'un nouveau projet ou récupération d'un projet en ligne, on va utiliser le système de "clone" -------------------------------------
+-- Première étape : (on saute cette étape lors d'une récupération d'un repository déjà existant en ligne) Création d'un repository (dossier de travail) 
     Lorsque je me lance dans un nouveau projet, première étape, créer un repository GitHub, pour ça, j'utilise l'interface de GitHub qui me propose simplement de choisir un nom de repository et je clique sur "create"  (on peut mettre sur public ou private pour la visibilité des autres utilisateurs et on peut cocher l'ajout du README, c'est un document qui sera ouvert dès la page de présentation du repository dans lequel on peut insérer des informations)
 
-    Maintenant que mon repository est créé, j'ai besoin de le transporter en local (c'est à dire sur mon ordinateur), pour cela je dois en créer un "clone" 
+-- Deuxième étape : Maintenant, j'ai besoin de transporter le repository en local (c'est à dire sur mon ordinateur), pour cela je dois en créer un "clone" 
     - Pour cela je clique sur le bouton "code" et je sélectionne l'onglet "SSH" et je copie le lien indiqué en dessous : git@github.com:Pierral87/GitProjetTest.git
-    -- Avant de cloner mon repository GitHub, pour éviter les incohérences avec le dossier de cours, on va créer un dossier EXTERIEUR à notre dossier actuel contenant tous les cours 
-    -- Je crée donc un dossier "GitRepo" à la racine de mon dossier www de "Wamp"
+    -- ///Avant de cloner mon repository GitHub, pour éviter les incohérences avec le dossier de cours, on va créer un dossier EXTERIEUR à notre dossier actuel contenant tous les cours 
+    -- Je crée donc un dossier "GitRepo" à la racine de mon dossier www de "Wamp"/// (étape non nécessaire en phase d'utilisation normale)
 
-    Je dois maintenant manipuler mon terminal pour me rendre dans ce dossier 
+    Je dois maintenant manipuler mon terminal pour me rendre dans le dossier dans lequel je souhaite créer la copie du repository github
     J'utilise la commande du terminal "cd" (change directory) pour me déplacer dans mes dossiers, sachant que cd ..  me permet de remonter dans le dossier parent, ensuite sinon je tape cd NomDuDossier 
 
     Une fois que j'ai le terminal sur le bon dossier je lance la commande : git clone git@github.com:Pierral87/GitProjetTest.git
@@ -111,7 +112,7 @@ A partir de là on est correctement configuré !
     Je me rends ensuite à l'intérieur de ce dossier via le terminal "cd GitProjetTest" et je peux lancer la commande git remote -v 
     Cela me permet de visualiser le dossier "online" de GitHub actuellement connecté à ce dossier local 
 
--- Utiliser le "Git Workflow" 
+------------------------- Utiliser le "Git Workflow" --------------------------------------------------------
     Le Workflow de Git c'est en gros, comment procéder pour amener des modifications à son projet proprement pour le versionner 
     On va créer un fichier HTML basique à l'intérieur de notre dossier ici en local, on met un simple h1 à l'intérieur  
 
