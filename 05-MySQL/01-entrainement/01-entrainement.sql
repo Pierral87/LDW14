@@ -235,7 +235,30 @@ SELECT * FROM employes ORDER BY nom DESC;
 -- Affichage des employés par ordre de service alphabétique puis par nom alphabétique 
 SELECT * FROM employes ORDER BY service;
 SELECT * FROM employes ORDER BY service, nom; -- Simplement on continue de citer des champs en les séparant par des virgules, nous n'avons pas de limitation à ce niveau 
-
++-------------+-------------+----------+------+---------------+---------------+---------+
+| id_employes | prenom      | nom      | sexe | service       | date_embauche | salaire |
++-------------+-------------+----------+------+---------------+---------------+---------+
+|         990 | Stephanie   | Lafaye   | f    | assistant     | 2017-03-01    |    1775 |
+|         547 | Melanie     | Collier  | f    | commercial    | 2012-01-08    |    3100 |
+|         388 | Clement     | Gallet   | m    | commercial    | 2010-12-15    |    2300 |
+|         627 | Guillaume   | Miller   | m    | commercial    | 2012-07-02    |    1900 |
+|         655 | Celine      | Perrin   | f    | commercial    | 2012-09-10    |    2700 |
+|         933 | Emilie      | Sennard  | f    | commercial    | 2017-01-11    |    1800 |
+|         415 | Thomas      | Winter   | m    | commercial    | 2011-05-03    |    3550 |
+|         780 | Amandine    | Thoyer   | f    | communication | 2014-01-23    |    2100 |
+|         509 | Fabrice     | Grand    | m    | comptabilite  | 2011-12-30    |    2900 |
+|         592 | Laura       | Blanchet | f    | direction     | 2012-05-09    |    4500 |
+|         350 | Jean-pierre | Laborde  | m    | direction     | 2010-12-09    |    5000 |
+|         854 | Daniel      | Chevel   | m    | informatique  | 2015-09-28    |    3100 |
+|         802 | Damien      | Durand   | m    | informatique  | 2014-07-05    |    2250 |
+|         701 | Mathieu     | Vignal   | m    | informatique  | 2013-04-03    |    2500 |
+|         876 | Nathalie    | Martin   | f    | juridique     | 2016-01-12    |    3550 |
+|         417 | Chloe       | Dubar    | f    | production    | 2011-09-05    |    1900 |
+|         900 | Benoit      | Lagarde  | m    | production    | 2016-06-03    |    2550 |
+|         699 | Julien      | Cottet   | m    | secretariat   | 2013-01-05    |    1390 |
+|         739 | Thierry     | Desprez  | m    | secretariat   | 2013-07-17    |    1500 |
+|         491 | Elodie      | Fellier  | f    | secretariat   | 2011-11-22    |    1600 |
++-------------+-------------+----------+------+---------------+---------------+---------+
 
 -- LIMIT pour limiter le nombre de résultat (exemple, pour une pagination)
 -- Affichage des employés 3 par 3 
@@ -432,4 +455,159 @@ LIMIT 1;                        -- Le limit
 |         627 | Guillaume | Miller | m    | commercial | 2012-07-02    |    1900 |
 +-------------+-----------+--------+------+------------+---------------+---------+
 
+-- L'un ou l'autre d'un ensemble de conditions : OR 
+-- EXERCICE : On aimerait afficher les employés du service Production ayant un salaire égal à 1900 ou 2300......... Vérifiez les résultats !...
+SELECT * FROM employes WHERE (service = "production" AND salaire = 1900) OR salaire = 2300; -- Résultat incorrect, car il y a Clément dans le résultat qui ne fait pas parti du service prod 
++-------------+---------+--------+------+------------+---------------+---------+
+| id_employes | prenom  | nom    | sexe | service    | date_embauche | salaire |
++-------------+---------+--------+------+------------+---------------+---------+
+|         388 | Clement | Gallet | m    | commercial | 2010-12-15    |    2300 |
+|         417 | Chloe   | Dubar  | f    | production | 2011-09-05    |    1900 |
++-------------+---------+--------+------+------------+---------------+---------+
+
+-- Ci après 3 exemples de bonne requête
+SELECT * FROM employes WHERE service = "production" AND salaire = 1900 OR service = "production" AND salaire = 2300;
+SELECT * FROM employes WHERE service = "production" AND (salaire = 1900 OR salaire = 2300); 
+SELECT * FROM employes WHERE service = "production" AND salaire IN (1900, 2300); 
++-------------+--------+-------+------+------------+---------------+---------+
+| id_employes | prenom | nom   | sexe | service    | date_embauche | salaire |
++-------------+--------+-------+------+------------+---------------+---------+
+|         417 | Chloe  | Dubar | f    | production | 2011-09-05    |    1900 |
++-------------+--------+-------+------+------------+---------------+---------+
+
+-- GROUP BY pour regrouper selon un ou plusieurs champs 
+-- Nombre d'employés par service 
+SELECT COUNT(*), service FROM employes; -- Résultat incorrect ! A cause de COUNT(), c'est une fonction d'agrégation, elle ne permet de retourner qu'une seule et unique ligne de résultat..... SAUF si on l'utilise avec GROUP BY 
++----------+-----------+
+| COUNT(*) | service   |
++----------+-----------+
+|       20 | direction |
++----------+-----------+
+
+-- Avec GROUP BY il est possible de demander de nous renvoyer le COUNT() en regroupant par service 
+SELECT  service, COUNT(*) as "Nombre d'employés" FROM employes GROUP BY service;
++---------------+-------------------+
+| service       | Nombre demployés |
++---------------+-------------------+
+| direction     |                 2 |
+| commercial    |                 6 |
+| production    |                 2 |
+| secretariat   |                 3 |
+| comptabilite  |                 1 |
+| informatique  |                 3 |
+| communication |                 1 |
+| juridique     |                 1 |
+| assistant     |                 1 |
++---------------+-------------------+
+
+SELECT  service, COUNT(*) as "Nombre d'employés" FROM employes GROUP BY service HAVING COUNT(*) > 2;
++--------------+-------------------+
+| service      | Nombre demployés  |
++--------------+-------------------+
+| commercial   |                 6 |
+| secretariat  |                 3 |
+| informatique |                 3 |
++--------------+-------------------+
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+--------- REQUETES D'INSERTION (Action : enregistrement) ---------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+-- id_employes étant la clé primaire en auto increment, elle ne peut pas être vide, mais si je renseigne "null" en gros, valeur "vide", le système va la gérer automatiquement du fait de l'auto increment, sa valeur sera l'id du dernier employé inséré + 1
+INSERT INTO employes (id_employes, prenom, nom, salaire, sexe, service, date_embauche) VALUES (NULL, "Pierra", "Lacaze", 20000, "m", "Web", CURDATE());
+-- Insertion OK 
+SELECT * FROM employes;
++-------------+-------------+----------+------+---------------+---------------+---------+
+| id_employes | prenom      | nom      | sexe | service       | date_embauche | salaire |
++-------------+-------------+----------+------+---------------+---------------+---------+
+|         350 | Jean-pierre | Laborde  | m    | direction     | 2010-12-09    |    5000 |
+|         388 | Clement     | Gallet   | m    | commercial    | 2010-12-15    |    2300 |
+|         415 | Thomas      | Winter   | m    | commercial    | 2011-05-03    |    3550 |
+|         417 | Chloe       | Dubar    | f    | production    | 2011-09-05    |    1900 |
+|         491 | Elodie      | Fellier  | f    | secretariat   | 2011-11-22    |    1600 |
+|         509 | Fabrice     | Grand    | m    | comptabilite  | 2011-12-30    |    2900 |
+|         547 | Melanie     | Collier  | f    | commercial    | 2012-01-08    |    3100 |
+|         592 | Laura       | Blanchet | f    | direction     | 2012-05-09    |    4500 |
+|         627 | Guillaume   | Miller   | m    | commercial    | 2012-07-02    |    1900 |
+|         655 | Celine      | Perrin   | f    | commercial    | 2012-09-10    |    2700 |
+|         699 | Julien      | Cottet   | m    | secretariat   | 2013-01-05    |    1390 |
+|         701 | Mathieu     | Vignal   | m    | informatique  | 2013-04-03    |    2500 |
+|         739 | Thierry     | Desprez  | m    | secretariat   | 2013-07-17    |    1500 |
+|         780 | Amandine    | Thoyer   | f    | communication | 2014-01-23    |    2100 |
+|         802 | Damien      | Durand   | m    | informatique  | 2014-07-05    |    2250 |
+|         854 | Daniel      | Chevel   | m    | informatique  | 2015-09-28    |    3100 |
+|         876 | Nathalie    | Martin   | f    | juridique     | 2016-01-12    |    3550 |
+|         900 | Benoit      | Lagarde  | m    | production    | 2016-06-03    |    2550 |
+|         933 | Emilie      | Sennard  | f    | commercial    | 2017-01-11    |    1800 |
+|         990 | Stephanie   | Lafaye   | f    | assistant     | 2017-03-01    |    1775 |
+|         991 | Pierra      | Lacaze   | m    | Web           | 2024-03-12    |   20000 |
++-------------+-------------+----------+------+---------------+---------------+---------+
+
+-- Il est possible de ne pas renseigner la clé primaire, elle va de toute façon se gérer seule
+INSERT INTO employes (prenom, nom, salaire, sexe, service, date_embauche) VALUES ("Pierra", "Lacaze", 20000, "m", "Web", CURDATE());
+
+-- Il est possible de ne pas préciser les champs. Cependant, on est dans ce cas obligé de fournir TOUS les champs et dans le bon ordre (celui de la structure de la table)
+INSERT INTO employes VALUES (NULL, "Pierra", "Lacaze", 20000, "m", "Web", CURDATE()); -- Ici problème je n'ai pas respecté l'ordre :( 
+INSERT INTO employes VALUES (NULL, "Pierra", "Lacaze", "m", "Web", CURDATE(), 20000); 
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+--------- REQUETES DE MODIFICATION (Action : modification) --------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+-- On modifie le salaire d'un employé 
+UPDATE employes SET salaire = 2000 WHERE id_employes = 991;
+-- Plusieurs modifications sont possible en une seule fois 
+UPDATE employes SET salaire = 2200, service = "informatique" WHERE id_employes = 992;
+
+-- REPLACE
+-- Dans le cas d'une nouvelle valeur, REPLACE se comporte comme un INSERT INTO
+REPLACE INTO employes VALUES (995, "Polo", "Lolo", "m", "Web", "2022-01-01", 3000);
+REPLACE INTO employes VALUES (995, "Polo", "Lolo", "m", "informatique", "2022-01-01", 5000);
+-- Par contre, on remarque dans un second temps, pour modifier la ligne déjà insérée, que cela me donne un  Query OK, 2 rows affected (0.07 sec)
+-- 2 lignes impactées car en fait, il supprime la ligne trouvée et réinsère une toute nouvelle ligne !
+-- GROS PROBLEMES si on a une base avec des tables ayant des relations en contraintes "CASCADE" (réaction en chaine)
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+--------- REQUETES DE SUPPRESSION (Action : suppression) ----------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+DELETE FROM employes; -- Cette requête supprime toutes les données de la table  
+DELETE FROM employes WHERE id_employes = 991; -- Supression d'un employé à un certains id
+DELETE FROM employes WHERE id_employes > 991; -- Suppression de potentiellement plusieurs employés, tous les id supérieurs à 991 
+
+-- On supprime tous les informaticiens sauf celui qui possède l'id 701 
+DELETE FROM employes WHERE service = "informatique" AND id_employes != 701;
+
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+--------- EXERCICES : ---------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+-- 1 -- Afficher la profession de l'employé 547.
+-- 2 -- Afficher la date d'embauche d'Amandine.	
+-- 3 -- Afficher le nom de famille de Guillaume	
+-- 4 -- Afficher le nombre de personne ayant un n° id_employes commençant par le chiffre 5.	
+-- 5 -- Afficher le nombre de commerciaux.
+-- 6 -- Afficher le salaire moyen des informaticiens (+arrondi).	
+-- 7 -- Afficher les 5 premiers employés après avoir classé leur nom de famille par ordre alphabétique. 
+-- 8 -- Afficher le coût des commerciaux sur 1 année.		
+-- 9 -- Afficher le salaire moyen par service. (service + salaire moyen)
+-- 10 -- Afficher le nombre de recrutement sur l'année 2010 (+alias).	
+-- 11 -- Afficher le salaire moyen appliqué lors des recrutements sur la période allant de 2015 a 2017
+-- 12 -- Afficher le nombre de service différents 
+-- 13 -- Afficher tous les employés (sauf ceux du service production et secrétariat)
+-- 14 -- Afficher conjointement le nombre d'homme et de femme dans l'entreprise
+-- 15 -- Afficher les commerciaux ayant été recrutés avant 2012 de sexe masculin et gagnant un salaire supérieur a 2500 €
+-- 16 -- Qui a été embauché en dernier
+-- 17 -- Afficher les informations sur l'employé du service commercial gagnant le salaire le plus élevé 
+-- 18 -- Afficher le prénom du comptable gagnant le meilleur salaire
+-- 19 -- Afficher le prénom de l'informaticien ayant été recruté en premier
+-- 20 -- Augmenter chaque employé de 100 €
+-- 21 -- Supprimer les employés du service secrétariat
 
