@@ -1,0 +1,17 @@
+La Méthode Merise est une méthode de conception de Base de Données Relationnelles.
+Les BDD Relationnelles sont ce qu'on utilise dans la plupart des systèmes informatiques,(sauf dans le cas de gestion de données d'un volume gigantesque).
+On utilise cette méthode pour modéliser et structurer les données de nos systèmes. 
+Les concepts clés : Entités, Relations, Attributs, Cardinalités, Contraintes 
+
+Le processus de la méthode Merise est le suivant :
+    - Analyse des besoins (reflexion)
+    - Modélisation Conceptuelle (modelisation, schéma, dessin)
+    - Modélisation Logique (reflexion en rapport avec notre SGBD MySQL, comment en gros retranscrire notre modele conceptuel en réalité technique)
+    - Mise en oeuvre physique 
+
+
+Analyse des besoins -> Reflexion avec le client, avec les besoins de notre application, cahier des charges 
+Modélisation conceptuelle -> Première étape de la méthode Merise. C'est pour identifier les entités principales, les relations entre ces entités et les attributs associés. Permet de définir les objectifs de la BDD et déterminer les principaux acteurs.
+Modélisation logique -> Traduction du modèle conceptuel en modèle logique en utilisant des schéma relationnels normalisés. En gros, on retranscrit ça pour le transposer en langage MySQL avec des tables, des primary key, des foreign key, des contraintes etc.
+Mise en oeuvre physique -> Traduire le modèle logique en structure physique de base de données (créer la base, les tables, la structure des tables, les relations, les contraintes etc)
+
