@@ -1,0 +1,23 @@
+Création d'une relation et contrainte en MySQL via PHP My Admin 
+
+
+Première chose, définir les champs représentant des clés étrangères dans la table (par exemple, dans la base bibliotheque, table emprunt, nous avons les id_abonne et id_livre qui sont les id d'autres tables, ce sont des clés étrangères !!!).
+Ensuite, les définir comme "Index" -> une fois la table sélectionnée dans PHPMyAdmin -> Onglet Structure -> Sur la ligne du champ en question -> cliquez sur "Plus" et cliquez sur "Index" puis validez, cela va ajouter la petite clé argentée à côté du nom du champ (le définissant donc comme un index)
+Après ça, on doit créer la relation avec l'autre table, pour ça, sur la page "Structure" au dessus des champs se trouve un bouton "Vue Relationnelle", ici on pourra créer la relation rattachée à cet index.
+
+On choisit dans "colonne" le champ clé étrangère à lier puis dans "base" la base que cela concerne, puis la "table" concernée et cela choisira automatiquement la liaison vers sa clé primaire.
+
+Ensuite reste à nous de définir les modes des contraintes.
+
+On peut choisir des scénarios spécifiques sur les actions de modification (ON UPDATE) et sur les actions de suppression (ON DELETE)
+
+Voici les modes de fonctionnement :
+
+RESTRICT et NO ACTION : Empêche la suppression et/ou la modification de l'abonné (son id), si un emprunt lui est rattaché dans la table emprunt 
+CASCADE : Cela crée une réaction en chaîne/répercussion, si l'abonne est supprimé, alors tous ses emprunts sont également supprimés ! (ATTENTION A CE MODE DE RELATION), dans le cas d'une modification, la modification (sur l'id) se répercute sur l'autre table 
+SET NULL : Permet la suppression de l'abonné mais en gardant trace de ses emprunts dans la table emprunt, par contre, au champ id_abonne de cet emprunt, on aura à la place de son id, la valeur NULL      => Cela induit l'OBLIGATION que la valeur "NULL" soit autorisée sur le champ en question 
+
+
+Les relations, c'est toute la base du système des BDD Relationnelle, cela nous protège d'avoir de fausses données dans nos tables, car toutes les données sont reliées entre elles grâce à ce système de relation.
+
+ATTENTION les relations ne sont possible qu'avec l'engine InnoDB

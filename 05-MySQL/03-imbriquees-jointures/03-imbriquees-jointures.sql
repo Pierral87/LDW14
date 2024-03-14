@@ -253,9 +253,9 @@ AND abonne.id_abonne = emprunt.id_abonne; -- La jointure ! C'est ici que l'on in
 
 -- Même requête mais avec raccourci d'écriture pour les prefixes des tables, je peux leur donner des alias !
 -- Pour ça il suffit de mettre un espace entre le nom de la table et le nom de l'alias
-SELECT prenom, date_sortie, date_rendu 
+SELECT a.prenom, e.date_sortie, e.date_rendu 
 FROM abonne a, emprunt e                  
-WHERE prenom = "Guillaume"              
+WHERE a.prenom = "Guillaume"              
 AND a.id_abonne = e.id_abonne;
 
 -- Autres possibilités d'écriture
@@ -395,7 +395,18 @@ SELECT * FROM abonne;
 SELECT prenom, id_livre 
 FROM abonne, emprunt 
 WHERE abonne.id_abonne = emprunt.id_abonne;
-
++-----------+----------+
+| prenom    | id_livre |
++-----------+----------+
+| Guillaume |      100 |
+| Benoit    |      101 |
+| Chloe     |      100 |
+| Laura     |      103 |
+| Guillaume |      104 |
+| Benoit    |      105 |
+| Chloe     |      105 |
+| Benoit    |      100 |
++-----------+----------+
 SELECT prenom, id_livre 
 FROM abonne 
 INNER JOIN emprunt USING (id_abonne);
@@ -426,8 +437,7 @@ FROM abonne LEFT JOIN emprunt USING (id_abonne);
 -- Ci dessus, table abonné est principale avec le left join car écrite à gauche (première table citée)
 -- Ci dessous, on utilise right join, mais de ce fait, on doit intervertir le sens d'écriture, en ciblant la table principale à droite (dernière table citée)
 SELECT prenom, id_livre 
-FROM emprunt 
-RIGHT JOIN abonne USING (id_abonne);
+FROM emprunt RIGHT JOIN abonne USING (id_abonne);
 +-----------+----------+
 | prenom    | id_livre |
 +-----------+----------+
@@ -443,5 +453,61 @@ RIGHT JOIN abonne USING (id_abonne);
 +-----------+----------+
 
 -- EXERCICE 1 : Affichez tous les livres sans exception puis les id_abonne ayant emprunté ces livres si c'est le cas
+SELECT titre, id_abonne 
+FROM livre LEFT JOIN emprunt USING (id_livre);
+
+SELECT titre, id_abonne 
+FROM emprunt RIGHT JOIN livre USING (id_livre);
++-------------------------+-----------+
+| titre                   | id_abonne |
++-------------------------+-----------+
+| Une vie                 |         2 |
+| Une vie                 |         3 |
+| Une vie                 |         1 |
+| Bel-Ami                 |         2 |
+| Le pere Goriot          |      NULL |
+| Le Petit chose          |         4 |
+| La Reine Margot         |         1 |
+| Les Trois Mousquetaires |         3 |
+| Les Trois Mousquetaires |         2 |
++-------------------------+-----------+
 -- EXERCICE 2 : Affichez tous les prénoms des abonnés et s'ils ont fait des emprunts, affichez les id_livre, auteur et titre
+SELECT abonne.prenom, emprunt.id_livre, livre.auteur, livre.titre
+FROM abonne LEFT JOIN emprunt ON abonne.id_abonne = emprunt.id_abonne LEFT JOIN livre ON emprunt.id_livre = livre.id_livre;
++-----------+----------+-------------------+-------------------------+
+| prenom    | id_livre | auteur            | titre                   |
++-----------+----------+-------------------+-------------------------+
+| Guillaume |      104 | ALEXANDRE DUMAS   | La Reine Margot         |
+| Guillaume |      100 | GUY DE MAUPASSANT | Une vie                 |
+| Benoit    |      100 | GUY DE MAUPASSANT | Une vie                 |
+| Benoit    |      105 | ALEXANDRE DUMAS   | Les Trois Mousquetaires |
+| Benoit    |      101 | GUY DE MAUPASSANT | Bel-Ami                 |
+| Chloe     |      105 | ALEXANDRE DUMAS   | Les Trois Mousquetaires |
+| Chloe     |      100 | GUY DE MAUPASSANT | Une vie                 |
+| Laura     |      103 | ALPHONSE DAUDET   | Le Petit chose          |
+| Pierra    |     NULL | NULL              | NULL                    |
++-----------+----------+-------------------+-------------------------+
 -- La suite étant si l'on veut aussi les livres sans correspondances en plus des abonnés sans emprunts
+-- Pas possible sans UNION (le FULL JOIN n'existe pas en MySQL)
+
+-- Première requête
+SELECT prenom, id_livre, auteur, titre 
+FROM abonne LEFT JOIN emprunt USING (id_abonne) LEFT JOIN livre USING (id_livre)
+UNION
+-- Deuxième requête dont on fusionne le résultat avec la première
+SELECT prenom, id_livre, auteur, titre  
+FROM livre LEFT JOIN emprunt USING (id_livre) LEFT JOIN abonne USING (id_abonne);
+-----------+----------+-------------------+-------------------------+
+| prenom    | id_livre | auteur            | titre                   |
++-----------+----------+-------------------+-------------------------+
+| Guillaume |      104 | ALEXANDRE DUMAS   | La Reine Margot         |
+| Guillaume |      100 | GUY DE MAUPASSANT | Une vie                 |
+| Benoit    |      100 | GUY DE MAUPASSANT | Une vie                 |
+| Benoit    |      105 | ALEXANDRE DUMAS   | Les Trois Mousquetaires |
+| Benoit    |      101 | GUY DE MAUPASSANT | Bel-Ami                 |
+| Chloe     |      105 | ALEXANDRE DUMAS   | Les Trois Mousquetaires |
+| Chloe     |      100 | GUY DE MAUPASSANT | Une vie                 |
+| Laura     |      103 | ALPHONSE DAUDET   | Le Petit chose          |
+| Pierra    |     NULL | NULL              | NULL                    |
+| NULL      |      102 | HONORE DE BALZAC  | Le pere Goriot          |
++-----------+----------+-------------------+-------------------------+
