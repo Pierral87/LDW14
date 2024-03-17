@@ -73,11 +73,43 @@ INSERT INTO `vehicule` (`id_vehicule`, `marque`, `modele`, `couleur`, `immatricu
 -- EXERCICES Requetes
 
 -- 01 - Qui conduit la voiture 503 ? 
+SELECT prenom 
+FROM conducteur c, association_vehicule_conducteur a
+WHERE id_vehicule = 503
+AND a.id_conducteur = c.id_conducteur;
+
 -- 02 - Quelle(s) voiture(s) est conduite par le conducteur 3 ? 
+SELECT id_conducteur, marque, modele 
+FROM association_vehicule_conducteur avc, vehicule v
+WHERE id_conducteur = 3
+AND avc.id_vehicule = v.id_vehicule;
+
 -- 03 - Qui conduit quoi ? (on veut les prenoms associés à un modele + marque)
+SELECT prenom, modele, marque 
+FROM conducteur c, vehicule v, association_vehicule_conducteur avc
+WHERE avc.id_vehicule = v.id_vehicule
+AND c.id_conducteur = avc.id_conducteur;
+
 -- 04 - Ajoutez vous dans la liste des conducteurs.
         -- Afficher tous les conducteurs (meme ceux qui n'ont pas de correspondance avec les vehicules) puis les vehicules qu'ils conduisent si c'est le cas
+SELECT prenom, modele, marque 
+FROM conducteur
+LEFT JOIN association_vehicule_conducteur USING (id_conducteur)
+LEFT JOIN vehicule USING (id_vehicule);
+
 -- 05 - Ajoutez un nouvel enregistrement dans la table des véhicules.
         -- Afficher tous les véhicules (meme ceux qui n'ont pas de correspondance avec les conducteurs) puis les conducteurs si c'est le cas
+SELECT marque, modele, prenom, nom 
+FROM vehicule
+LEFT JOIN association_vehicule_conducteur USING (id_vehicule)
+LEFT JOIN conducteur USING (id_conducteur);
+
 -- 06 - Afficher tous les conducteurs et tous les vehicules, peu importe les correspondances.
+SELECT marque, modele, prenom FROM conducteur c 
+LEFT JOIN association_vehicule_conducteur avc ON c.id_conducteur = avc.id_conducteur
+LEFT JOIN vehicule v ON v.id_vehicule = avc.id_vehicule
+UNION
+SELECT marque, modele, prenom FROM conducteur c 
+RIGHT JOIN association_vehicule_conducteur avc ON c.id_conducteur = avc.id_conducteur
+RIGHT JOIN vehicule v ON v.id_vehicule = avc.id_vehicule;
 
