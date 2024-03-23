@@ -1,0 +1,29 @@
+Roles des langages
+------------------
+
+FRONTEND
+--------
+- HTML : Structure d'une page web (régions, blocs, médias ...)
+- CSS  : Mise en forme (couleurs, tailles, bordures ...)
+- JS   : Javascript : animations, intéractivité (slider, controles sur formulaire, jeux ...)
+
+BACKEND 
+-------
+- SQL  : MySQL (postgresSQL, oracle, SQLserver ...) : Communication avec les BDD, 4 possibilités : 1 Question (SELECT) et 3 actions : Création (INSERT), modification (UPDATE) et suppression (DELETE)
+- PHP : (Java, Python, .NET, NodeJS ...) : Fonctionnalités (connexion, inscription, ajouter panier ...), 3 points clé avec PHP : Formulaires, sécurité et modèle de page.
+
+
+
+3 possibilités pour un developpeur :
+------------------------------------
+- From scratch : le dev fait tout à la main. Liberté totale mais temps très long (très cher)
+- Framework : exemple : symfony, laravel, cakePHP ... temps de dev raccourci mais le dev a encore beaucoup de liberté.
+- CMS : exemple : Wordpress, Joomla, Drupal, prestashop, Magento ... temps de dev très rapide, peu de liberté (contraintes liées à l'outil utilisé)
+
+
+Serveur local :
+---------------
+W indows
+A pache (serveur web)
+M ySQL  (pour les BDD)
+P hp    (langage back)

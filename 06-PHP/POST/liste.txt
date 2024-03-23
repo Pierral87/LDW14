@@ -1,0 +1,7 @@
+Quittard | Mathieu | mathieu.qtrd@gmail.com
+Admin | Ad | admin@mail.fr
+Intégrateur | Int | integrateur@mail.fr
+Quit | Mathieu | mail@mail.fr
+Durand | Marie | marie@mail.fr
+Durand | Pierre | pierre@mail.fr
+user | user | user@mail.fr
