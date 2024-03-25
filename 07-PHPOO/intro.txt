@@ -1,0 +1,43 @@
+Site Web : 
+------------------------
+3 façons de développer un site web 
+
+A la main 
+Framework 
+CMS (Wordpress and co)
+
+----------------------------------------------
+Technique de programmation :
+A côté des trois façons de développer un site web, il existe plusieurs techniques: 
+    - Procédural : Code lu ligne après ligne, c'est ce qu'on a fait jusqu'à présent 
+    - Programmation Orienté Objet : C'est le fait d'encapsuler, de diviser des éléments, des fonctionnalités voire même les langages 
+    - Programmation orienté aspect 
+    - Programmation évènementielle 
+    - Programmation par contrat 
+
+Ce sont des concepts ayant pour but d'organiser le code de façon différente afin optimiser la modularisation, la récupération des projets/fonctionnalités 
+
+------------------------------------------
+Orienté objet : concept universel 
+
+    Inconvénients : 
+        - Techniquement, on ne peut rien faire de plus qu'avec le procédural 
+        - L'approche orienté objet est moins intuitive que l'approche procédurale (plus facile de décomposer un problème ligne par ligne plutôt qu'avec une interaction entre les objets/fichiers)
+        - Légère perte de performance : Plus lent car on passe par des méthodes/des fichiers intermédiaires pour faire parfois des actions simples 
+
+    Avantages : 
+        - Modularisation : Pour avoir un code générique, permettre de découper des fonctionnalités et les réutiliser plus simplement sur d'autres probjets 
+        - Encourage le travail collaboratif (du fait de la découpe des fichiers, il est facile de travailler chacun sur un fichier différent pour éviter les conflits)
+        - Masquer la complexité grâce au principe d'encapsulation ( par exemple pour un ajout panier, en procédural il faudrait que tout le code soit sur la page du produit pour pouvoir l'ajouter à notre panier. MAIS en orienté objet, tout ce traitement sera encapsulé dans une méthode d'un objet "panier"  $panier->ajoutPanier($id) beaucoup plus facile à lire et à comprendre)
+        - Réutilisation facilitée
+        - Mise à jour facilitée 
+        - Légèreté des fichiers/pages, les pages seront moins chargées du fait de découper le code dans divers autres 
+        - Plus d'options dans le langage (héritage, surcharge, abstract, final, exception, trait, interface etc)
+-----------------------------------------------
+
+L'orienté objet ce n'est pas simple, le but lors de ces deux jours est de comprendre les concepts importants pour comprendre les actions que l'on lancera lorsque nous prendrons en main Symfony.
+L'orienté objet c'est un concept universel, une fois maitrisé et assimilé, vous pouvez l'adapter à tous les autres langages de programmation.
+
+--------------------------------------------------
+
+Généralement pas besoin d'orienté objet pour de petits projets, par contre lorsque le projet prends de l'envergure ou lorsque l'on utilise un framework, on est forcément en orienté objet ! 
