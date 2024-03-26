@@ -267,7 +267,7 @@ $pdoStmt = $pdo->query("SELECT * FROM employes");
 
 $employes = $pdoStmt->fetchAll(PDO::FETCH_ASSOC);
 
-// var_dump($employes);
+var_dump($employes);
 
 // EXERCICE : Affichez les prénoms des employés dans une liste ul li en manipulant $employes
 
@@ -285,5 +285,33 @@ for ($i = 0; $i < count($employes); $i++) {
 }
 echo "</ul>";
 
+echo "<h2>07 - prepare() + bindParam() + execute() - Pour sécuriser nos requêtes !</h2>";
 
+// Si dans la requête une ou plusieurs informations proviennent de l'utilisateur (saisi d'un form (POST), information dans l'url (GET)), alors il existe un risque d'intrusion ! Notamment d'injections SQL
+// Pour s'en protéger on va utiliser la méthode prepare() plutôt que query() 
+
+$nom = "laborde"; // Information supposée récupérée d'un form utilisateur, la personne recherche un employé selon son nom 
+
+// Avec query : 
+// $pdoStmt = $pdo->query("SELECT * FROM employes WHERE nom = '$nom'");
+
+// Avec prepare : 
+// $pdoStmt = $pdo->prepare("SELECT * FROM employes WHERE nom = ?"); // Avec un ? à chaque information manquante que l'on souhaite lier plus tard
+$pdoStmt = $pdo->prepare("SELECT * FROM employes WHERE nom = :nom"); // Ou avec un marqueur nominatif, symbolisé par les ":" suivi d'un mot (en général le nom du champs)
+
+// Ci dessus la requête est simplement préparée, elle n'est pas encore exécutée, je dois maintenant lier une valeur à ce marqueur :nom
+// Pour cela j'utilise bindParam() 
+// On devra utiliser une ligne de bindParam() par marqueur 
+
+/// Premier argument le marqueur à lier, deuxième argument la valeur à lui lier, troisième argument le filtre à appliquer (toujours ok en string pour MySQL, on s'assure grâce à ce filtre que le code ne sera jamais interprété s'il en contient dans $nom)
+$pdoStmt->bindParam(':nom', $nom, PDO::PARAM_STR);
+
+
+// Maintenant, je peux éxecuter ma requête grâce à execute() 
+$pdoStmt->execute();
+// $pdoStmt->execute([$nom]); // ici si j'avais utilisé plutôt le ? dans la requête, on fourni un array qui contient les valeurs à lier dans le même ordre qu'ils sont appelés dans la requête, on préfèrera utiliser les marqueurs nommés pour raison de lisibilité
+
+$data = $pdoStmt->fetch(PDO::FETCH_ASSOC);
+
+var_dump($data);
 
