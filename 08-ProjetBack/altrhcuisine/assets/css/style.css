@@ -1,0 +1,10 @@
+.banner {
+    height: 400px;
+    /* background-color: blue; */
+    background: linear-gradient(rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.5)),url(../img/banner.jpg) no-repeat;
+    background-size: cover; 
+}
+
+.baniere {
+    height: 400px;
+}

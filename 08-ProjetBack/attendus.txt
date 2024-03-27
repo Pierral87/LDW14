@@ -1,0 +1,7 @@
+Attendus de la journée de Projet BackEnd :
+-----------------------------------------------------
+
+
+1 - Modélisation de la BDD (tables, champs, relations)
+2 - Projet découpé avec l'outil include/require de php, on sépare au moins le header, la nav, le footer, le config, le functions 
+3 - Premières fonctionnalités Back : Inscription, Connexion 
