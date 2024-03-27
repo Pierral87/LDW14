@@ -1,5 +1,21 @@
 <?php
 
+
+// Pour éviter les injections XSS (du code css et/ou js mis dans les commentaires)
+// il est possible de modifier les charactere notamment les < > qui représentent des balises.
+// à l'affichage (voir en bas de page) on appelle htmlspecialchars() qui permet de transformer ces charactères problématiques en entités html
+// exemple :
+// <script>while(true){alert('truc');}</script>
+// sera écrit dans le code source sous cette forme :
+// &lt;script&gt;while(true){alert('truc');}&lt;/script&gt;
+
+// Outils proche de htmlspecialchars() : htmlentities() / strip_tags()
+
+// pour injection SQL ', ''); DROP DATABASE dialogue;
+// <style>body{display:none;}</style>
+// <script>while(true){alert("merci pour les bitcoins");}</script>
+
+
 /* 
 EXERCICE : 
 --------------
@@ -139,10 +155,10 @@ $data = $pdo->query("SELECT id_commentaire, pseudo, message, DATE_FORMAT(date_en
                     <!-- - 07 - Affichage des commentaires avec un peu de mise en forme  -->
                     <div class="card w-75 mx-auto mb-3">
                         <div class="card-header bg-dark text-white">
-                            Par : <?= $commentaire["pseudo"] ?>, le : <?= $commentaire["date_fr"] ?> ----- <a href="?action=delete&id=<?= $commentaire["id_commentaire"]?>">Suppr</a>
+                            Par : <?= htmlspecialchars($commentaire["pseudo"]) ?>, le : <?= $commentaire["date_fr"] ?> ----- <a href="?action=delete&id=<?= $commentaire["id_commentaire"]?>">Suppr</a>
                         </div>
                         <div class="card-body">
-                            <p class="card-text"><?= $commentaire["message"] ?></p>
+                            <p class="card-text"><?= htmlspecialchars($commentaire["message"]) ?></p>
                         </div>
                     </div>
 
