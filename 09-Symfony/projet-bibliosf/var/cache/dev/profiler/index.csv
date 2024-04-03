@@ -57,3 +57,8 @@ db62ce,127.0.0.1,GET,https://127.0.0.1:8000/test/tableau,1712150361,,200,request
 921224,127.0.0.1,GET,https://127.0.0.1:8000/test/salutation/pierra,1712151188,,500,request
 9e4e6e,127.0.0.1,GET,https://127.0.0.1:8000/favicon.ico,1712151242,f433ea,404,request
 f433ea,127.0.0.1,GET,https://127.0.0.1:8000/favicon.ico,1712151243,,404,request
+d3e5f0,127.0.0.1,GET,https://127.0.0.1:8000/test,1712156079,,200,request
+72df1d,127.0.0.1,GET,https://127.0.0.1:8000/test/salutation/lolo,1712156088,1356b1,500,request
+1356b1,127.0.0.1,GET,https://127.0.0.1:8000/test/salutation/lolo,1712156088,,500,request
+fc4dfb,127.0.0.1,GET,https://127.0.0.1:8000/test/salutation/lolo,1712156174,,200,request
+5a8474,127.0.0.1,GET,https://127.0.0.1:8000/test/salutation/lolo,1712156298,,200,request

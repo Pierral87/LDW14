@@ -31,9 +31,18 @@
 			                {% %} : balise twig pour lancer du code comme des if/for/déclaration de block ou autre
 			
 			             #}
+			{% if nombre is defined %}
+			 
 				<p>
 				Nombre récupéré depuis le controller :{{nombre}}
-			</p>
+				</p>
+			{% endif %}
+
+			{# Ci dessous un if ternaire que je pourrais éventuellement utiliser #}
+			{{nombre is defined ? nombre : ""}}
+
+			{# Autre possibilité d'éviter l'incohérence du nombre undefined, avec un filtre twig #}
+			{{ nombre|default("non défini") }}
 				<p>
 				Prenom récupéré depuis le controller :{{prenom}}
 		</p>
