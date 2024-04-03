@@ -1,0 +1,80 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    {# Tableau associatif #}
+    <ul>
+        {# Plusiurs possibilités de syntaxe pour piocher dans des array en twig #}
+        <li>Jour : {{ tableau["jour"] }} </li>  
+        <li>Mois : {{ tableau.mois }} </li>  
+        <li>Année : {{ tableau.annee }} </li>  
+    </ul>
+
+    {# Pour un tableau indexé numériquement #}
+    <ul>
+        <li> {{tableau2[0]}} </li>
+        <li> {{tableau2.1}} </li>
+        <li> {{tableau2.2}} </li>
+    </ul>
+
+    {# Boucle For #}
+    {% for i in 0..2 %}
+        <p> {{tableau2[i]}} </p>
+    {% endfor %}
+
+    <ul>
+        {# Boucle for mais syntaxe équivalente au foreach pour uniquement les valeurs #}
+        {% for valeur in tableau %}
+            <li> {{valeur}} </li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {# Boucle for mais syntaxe équivalente au foreach pour les valeurs + les indices #}
+        {% for indice, valeur in tableau %}
+            <li>  {{indice}} : {{valeur}} </li>
+        {% endfor %}
+    </ul>
+
+    {#  if #}
+    {% if nombre < 20 %}
+        <p>Le nombre fourni est bien inférieur à 20</p>
+    {% endif %}
+    
+    {# if elseif else #}
+    {% if nombre < 2 %} 
+        <p>Le nombre est inférieur à 2</p>
+    {% elseif nombre < 10 %}
+        <p>Le nombre est inférieur à 10</p>
+    {% else %}
+        <p>Le nombre est supérieur ou égal à 10</p>  
+    {% endif %}
+
+    {# TESTS #}
+    {# "defined" équivalent à isset, permet de comprendre si un élément existe bel et bien, est bien défini #}
+    {% if chaine is defined %}
+        Oui la chaine existe ! 
+    {% endif %}
+
+    {# empty, équivalent au empty de PHP natif sauf que en symfony empty fait la vérification de la valeur uniquement ! Si la variable n'existe pas, alors cela déclenchera une erreur alors qu'en PHP natif, en plus de vérifier la valeur, la fonction empty vérifie aussi l'existence de cette variable #}
+    {% if chaine is empty %}
+        Oui la chaine est vide ! 
+    {% endif %}
+
+    {# Dans ce cas il faudra donc faire d'abord un test defined avant de se lancer dans un test empty car il ne peut être fait que sur une variable qui existe #}
+    {% if chaine is defined and chaine is empty %}
+        <p>Chaine est défini et est vide ! </p>
+    {% endif %}
+
+    {# FILTRES #}
+    {# filtre upper pour transformer une variable tout en majuscule, il existe des tas de filtres twig que l'on peut appliquer à nos variables : https://twig.symfony.com/doc/3.x/filters/index.html #}
+
+    <p>
+    {{tableau.mois|upper}}
+    </p>
+    
+    
+    
+
+
+{% endblock %}

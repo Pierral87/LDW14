@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>"> {% block stylesheets %}{% endblock %}
+
+		{% block javascripts %}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
+	<body>
+            {% block titreH1 %}
+            <h1>
+				Bienvenue à la bibliothèque
+			</h1>
+            {% endblock %}
+
+		{% block body %}
+			
+			{# Ici c'est un commentaire en twig #}
+			{# Grâce au twig, lorsque je veux simplement afficher une variable transmise par le controller, j'insère ça dans des doubles accolades, pas besoin de spéicifier le $ des variables php, on est dans un autre langage, j'écris directement le nom de la variable #}
+			{# 
+			            
+			                {{}} : balise twig qui correspond à <?= ?>
+			                {% %} : balise twig pour lancer du code comme des if/for/déclaration de block ou autre
+			
+			             #}
+				<p>
+				Nombre récupéré depuis le controller :{{nombre}}
+			</p>
+				<p>
+				Prenom récupéré depuis le controller :{{prenom}}
+		</p>
+
+		{% endblock %}
+
+			{% block footer %}
+			<br>
+				<footer>
+					<p>
+				C'est le footer ici
+			        </p>
+		        </footer>
+	        {% endblock %}
+</body>
+</html>

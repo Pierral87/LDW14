@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+{# La ligne ci dessus permet de récupérer par héritage le modèle base.html.twig et d'en modifier certains composants
+On ne pourra modifier que les composants contenus dans des block !!! #}
+{% block title %}Heritage
+{% endblock %}
+
+{# Pour avoir un titre h1 propre à cette page, j'ai besoin de définir le titre h1 à l'intérieur d'un bloc, d'abord dans ma base.html.twig pour que le block existe avec sa valeur de base puis ensuite je peux le redéfinir dans le heritage.html.twig pour écraser la valeur d'origine et lui donner une valeur propre à cette page #}
+{% block titreH1 %}
+	<h1>Bienvenue sur l'héritage</h1>
+{% endblock %}
+
+
+{% block body %}
+	<h2>Page test/héritage</h2>
+	<p>Le contenu du block body du fichier héritage remplace le contenu du block body du fichier base
+	</p>
+{% endblock %}
+
+
+{# 
+    EXERCICE : Changez le contenu de la balise H1 
+    sur la page héritage on veut écrire : "Bienvenue sur l'héritage"
+    mais on souhaite garder le titre d'origine sur la route /test/accueil "Bienvenue à la bibliothèque" 
+ #}
