@@ -14,6 +14,8 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+        '/livre' => [[['_route' => 'livre', '_controller' => 'App\\Controller\\LivreController::index'], null, null, null, false, false, null]],
+        '/livre/ajouter' => [[['_route' => 'livre_ajouter', '_controller' => 'App\\Controller\\LivreController::ajouter'], null, null, null, false, false, null]],
         '/test' => [[['_route' => 'app_test', '_controller' => 'App\\Controller\\TestController::index'], null, null, null, false, false, null]],
         '/test/accueil' => [[['_route' => 'app_test_accueil', '_controller' => 'App\\Controller\\TestController::accueil'], null, null, null, false, false, null]],
         '/test/heritage' => [[['_route' => 'app_test_heritage', '_controller' => 'App\\Controller\\TestController::heritage'], null, null, null, false, false, null]],

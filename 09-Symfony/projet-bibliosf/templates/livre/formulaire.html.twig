@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<form method="post">
+  <div class="mb-3">
+    <label for="titre" class="form-label">Titre</label>
+    <input type="text" class="form-control" id="titre" name="titre">
+  </div>
+  <div class="mb-3">
+    <label for="auteur" class="form-label">Auteur</label>
+    <input type="text" class="form-control" id="auteur" name="auteur">
+  </div>
+  <button type="submit" class="btn btn-primary">Enregistrer</button>
+</form>
+{% endblock %}

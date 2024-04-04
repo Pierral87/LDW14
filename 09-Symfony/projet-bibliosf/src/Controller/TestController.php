@@ -76,7 +76,6 @@ class TestController extends AbstractController
        // EXERCICE : Créez la vue salutation.html.twig et affichez dans le block titreH1 le message suivant : "Bonjour prenom" 
     }
 
-
     // EXERCICE 
     // Créez une nouvelle route qui va prendre 2 paramètres dans l'url et qui va afficher la valeur de l'addition, de la multiplication, de la soustraction et de la divisions des deux nombres passés en paramètres 
     // Si le deuxième paramètre est 0, la division n'est pas possible il faudra gérer cette exception en affichant à la place un message 

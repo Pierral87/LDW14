@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste Livres{% endblock %}
+
+{% block titreH1 %} <h1>Liste des livres : </h1> {% endblock %}
+
+{% block body %}
+
+<pre>
+    {{ dump(livres) }}
+</pre>
+
+{# EXERCICE : Affichez la liste des livres dans un tableau html #}
+
+{% endblock %}

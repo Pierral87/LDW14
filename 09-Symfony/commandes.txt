@@ -42,3 +42,16 @@ symfony console about    ---  pour avoir des infos sur la version de symfony, de
 -------------- Commandes ---------------
 Pour créer un controlleur via maker : 
 symfony console make:controller
+
+Pour créer une bdd basée sur ce qu'on a écrit dans le fichier .env : 
+symfony console doctrine:database:create
+
+Création d'une entité : 
+symfony console make:entity 
+
+Création d'une migration : 
+symfony console make:migration 
+
+Validation d'une migration : 
+symfony console doctrine:migrations:migrate
+symfony console d:m:m
