@@ -1,3 +1,29 @@
 /presences
 /01-HTML/11-bootstrap/altrhcuisine/assets/img/plat*.jpg
 /05-MySQL/02-modelisation-merise/schema.jpg
+
+
+###> symfony/framework-bundle ###
+/09-Symfony/projet-bibliosf/.env.local
+/09-Symfony/projet-bibliosf/.env.local.php
+/09-Symfony/projet-bibliosf/.env.*.local
+/09-Symfony/projet-bibliosf/config/secrets/prod/prod.decrypt.private.php
+/09-Symfony/projet-bibliosf/public/bundles/
+/09-Symfony/projet-bibliosf/var/
+/09-Symfony/projet-bibliosf/vendor/
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/09-Symfony/projet-bibliosf/phpunit.xml
+/09-Symfony/projet-bibliosf/.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/phpunit-bridge ###
+/09-Symfony/projet-bibliosf/.phpunit.result.cache
+/09-Symfony/projet-bibliosf/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> symfony/asset-mapper ###
+/09-Symfony/projet-bibliosf/public/assets/
+/09-Symfony/projet-bibliosf/assets/vendor
+###< symfony/asset-mapper ###

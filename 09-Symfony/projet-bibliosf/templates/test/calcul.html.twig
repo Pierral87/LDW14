@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block titreH1 %}
+<h1>Page de calcul</h1>
+{% endblock %}
+
+{% block body %}
+
+<h2>Voici le résultat des calculs entre les chiffres {{nb1}} et {{nb2}} </h2>
+{# J'appelle ici mes deux param récupérés du controller pour faire mes opérations mathématiques directement entre les doubles accolades #}
+<p>Addition : {{nb1 + nb2}} </p>
+<p>Soustraction : {{nb1 - nb2}} </p>
+<p>Multiplication : {{nb1 * nb2}} </p>
+
+{# Je crée ici une condition gérant le cas d'erreur de la division par zéro #}
+{% if nb2 == 0 %}
+    <h3>La division par 0 n'est pas possible !</h3>
+{% else %}
+    <p>Division : {{nb1 / nb2}} </p>
+{% endif %}
+
+
+
+
+{% endblock %}

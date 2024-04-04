@@ -56,15 +56,41 @@ class TestController extends AbstractController
         ]);
     }
 
-    #[Route('/test/salutation/{prenom}', name: 'app_test_salutation')]
+
+    // #[Route('/test/salutation/', name: 'app_test_salutation')]
+        // Attention l'ordre des routes est important ! La route ci dessus sortira en prioritaire par rapport à la route d'en dessous avec le prenom facultatif
+        // Bien sur on fait en sorte que nos routes ne se ressemblent pas ! Il faut rester cohérent dans le nommage de nos routes
+
+    #[Route('/test/salutation/{prenom?}', name: 'app_test_salutation')]
+    // Si on écrit ci dessus{prenom?} cela défini que ce param est non obligatoire
     // Ici ma route attend un paramètre dans l'URL, ce paramètre sera transposé dans $prenom récupéré par la méthode salutation (liaison automatique par symfony)
-    public function salutation($prenom)
+
+    // Le fait de donner une valeur par défaut ici dans la méthode va considérer l'élément comme facultatif (pas besoin de mettre {prenom?} dans la route)
+    public function salutation($prenom = "inconnu")
     {
+        // Si mon élément est facultatif dans la route avec le prenom? je peux définir une valeur par defaut avec la ligne ci dessous
+        $prenom = $prenom ?? "inconnu";
         // dd($prenom); // dd = dump and die, c'est un var_dump de symfony qui permet de stopper l'exécution du code et d'afficher le contenu de la variable à vérifier, il existe aussi "dump" mais ne stoppe pas l'exécution du code donc des erreurs peuvent toujours être générée, mais on peut visualiser le dump dans la barre d'outil du helper de symfony (barre d'outil en bas de page) 
         
        return $this->render("test/salutation.html.twig", ["prenom" => $prenom]);
        // EXERCICE : Créez la vue salutation.html.twig et affichez dans le block titreH1 le message suivant : "Bonjour prenom" 
     }
 
+
+    // EXERCICE 
+    // Créez une nouvelle route qui va prendre 2 paramètres dans l'url et qui va afficher la valeur de l'addition, de la multiplication, de la soustraction et de la divisions des deux nombres passés en paramètres 
+    // Si le deuxième paramètre est 0, la division n'est pas possible il faudra gérer cette exception en affichant à la place un message 
+
+    // Je crée ici ma nouvelle route et je lui transmet deux param, nb1 et nb2, je décide ici de les séparer par un / mais je suis libre de faire autrement (avec un tiret pourquoi pas), l'important c'est que les params soient bien englobés par leurs propres {}
+    // Je peux aussi ajouter un requirements me permettant d'appliquer une regex à mes nb1 et nb2 pour obliger le fait que ce soit bien des chiffres et non pas des strings ou autre chose
+    #[Route('/test/calcul/{nb1}/{nb2}', name: 'app_test_calcul', requirements:["nb1" => '[0-9]+', "nb2" => '[0-9]+'])]
+    public function calcul($nb1, $nb2) // ici j'ai la nécessité de définir ces deux variables pour récupérer les param venant de l'url
+    {
+        // Grâce au dump je vérifie que je récupère bien mes deux params venant de l'url
+        dump($nb1,$nb2);
+
+        // Je transmet ensuite ces deux param à mon template
+        return $this->render("test/calcul.html.twig", ["nb1" => $nb1, "nb2" => $nb2]);
+    }
 
 }

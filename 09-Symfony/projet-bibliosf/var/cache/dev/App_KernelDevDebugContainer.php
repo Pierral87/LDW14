@@ -16,7 +16,7 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerQboxKCE\App_KernelDevDebugContainer([
     'container.build_hash' => 'QboxKCE',
-    'container.build_id' => '950ebd16',
-    'container.build_time' => 1712156072,
+    'container.build_id' => 'cc3d1970',
+    'container.build_time' => 1712223477,
     'container.runtime_mode' => \in_array(\PHP_SAPI, ['cli', 'phpdbg', 'embed'], true) ? 'web=0' : 'web=1',
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerQboxKCE');

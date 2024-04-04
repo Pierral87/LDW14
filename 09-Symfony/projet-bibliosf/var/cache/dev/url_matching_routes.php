@@ -40,7 +40,10 @@ return [
                         .')'
                     .')'
                 .')'
-                .'|/test/salutation/([^/]++)(*:227)'
+                .'|/test/(?'
+                    .'|salutation(?:/([^/]++))?(*:235)'
+                    .'|calcul/([0-9]+)/([0-9]+)(*:267)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -52,8 +55,9 @@ return [
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        227 => [
-            [['_route' => 'app_test_salutation', '_controller' => 'App\\Controller\\TestController::salutation'], ['prenom'], null, null, false, true, null],
+        235 => [[['_route' => 'app_test_salutation', 'prenom' => null, '_controller' => 'App\\Controller\\TestController::salutation'], ['prenom'], null, null, false, true, null]],
+        267 => [
+            [['_route' => 'app_test_calcul', '_controller' => 'App\\Controller\\TestController::calcul'], ['nb1', 'nb2'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
