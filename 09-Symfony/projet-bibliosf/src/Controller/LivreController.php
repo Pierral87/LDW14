@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Livre;
+use App\Form\LivreType;
 use App\Repository\LivreRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -50,7 +51,7 @@ class LivreController extends AbstractController
         $livre->setAuteur($auteur); // Je donne une valeur à l'auteur, il ne me reste plus qu'à l'envoyer vers la bdd 
         // dd($livre);
 
-        // La classe EntityManager que je vais injecter dans ma méthode comme je l'ai fais avec Request, va me permettre d'enregistrer en BDD
+        // La classe EntityManagerInterface que je vais injecter dans ma méthode comme je l'ai fais avec Request, va me permettre d'enregistrer en BDD
         // Cette classe permet d'effectuer toutes les opérations de type "action" sur notre bdd en gérant toutes les notions de sécurité
         // Elle va permettre de transformer un objet livre, ici mon $livre en SQL pour l'insérer/modifier dans la table 
 
@@ -61,12 +62,36 @@ class LivreController extends AbstractController
 
         // dd($livre);
 
+        // Pour faire une redirection vers une route existante, on utilise redirectToRoute avec le name d'une route en paramètre
+        return $this->redirectToRoute("livre");
+        }
+        // dd($titre, $auteur);
+        return $this->render("livre/formulaire.html.twig");
+    }
+
+    #[Route('/livre/nouveau', name: 'livre_nouveau')]
+    public function nouveau(Request $request, EntityManagerInterface $em)
+    {
+        // On créé une entité Livre qui sera rattachée au form 
+        $livre = new Livre;
+
+        // Toutes les modifications apportées dans le formulaire vont impacter les prop de cet objet entité Livre
+        // Le deuxième argument de la méthode createForm permet de créer un lien entre une entité et le form
+        // createForm permet de créer le formulaire selon le modèle LivreType et rattaché à $livre
+        $formLivre = $this->createForm(LivreType::class, $livre);
+
+        // handleRequest : permet à la variable $formLivre de gérer les informations envoyées par le navigateur 
+        $formLivre->handleRequest($request);
+
+        // On va ensuite utiliser les méthodes isSubmitted() pour savoir si le formulaire est saisi puis la méthode isValid() pour savoir si le formulaire est valide par rapport à ses contraintes, si c'est bon alors on va persist et flush !
+        if ($formLivre->isSubmitted() && $formLivre->isValid()) {
+            $em->persist($livre);
+            $em->flush();
+            return $this->redirectToRoute("livre");
         }
 
-        // dd($titre, $auteur);
+        return $this->render("livre/form.html.twig", ["formLivre" => $formLivre]);
 
-
-        return $this->render("livre/formulaire.html.twig");
     }
 
 }

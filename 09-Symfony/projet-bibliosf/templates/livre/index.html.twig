@@ -9,7 +9,7 @@
 <pre>
 {# La variable livres contient tous les livres de la table Livre !  #}
 {# J'ai la possibilité de faire un dump en twig également #}
-    {{ dump(livres) }}
+    {# {{ dump(livres) }} #}
 </pre>
 
 {# EXERCICE : Affichez la liste des livres dans un tableau html #}
@@ -17,7 +17,28 @@
     Etape 1 : Créer la structure html du tableau, la balise table, l'entête du tableau (thead tr th) avec les entêtes des colonnes id titre auteur 
     Etape 2 : Faire une boucle foreach twig (for entity in entities), chaque tour de boucle for affiche un nouveau tr avec chaque propriété de l'objet dans un td 
     Etape 3 : Fermer la balise table
-
  #}
+
+ <table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th colspan="2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for livre in livres %}
+        <tr>
+            <td> {{livre.id}} </td>
+            <td> {{livre.titre}} </td>
+            <td> {{livre.auteur}} </td>
+            <td> <a href="" class="btn btn-secondary"><i class="fa-regular fa-pen-to-square"></i> </a></td>
+            <td> <a href="" class="btn btn-danger"><i class="fa-solid fa-trash"></i> </a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
 {% endblock %}

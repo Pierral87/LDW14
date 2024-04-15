@@ -21,13 +21,13 @@ symfony new --webapp projet-version --version=lts  ----- Ici pour créer un proj
 symfony new --webapp projet-version --version=5.4
 
 
--- En date de ce cours : Avril 2024, nous allons préférer utiliser la version lts qui est actuellement la 6.4, la version 7 de symfony étant encore en 7.0 et ne sera pas maintenu plus que 6mois pour chaque sous version, on préfèrera donc travailler sur une version plus durable (les mise à jour de versions n'étant pas toujours très simples ni exempte de problèmes)
+-- En date de ce cours : Avril 2024, nous allons préférer utiliser la version lts qui est actuellement la 6.4, la version 7 de symfony étant encore en 7.0 et ne sera pas maintenu plus que 6mois pour chaque sous version, on préfèrera donc travailler sur une version plus durable (les mises à jour de versions n'étant pas toujours très simples ni exempte de problèmes)
 symfony new --webapp projet-bibliosf --version=lts
 
 
 -------------------------------------------
 ATTENTION A TOUJOURS ETRE DANS LE BON DOSSIER
-Lancement serveur symfony ; 
+Lancement serveur symfony : 
 symfony serve     ()
 symfony serve -d  (lancement en arrière plan, ce qui permet de laisser le terminal accessible pour d'autres commandes)
 symfony server:start 
@@ -55,3 +55,6 @@ symfony console make:migration
 Validation d'une migration : 
 symfony console doctrine:migrations:migrate
 symfony console d:m:m
+
+Création d'un form automatique : 
+symfony console make:form

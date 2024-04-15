@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+{# fonction form, qui prends en param un objet de type formType et permet de l'afficher 
+
+La fonction form va construire le formulaire à partir de l'objet form envoyé par le controller
+ #}
+{{ form(formLivre)}}
+
+
+
+{# {{ form_end(formLivre)}} #}
+
+
+{% endblock %}
