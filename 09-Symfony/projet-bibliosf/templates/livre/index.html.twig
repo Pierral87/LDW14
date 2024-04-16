@@ -34,8 +34,8 @@
             <td> {{livre.id}} </td>
             <td> {{livre.titre}} </td>
             <td> {{livre.auteur}} </td>
-            <td> <a href="" class="btn btn-secondary"><i class="fa-regular fa-pen-to-square"></i> </a></td>
-            <td> <a href="" class="btn btn-danger"><i class="fa-solid fa-trash"></i> </a></td>
+            <td> <a href="{{ path("livre_modifier", {id: livre.id}) }}" class="btn btn-secondary"><i class="fa-regular fa-pen-to-square"></i> </a></td>
+            <td> <a href="{{ path("livre_supprimer", {id: livre.id}) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i> </a></td>
         </tr>
     {% endfor %}
     </tbody>

@@ -90,8 +90,61 @@ class LivreController extends AbstractController
             return $this->redirectToRoute("livre");
         }
 
-        return $this->render("livre/form.html.twig", ["formLivre" => $formLivre]);
+        return $this->render("livre/form.html.twig", ["formLivre" => $formLivre, "titre" => "Ajout d'un nouveau livre"]);
 
     }
+
+
+    // Nouvelle route pour modifier un livre existant
+    // Ici on va avoir besoin d'injecter LivreRepository car on va lancer une requête pour récupérer les informations du livre à modifier
+    // On va avoir besoin de Request pour comprendre si le formulaire de modification est bien validé 
+    // On va avoir besoin de EntityManagerInterface pour lancer la requête update (requête de type action)
+    #[Route('/livre/modifier/{id}', name: 'livre_modifier')]
+    public function modifier(LivreRepository $livreRepository, Request $request, EntityManagerInterface $em, $id)
+    {
+        // La méthode find des Repository me permet de récupérer un enregistrement par son id
+        // Je récupère donc ici l'entité livre que je souhaite modifier (en lien avec son id dans l'url)
+        $livre = $livreRepository->find($id);
+
+        // dd($livre);
+
+        // Je fais la liaison entre mon formType et l'entité $livre que je viens de récupérer
+        // Je n'ai pas l'obligation de lier une entité vide au formulaire, il est apte à récupérer une entité déjà existante et donc répercutera dans les inputs, les valeurs de cette entité (dans notre contexte : le titre et l'auteur du livre )
+        $formLivre = $this->createForm(LivreType::class, $livre);
+
+        $formLivre->handleRequest($request);
+
+        // Si le formulaire est soumis et valide, je lance le persist et le flush, le système comprend de lui même que nous sommes dans un scénario de modification
+        if ($formLivre->isSubmitted() && $formLivre->isValid()) {
+
+            // Dans le contexte de modification, le persist n'est pas nécessaire car l'entité est déjà présente dans la table, le flush suffit
+            $em->persist($livre);
+            $em->flush();
+            return $this->redirectToRoute("livre");
+        }
+
+        // On peut utiliser ici le même template que pour ajouter, le système arrive à nous placer dans un contexte différent, celui de la modification
+        return $this->render("livre/form.html.twig", ["formLivre" => $formLivre, "titre" => "Modification d'un livre"]);
+
+    }
+
+    #[Route('/livre/supprimer/{id}', name: 'livre_supprimer')]
+    public function supprimer(EntityManagerInterface $em, Request $request, Livre $livre) {
+        // Ici j'utilise un concept de Symfony : l'auto-wiring, c'est à dire que le système va de lui même faire le lien entre l'id récupérée dans l'url et l'entité qui est transmise en injection, ce qui m'évite de faire la requête moi même
+        // Automatiquement cette entité $livre correspondra au livre ayant l'id transmit dans l'url 
+
+        // Plutôt que de supprimer directement le livre je crée une page intermédiaire sur laquelle je crée un form avec simplement un bouton submit, si ce bouton submit est cliqué alors cela transmet une méthode POST, ce qui me permet de créer la condition ci dessous pour lancer la suppression
+        if ($request->isMethod("POST")) {
+            // Ici pas de persist mais un remove, c'est ce qui va préparer la requête DELETE
+            $em->remove($livre);
+            // Et ensuite je flush pour valider la requête
+            $em->flush();
+            return $this->redirectToRoute("livre");
+         }
+
+        return $this->render("livre/supprimer.html.twig", ["livre" => $livre]);
+
+    }
+
 
 }

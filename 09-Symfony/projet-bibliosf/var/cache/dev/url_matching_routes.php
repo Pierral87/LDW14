@@ -43,9 +43,13 @@ return [
                         .')'
                     .')'
                 .')'
+                .'|/livre/(?'
+                    .'|modifier/([^/]++)(*:229)'
+                    .'|supprimer/([^/]++)(*:255)'
+                .')'
                 .'|/test/(?'
-                    .'|salutation(?:/([^/]++))?(*:235)'
-                    .'|calcul/([0-9]+)/([0-9]+)(*:267)'
+                    .'|salutation(?:/([^/]++))?(*:297)'
+                    .'|calcul/([0-9]+)/([0-9]+)(*:329)'
                 .')'
             .')/?$}sDu',
     ],
@@ -58,8 +62,10 @@ return [
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        235 => [[['_route' => 'app_test_salutation', 'prenom' => null, '_controller' => 'App\\Controller\\TestController::salutation'], ['prenom'], null, null, false, true, null]],
-        267 => [
+        229 => [[['_route' => 'livre_modifier', '_controller' => 'App\\Controller\\LivreController::modifier'], ['id'], null, null, false, true, null]],
+        255 => [[['_route' => 'livre_supprimer', '_controller' => 'App\\Controller\\LivreController::supprimer'], ['id'], null, null, false, true, null]],
+        297 => [[['_route' => 'app_test_salutation', 'prenom' => null, '_controller' => 'App\\Controller\\TestController::salutation'], ['prenom'], null, null, false, true, null]],
+        329 => [
             [['_route' => 'app_test_calcul', '_controller' => 'App\\Controller\\TestController::calcul'], ['nb1', 'nb2'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
