@@ -60,36 +60,45 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 \t\t<link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>\"> 
 \t\t<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH\" crossorigin=\"anonymous\">
 \t\t<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css\" integrity=\"sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />
+\t\t
+\t\t<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz\" crossorigin=\"anonymous\"></script>
 \t\t";
-        // line 12
+        // line 14
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 13
+        // line 15
         echo "
 
 \t\t";
-        // line 15
+        // line 17
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 20
+        // line 22
         echo "\t</head>
 \t<body>
 \t<div class=\"container\">
+\t";
+        // line 26
+        echo "\t";
+        echo twig_include($this->env, $context, "menu.html.twig");
+        echo "
+
+
             ";
-        // line 23
+        // line 29
         $this->displayBlock('titreH1', $context, $blocks);
-        // line 28
+        // line 34
         echo "
 \t\t";
-        // line 29
+        // line 35
         $this->displayBlock('body', $context, $blocks);
-        // line 55
+        // line 61
         echo "
 \t\t\t";
-        // line 56
+        // line 62
         $this->displayBlock('footer', $context, $blocks);
-        // line 64
+        // line 70
         echo "
 \t\t\t</div>
-\t<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz\" crossorigin=\"anonymous\"></script>
+
 </body>
 </html>
 ";
@@ -121,7 +130,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 
     }
 
-    // line 12
+    // line 14
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -139,7 +148,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 
     }
 
-    // line 15
+    // line 17
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -149,10 +158,10 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 16
+        // line 18
         echo "\t\t\t";
         $this->displayBlock('importmap', $context, $blocks);
-        // line 19
+        // line 21
         echo "\t\t";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -162,7 +171,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 
     }
 
-    // line 16
+    // line 18
     public function block_importmap($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -172,7 +181,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "importmap"));
 
-        // line 17
+        // line 19
         echo "\t\t\t\t";
         echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\ImportMapRuntime')->importmap("app");
         echo "
@@ -185,7 +194,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 
     }
 
-    // line 23
+    // line 29
     public function block_titreH1($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -195,7 +204,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "titreH1"));
 
-        // line 24
+        // line 30
         echo "            <h1>
 \t\t\t\tBienvenue à la bibliothèque
 \t\t\t</h1>
@@ -208,7 +217,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 
     }
 
-    // line 29
+    // line 35
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -218,42 +227,42 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 30
+        // line 36
         echo "\t\t\t
 \t\t\t";
-        // line 32
-        echo "\t\t\t";
-        // line 33
+        // line 38
         echo "\t\t\t";
         // line 39
         echo "\t\t\t";
+        // line 45
+        echo "\t\t\t";
         if (array_key_exists("nombre", $context)) {
-            // line 40
+            // line 46
             echo "\t\t\t\t<p>
 \t\t\t\tNombre récupéré depuis le controller :";
-            // line 41
-            echo twig_escape_filter($this->env, (isset($context["nombre"]) || array_key_exists("nombre", $context) ? $context["nombre"] : (function () { throw new RuntimeError('Variable "nombre" does not exist.', 41, $this->source); })()), "html", null, true);
+            // line 47
+            echo twig_escape_filter($this->env, (isset($context["nombre"]) || array_key_exists("nombre", $context) ? $context["nombre"] : (function () { throw new RuntimeError('Variable "nombre" does not exist.', 47, $this->source); })()), "html", null, true);
             echo "
 \t\t\t\t</p>
 \t\t\t";
         }
-        // line 44
+        // line 50
         echo "
 \t\t\t";
-        // line 46
+        // line 52
         echo "\t\t\t";
-        ((array_key_exists("nombre", $context)) ? (print (twig_escape_filter($this->env, (isset($context["nombre"]) || array_key_exists("nombre", $context) ? $context["nombre"] : (function () { throw new RuntimeError('Variable "nombre" does not exist.', 46, $this->source); })()), "html", null, true))) : (print ("")));
+        ((array_key_exists("nombre", $context)) ? (print (twig_escape_filter($this->env, (isset($context["nombre"]) || array_key_exists("nombre", $context) ? $context["nombre"] : (function () { throw new RuntimeError('Variable "nombre" does not exist.', 52, $this->source); })()), "html", null, true))) : (print ("")));
         echo "
 
 \t\t\t";
-        // line 49
+        // line 55
         echo "\t\t\t";
-        echo twig_escape_filter($this->env, ((array_key_exists("nombre", $context)) ? (_twig_default_filter((isset($context["nombre"]) || array_key_exists("nombre", $context) ? $context["nombre"] : (function () { throw new RuntimeError('Variable "nombre" does not exist.', 49, $this->source); })()), "non défini")) : ("non défini")), "html", null, true);
+        echo twig_escape_filter($this->env, ((array_key_exists("nombre", $context)) ? (_twig_default_filter((isset($context["nombre"]) || array_key_exists("nombre", $context) ? $context["nombre"] : (function () { throw new RuntimeError('Variable "nombre" does not exist.', 55, $this->source); })()), "non défini")) : ("non défini")), "html", null, true);
         echo "
 \t\t\t\t<p>
 \t\t\t\tPrenom récupéré depuis le controller :";
-        // line 51
-        echo twig_escape_filter($this->env, (isset($context["prenom"]) || array_key_exists("prenom", $context) ? $context["prenom"] : (function () { throw new RuntimeError('Variable "prenom" does not exist.', 51, $this->source); })()), "html", null, true);
+        // line 57
+        echo twig_escape_filter($this->env, (isset($context["prenom"]) || array_key_exists("prenom", $context) ? $context["prenom"] : (function () { throw new RuntimeError('Variable "prenom" does not exist.', 57, $this->source); })()), "html", null, true);
         echo "
 \t\t</p>
 
@@ -266,7 +275,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 
     }
 
-    // line 56
+    // line 62
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -276,7 +285,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 57
+        // line 63
         echo "\t\t\t<br>
 \t\t\t\t<footer>
 \t\t\t\t\t<p>
@@ -303,9 +312,17 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
     /**
      * @codeCoverageIgnore
      */
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
     public function getDebugInfo()
     {
-        return array (  280 => 57,  270 => 56,  256 => 51,  250 => 49,  244 => 46,  241 => 44,  235 => 41,  232 => 40,  229 => 39,  227 => 33,  225 => 32,  222 => 30,  212 => 29,  199 => 24,  189 => 23,  176 => 17,  166 => 16,  156 => 19,  153 => 16,  143 => 15,  125 => 12,  105 => 6,  90 => 64,  88 => 56,  85 => 55,  83 => 29,  80 => 28,  78 => 23,  73 => 20,  71 => 15,  67 => 13,  65 => 12,  59 => 8,  57 => 6,  50 => 1,);
+        return array (  289 => 63,  279 => 62,  265 => 57,  259 => 55,  253 => 52,  250 => 50,  244 => 47,  241 => 46,  238 => 45,  236 => 39,  234 => 38,  231 => 36,  221 => 35,  208 => 30,  198 => 29,  185 => 19,  175 => 18,  165 => 21,  162 => 18,  152 => 17,  134 => 14,  114 => 6,  99 => 70,  97 => 62,  94 => 61,  92 => 35,  89 => 34,  87 => 29,  80 => 26,  75 => 22,  73 => 17,  69 => 15,  67 => 14,  59 => 8,  57 => 6,  50 => 1,);
     }
 
     public function getSourceContext()
@@ -321,6 +338,8 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 \t\t<link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>\"> 
 \t\t<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH\" crossorigin=\"anonymous\">
 \t\t<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css\" integrity=\"sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />
+\t\t
+\t\t<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz\" crossorigin=\"anonymous\"></script>
 \t\t{% block stylesheets %}{% endblock %}
 
 
@@ -332,6 +351,10 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 \t</head>
 \t<body>
 \t<div class=\"container\">
+\t{# Inclusion du menu #}
+\t{{include(\"menu.html.twig\")}}
+
+
             {% block titreH1 %}
             <h1>
 \t\t\t\tBienvenue à la bibliothèque
@@ -375,7 +398,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 \t        {% endblock %}
 
 \t\t\t</div>
-\t<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz\" crossorigin=\"anonymous\"></script>
+
 </body>
 </html>
 ", "base.html.twig", "D:\\wamp64\\www\\LDW14\\09-Symfony\\projet-bibliosf\\templates\\base.html.twig");
