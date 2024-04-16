@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace de dialogue
+{% endblock %}
+
+{% block body %}
+
+	<div class="container bg-light">
+
+		<div class="row">
+			<div class="col-12">
+				<h2 class="text-center p-5 border-bottom">Espace de dialogue</h2>
+			</div>
+			{{form(formCommentaire)}}
+			</div>
+
+			<div class="row">
+				<div
+					class="col-12">
+					{# {{ dump(commentaires)}} #}
+                    <p>Il y a  : <b>{{commentaires|length}}</b> messages </p>
+					{% for commentaire in commentaires %}
+
+						<div class="card w-75 mx-auto mb-3">
+							<div class="card-header bg-dark text-white">
+								Par {{commentaire.pseudo}}, le : {{commentaire.dateEnregistrement|date("d/m/Y à H:i:s", "Europe/Paris")}}
+							</div>
+							<div class="card-body">							
+								<p class="card-text">{{commentaire.message}}</p>
+							</div>
+						</div>
+
+					{% endfor %}
+				</div>
+			</div>
+
+		</div>
+
+	{% endblock %}

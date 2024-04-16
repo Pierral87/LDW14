@@ -1,0 +1,30 @@
+----------------------------- EXERCICE TP DIALOGUE --------------------------
+
+Refaire le TP Dialogue du cours PHP Orienté Objet (chapitre PDO), mais cette fois ci, en Symfony ! 
+
+Il faut tout reprendre à zéro ! 
+
+Etape 1 : Création du projet symfony (version LTS) 
+symfony new --webapp dialogue --version=lts 
+
+Etape 2 : Modification du .env pour choisir une base (créez une nouvelle base!)
+
+Etape 3 : Création de la base par la commande
+symfony console doctrine:database:create
+
+Etape 4 : Création de l'entité Commentaire
+symfony console make:entity 
+
+Etape 5 : Faire la migration et le migrate pour créer la table associée à l'entité 
+symfony console make:migration 
+symfony console doctrine:migrations:migrate
+
+Etape 6 : Créer le controller 
+symfony console make:controller Commentaire
+
+Etape 7 : Créer le form 
+symfony console make:form CommentaireType
+
+Etape 8 : Créer le template twig
+Etape 9 : Gérer ensuite la récupération de la saisie et insertion en bdd
+Etape 10 : Affichez les messages de la bdd sur la page
