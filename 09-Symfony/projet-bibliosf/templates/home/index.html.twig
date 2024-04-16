@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue à la bibliothèque
+{% endblock %}
+
+{% block body %}
+
+	{# {{dump(livres)}} #}
+	<div class="row">
+		{% for livre in livres %}
+			<div class="col-sm-4">
+				<div class="card m-1" style="width: 18rem;">
+					<img src="..." class="card-img-top" alt="Pas d'image">
+					<div class="card-body">
+						<h5 class="card-title">{{livre.titre}}</h5>
+						<p class="card-text">{{livre.auteur}}</p>
+						<a href="#" class="btn btn-secondary disabled">Emprunter</a>
+					</div>
+				</div>
+			</div>
+            {% else %}
+                {{"Il n'y a pas de livre dans la biblio"}}
+		{% endfor %}
+	</div>
+{% endblock %}

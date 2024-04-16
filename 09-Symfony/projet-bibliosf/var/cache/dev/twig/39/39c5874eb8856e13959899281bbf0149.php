@@ -74,28 +74,29 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
         // line 22
         echo "\t</head>
 \t<body>
-\t<div class=\"container\">
-\t";
-        // line 26
+\t\t";
+        // line 25
         echo "\t";
         echo twig_include($this->env, $context, "menu.html.twig");
         echo "
+\t<div class=\"container\">
+
 
 
             ";
-        // line 29
+        // line 30
         $this->displayBlock('titreH1', $context, $blocks);
-        // line 34
+        // line 35
         echo "
 \t\t";
-        // line 35
+        // line 36
         $this->displayBlock('body', $context, $blocks);
-        // line 61
+        // line 62
         echo "
 \t\t\t";
-        // line 62
+        // line 63
         $this->displayBlock('footer', $context, $blocks);
-        // line 70
+        // line 71
         echo "
 \t\t\t</div>
 
@@ -194,7 +195,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 
     }
 
-    // line 29
+    // line 30
     public function block_titreH1($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -204,7 +205,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "titreH1"));
 
-        // line 30
+        // line 31
         echo "            <h1>
 \t\t\t\tBienvenue à la bibliothèque
 \t\t\t</h1>
@@ -217,7 +218,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 
     }
 
-    // line 35
+    // line 36
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -227,42 +228,42 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 36
+        // line 37
         echo "\t\t\t
 \t\t\t";
-        // line 38
-        echo "\t\t\t";
         // line 39
         echo "\t\t\t";
-        // line 45
+        // line 40
+        echo "\t\t\t";
+        // line 46
         echo "\t\t\t";
         if (array_key_exists("nombre", $context)) {
-            // line 46
+            // line 47
             echo "\t\t\t\t<p>
 \t\t\t\tNombre récupéré depuis le controller :";
-            // line 47
-            echo twig_escape_filter($this->env, (isset($context["nombre"]) || array_key_exists("nombre", $context) ? $context["nombre"] : (function () { throw new RuntimeError('Variable "nombre" does not exist.', 47, $this->source); })()), "html", null, true);
+            // line 48
+            echo twig_escape_filter($this->env, (isset($context["nombre"]) || array_key_exists("nombre", $context) ? $context["nombre"] : (function () { throw new RuntimeError('Variable "nombre" does not exist.', 48, $this->source); })()), "html", null, true);
             echo "
 \t\t\t\t</p>
 \t\t\t";
         }
-        // line 50
+        // line 51
         echo "
 \t\t\t";
-        // line 52
+        // line 53
         echo "\t\t\t";
-        ((array_key_exists("nombre", $context)) ? (print (twig_escape_filter($this->env, (isset($context["nombre"]) || array_key_exists("nombre", $context) ? $context["nombre"] : (function () { throw new RuntimeError('Variable "nombre" does not exist.', 52, $this->source); })()), "html", null, true))) : (print ("")));
+        ((array_key_exists("nombre", $context)) ? (print (twig_escape_filter($this->env, (isset($context["nombre"]) || array_key_exists("nombre", $context) ? $context["nombre"] : (function () { throw new RuntimeError('Variable "nombre" does not exist.', 53, $this->source); })()), "html", null, true))) : (print ("")));
         echo "
 
 \t\t\t";
-        // line 55
+        // line 56
         echo "\t\t\t";
-        echo twig_escape_filter($this->env, ((array_key_exists("nombre", $context)) ? (_twig_default_filter((isset($context["nombre"]) || array_key_exists("nombre", $context) ? $context["nombre"] : (function () { throw new RuntimeError('Variable "nombre" does not exist.', 55, $this->source); })()), "non défini")) : ("non défini")), "html", null, true);
+        echo twig_escape_filter($this->env, ((array_key_exists("nombre", $context)) ? (_twig_default_filter((isset($context["nombre"]) || array_key_exists("nombre", $context) ? $context["nombre"] : (function () { throw new RuntimeError('Variable "nombre" does not exist.', 56, $this->source); })()), "non défini")) : ("non défini")), "html", null, true);
         echo "
 \t\t\t\t<p>
 \t\t\t\tPrenom récupéré depuis le controller :";
-        // line 57
-        echo twig_escape_filter($this->env, (isset($context["prenom"]) || array_key_exists("prenom", $context) ? $context["prenom"] : (function () { throw new RuntimeError('Variable "prenom" does not exist.', 57, $this->source); })()), "html", null, true);
+        // line 58
+        echo twig_escape_filter($this->env, (isset($context["prenom"]) || array_key_exists("prenom", $context) ? $context["prenom"] : (function () { throw new RuntimeError('Variable "prenom" does not exist.', 58, $this->source); })()), "html", null, true);
         echo "
 \t\t</p>
 
@@ -275,7 +276,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 
     }
 
-    // line 62
+    // line 63
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -285,7 +286,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 63
+        // line 64
         echo "\t\t\t<br>
 \t\t\t\t<footer>
 \t\t\t\t\t<p>
@@ -322,7 +323,7 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  289 => 63,  279 => 62,  265 => 57,  259 => 55,  253 => 52,  250 => 50,  244 => 47,  241 => 46,  238 => 45,  236 => 39,  234 => 38,  231 => 36,  221 => 35,  208 => 30,  198 => 29,  185 => 19,  175 => 18,  165 => 21,  162 => 18,  152 => 17,  134 => 14,  114 => 6,  99 => 70,  97 => 62,  94 => 61,  92 => 35,  89 => 34,  87 => 29,  80 => 26,  75 => 22,  73 => 17,  69 => 15,  67 => 14,  59 => 8,  57 => 6,  50 => 1,);
+        return array (  290 => 64,  280 => 63,  266 => 58,  260 => 56,  254 => 53,  251 => 51,  245 => 48,  242 => 47,  239 => 46,  237 => 40,  235 => 39,  232 => 37,  222 => 36,  209 => 31,  199 => 30,  186 => 19,  176 => 18,  166 => 21,  163 => 18,  153 => 17,  135 => 14,  115 => 6,  100 => 71,  98 => 63,  95 => 62,  93 => 36,  90 => 35,  88 => 30,  79 => 25,  75 => 22,  73 => 17,  69 => 15,  67 => 14,  59 => 8,  57 => 6,  50 => 1,);
     }
 
     public function getSourceContext()
@@ -350,9 +351,10 @@ class __TwigTemplate_3bba9bf498240acda51b8030731c35d7 extends Template
 \t\t{% endblock %}
 \t</head>
 \t<body>
-\t<div class=\"container\">
-\t{# Inclusion du menu #}
+\t\t{# Inclusion du menu #}
 \t{{include(\"menu.html.twig\")}}
+\t<div class=\"container\">
+
 
 
             {% block titreH1 %}
