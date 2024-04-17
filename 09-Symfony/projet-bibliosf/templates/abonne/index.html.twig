@@ -25,7 +25,25 @@
                 {# EXO : 
                     Plutôt que d'afficher les roles sous forme de array, on veut plutôt afficher leurs dénominations "Directeur", "Bibliothécaire", "Lecteur" et rien si le rôle est uniquement USER 
                  #}
-                <td>{{ abonne.roles ? abonne.roles|json_encode : '' }}</td>
+                <td>
+                {# {{ abonne.roles ? abonne.roles|json_encode : '' }} #}
+                {# {{dump(abonne.roles)}} #}
+                {% if abonne.roles.0 == "ROLE_ADMIN" %}Directeur
+                {% elseif abonne.roles.0 == "ROLE_BIBLIO" %}Bibliothécaire
+                {% elseif abonne.roles.0 == "ROLE_LECTEUR" %}Lecteur
+                {% elseif abonne.roles.0 == "ROLE_USER" %}Utilisateur
+                {% endif %}
+
+                {# {% for role in abonne.roles %}
+                    {% if role == "ROLE_ADMIN" %}Directeur 
+                    {% elseif role == "ROLE_BIBLIO" %}Bibliothécaire 
+                    {% elseif role == "ROLE_LECTEUR" %}Lecteur 
+                    {% elseif role == "ROLE_USER" %}Utilisateur 
+                    {% endif %}
+                {% endfor %} #}
+                
+                
+                </td>
                 <td>{{ abonne.prenom }}</td>
                 <td>{{ abonne.nom }}</td>
                 <td>

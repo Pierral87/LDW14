@@ -34,12 +34,14 @@ class AbonneController extends AbstractController
 
             // Ici si toute la saisie est bonne, l'insertion va se lancer mais va garder le password en clair...
             // On avait déjà remarqué dans le registration que le password du formType était "mapped: false" ce qui veut dire que ce n'est pas ce champ là qui sera rattaché directement à l'entité car nous devons d'abord le crypter ! 
-            $abonne->setPassword(
-                $userPasswordHasher->hashPassword(
-                    $abonne,
-                    $form->get('password')->getData()
-                )
-            );
+            if($form->get('password')->getData()) {
+                $abonne->setPassword(
+                    $userPasswordHasher->hashPassword(
+                        $abonne,
+                        $form->get('password')->getData()
+                    )
+                );
+            }
 
             $entityManager->persist($abonne);
             $entityManager->flush();
@@ -62,12 +64,21 @@ class AbonneController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_abonne_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Abonne $abonne, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Abonne $abonne, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher): Response
     {
         $form = $this->createForm(AbonneType::class, $abonne);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+        if($form->get('password')->getData()) {
+            $abonne->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $abonne,
+                    $form->get('password')->getData()
+                )
+            );
+        }
             $entityManager->flush();
 
             return $this->redirectToRoute('app_abonne_index', [], Response::HTTP_SEE_OTHER);

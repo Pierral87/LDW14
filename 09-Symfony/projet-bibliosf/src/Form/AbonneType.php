@@ -15,6 +15,7 @@ class AbonneType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $abonne = $options["data"];
         $builder
             ->add('pseudo')
             // Ici le add role par defaut pense que c'est un input text, mais mon système attend un array (visible dans l'entité Abonne), je dois donc changer le type
@@ -35,9 +36,9 @@ class AbonneType extends AbstractType
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Please enter a password',
-                    ]),
+                    // new NotBlank([
+                    //     'message' => 'Please enter a password',
+                    // ]),
                     new Length([
                         'min' => 4,
                         'minMessage' => 'Your password should be at least {{ limit }} characters',
@@ -45,6 +46,7 @@ class AbonneType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
+                'required' => $abonne->getId() ? false : true
             ])
             ->add('prenom')
             ->add('nom')

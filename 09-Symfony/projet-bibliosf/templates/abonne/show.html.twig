@@ -17,7 +17,11 @@
             </tr>
             <tr>
                 <th>Roles</th>
-                <td>{{ abonne.roles ? abonne.roles|json_encode : '' }}</td>
+                <td>{% if abonne.roles.0 == "ROLE_ADMIN" %}Directeur
+                {% elseif abonne.roles.0 == "ROLE_BIBLIO" %}Bibliothécaire
+                {% elseif abonne.roles.0 == "ROLE_LECTEUR" %}Lecteur
+                {% elseif abonne.roles.0 == "ROLE_USER" %}Utilisateur
+                {% endif %}</td>
             </tr>
             <tr>
                 <th>Prenom</th>
