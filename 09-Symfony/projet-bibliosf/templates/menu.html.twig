@@ -1,18 +1,28 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary mb-2">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Biblio</a>
+    <a class="navbar-brand" href="{{path("home")}}">Biblio</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{path("home")}}">Home</a>
+      {# Dans twig nous avons accès à une globale app qui contient nombreuses informations notamment une propriété user qui va contenir des informations si il y a un utilisateur connecté, si non la prop user sera vide, c'est donc sur cette propriété que l'on va créer une condition pour l'affichage des différents liens de notre menu  #}
+      {% if app.user %}
+       <li class="nav-item">
+          <a class="nav-link" href="">{{app.user.pseudo}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="{{path("app_logout")}}">Deconnexion</a>
         </li>
-        {# {% if user is admin %} #}
+        {% else %}  
+        <li class="nav-item">
+          <a class="nav-link" href="{{path("register")}}">Inscription</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{path("app_login")}}">Connexion</a>
+        </li>
+        {% endif %}
+        {% if is_granted("ROLE_ADMIN") %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Livres
@@ -22,7 +32,7 @@
             <li><a class="dropdown-item" href="{{path("livre_nouveau")}}">Ajouter un livre</a></li>
           </ul>
         </li>
-        {# {% endif %} #}
+        {% endif %}
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

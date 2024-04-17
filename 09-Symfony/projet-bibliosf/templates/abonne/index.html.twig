@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Abonne index{% endblock %}
+
+{% block body %}
+    <h1>Abonne index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pseudo</th>
+                <th>Roles</th>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for abonne in abonnes %}
+            <tr>
+                <td>{{ abonne.id }}</td>
+                <td>{{ abonne.pseudo }}</td>
+
+                {# EXO : 
+                    Plutôt que d'afficher les roles sous forme de array, on veut plutôt afficher leurs dénominations "Directeur", "Bibliothécaire", "Lecteur" et rien si le rôle est uniquement USER 
+                 #}
+                <td>{{ abonne.roles ? abonne.roles|json_encode : '' }}</td>
+                <td>{{ abonne.prenom }}</td>
+                <td>{{ abonne.nom }}</td>
+                <td>
+                    <a href="{{ path('app_abonne_show', {'id': abonne.id}) }}">show</a>
+                    <a href="{{ path('app_abonne_edit', {'id': abonne.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_abonne_new') }}">Create new</a>
+{% endblock %}

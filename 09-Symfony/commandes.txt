@@ -58,3 +58,15 @@ symfony console d:m:m
 
 Création d'un form automatique : 
 symfony console make:form
+
+Création d'un user (entité particulière qui va nous permettre de gérer l'inscription connexion etc) : 
+symfony console make:user
+
+Création d'un form d'inscription 
+symfony console make:registration-form
+
+Création du système d'authentification : 
+symfony console make:auth
+
+Création d'un crud (Create, Read, Update, Delete) : 
+symfony console make:crud
