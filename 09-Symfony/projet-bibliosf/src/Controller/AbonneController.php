@@ -30,19 +30,20 @@ class AbonneController extends AbstractController
         $form = $this->createForm(AbonneType::class, $abonne);
         $form->handleRequest($request);
 
+       
         if ($form->isSubmitted() && $form->isValid()) {
-
+            // dd($form);
             // Ici si toute la saisie est bonne, l'insertion va se lancer mais va garder le password en clair...
             // On avait déjà remarqué dans le registration que le password du formType était "mapped: false" ce qui veut dire que ce n'est pas ce champ là qui sera rattaché directement à l'entité car nous devons d'abord le crypter ! 
-            if($form->get('password')->getData()) {
+            // if($form->get('password')->getData()) {
                 $abonne->setPassword(
                     $userPasswordHasher->hashPassword(
                         $abonne,
                         $form->get('password')->getData()
                     )
                 );
-            }
-
+            // }
+            dd($abonne);
             $entityManager->persist($abonne);
             $entityManager->flush();
 

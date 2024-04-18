@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EmployeController!
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="container">
+
+		<div class="row">
+			<h1>Annuaire des employés ! ✅</h1>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Id</th>
+						<th scope="col">Prenom</th>
+						<th scope="col">Nom</th>
+						<th scope="col">Telephone</th>
+						<th scope="col">Email</th>
+						<th scope="col">Adresse</th>
+						<th scope="col">Poste</th>
+						<th scope="col">Salaire</th>
+						<th scope="col">Date de Naissance</th>
+						<th scope="col">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for employe in employes %}
+						<tr>
+							<td>
+								{{employe.id}}
+							</td>
+							<td>
+								{{employe.prenom}}
+							</td>
+							<td>
+								{{employe.nom}}
+							</td>
+							<td>
+								{{employe.telephone}}
+							</td>
+							<td>
+								{{employe.email}}
+							</td>
+							<td>
+								{{employe.adresse}}
+							</td>
+							<td>
+								{{employe.poste}}
+							</td>
+							<td>
+								{{employe.salaire}}
+							</td>
+							<td>
+								{{employe.dateDeNaissance|date('d/m/Y')}}
+							</td>
+                            <td>
+                                <a href="{{path("app_employe", {id:employe.id})}}">Modif</a> - 
+                                <a href="{{path("app_employe", {id:employe.id, action:'delete'})}}">Supr</a>
+                            </td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+
+	{{form_start(formEmploye, { 'attr' : { 'class': 'mt-5 mb-5 mx-auto w-75 border p-4 bg-white' } })}}
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+				{{form_row(formEmploye.prenom)}}
+			</div>
+			<div class="col-4">
+				{{form_row(formEmploye.nom)}}
+			</div>
+			<div class="col-4">
+				{{form_row(formEmploye.telephone)}}
+			</div>
+
+			<div class="col-4">
+				{{form_row(formEmploye.email)}}
+			</div>
+			<div class="col-4">
+				{{form_row(formEmploye.poste)}}
+			</div>
+			<div class="col-4">
+				{{form_row(formEmploye.salaire)}}
+			</div>
+
+			<div class="col-8">
+				{{form_row(formEmploye.adresse)}}
+			</div>
+			<div class="col-4">
+				{{form_row(formEmploye.datedenaissance)}}
+			</div>
+
+			{{form_end(formEmploye)}}
+
+
+		</div>
+
+	</div>
+
+
+{% endblock %}

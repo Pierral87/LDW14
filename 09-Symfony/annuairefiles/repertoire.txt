@@ -1,0 +1,12 @@
+Exo atelier projet1.pdf 
+
+
+Etape 1 : Créer le projet symfony   symfony new on oublie pas le tag --webapp on oublie pas la version --version=lts  
+
+Etape 2 : Créer la base, donc il faut modifier le .env pour décommenter la bonne ligne concernant la bdd puis lancer la commande symfony de create database 
+
+Etape 3 : Création de l'entité Employe via la commande make:entity de symfony, il faut renseigner tous les champs 
+
+Etape 4 : Faire le migration et le migrate pour créer la table 
+
+Etape 5 : Créer le controller, gérer les routes, les templates, faire le crud  
